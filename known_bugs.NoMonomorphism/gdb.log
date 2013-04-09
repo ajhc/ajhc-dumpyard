@@ -1,0 +1,46 @@
+GNU gdb (GDB) 7.4.1-debian
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/kiwamu/src/ajhc-dumpyard/known_bugs.NoMonomorphism/NoMonomorphism...done.
+
+Program received signal SIGFPE, Arithmetic exception.
+0x00000000004077dd in fW$__fInstance$__iJhc_Class_Real_divMod_default$d5 (gc=0x7ffff752f0e0, v260952208=0x7ffff7433230, v73786432=0x7ffff7433058) at NoMonomorphism_code.c:1881
+1881	        uintmax_t v242479198 = (((intmax_t)v29375126) % ((intmax_t)v215884496));
+#0  0x00000000004077dd in fW$__fInstance$__iJhc_Class_Real_divMod_default$d5 (gc=0x7ffff752f0e0, v260952208=0x7ffff7433230, v73786432=0x7ffff7433058) at NoMonomorphism_code.c:1881
+#1  0x00000000004041cf in E__fW$__fInstance$__iJhc_Class_Real_divMod_default$d5 (gc=0x7ffff752f0d8, arg=0x7ffff7430060) at NoMonomorphism_code.c:924
+#2  0x00000000004016d1 in eval (gc=0x7ffff752f0d8, s=0x7ffff7430061) at rtstdir/rts/jhc_rts.c:149
+#3  0x00000000004078b3 in fW$__fInstance$__iJhc_Class_Real_divMod_default$d7 (gc=0x7ffff752f0d8, v643041335=0x7ffff742f038) at NoMonomorphism_code.c:1905
+#4  0x0000000000404307 in E__fW$__fInstance$__iJhc_Class_Real_divMod_default$d7 (gc=0x7ffff752f0d0, arg=0x7ffff742f048) at NoMonomorphism_code.c:946
+#5  0x00000000004016d1 in eval (gc=0x7ffff752f0d0, s=0x7ffff742f049) at rtstdir/rts/jhc_rts.c:149
+#6  0x0000000000407960 in fW$__fInstance$__iJhc_Class_Real_divMod_default$d8 (gc=0x7ffff752f0d0, v217301932=0x10002, v651561001=0x7ffff742f049) at NoMonomorphism_code.c:1930
+#7  0x00000000004043a7 in E__fW$__fInstance$__iJhc_Class_Real_divMod_default$d8 (gc=0x7ffff752f0c8, arg=0x7ffff74300a8) at NoMonomorphism_code.c:957
+#8  0x00000000004016d1 in eval (gc=0x7ffff752f0c8, s=0x7ffff74300a9) at rtstdir/rts/jhc_rts.c:149
+#9  0x00000000004067ef in fW$__fInstance$__iJhc_Class_Real_divMod_default (gc=0x7ffff752f088, v110207574=0x10002, v654182441=0x7ffff7435031, v648939561=0x7ffff7433230)
+    at NoMonomorphism_code.c:1574
+#10 0x000000000040c3ae in fW$__fW$__fNumeric_floatToDigits$d26 (gc=0x7ffff752f070, v67338508=0x40e478, v117740416=0x10002, v232701278=5286151877111578624, v256943490=0, 
+    v62470118=4003012203950112768, v260457472=4003012203950112768) at NoMonomorphism_code.c:3175
+#11 0x000000000040c16b in fW$__fW$__fNumeric_floatToDigits$d25 (gc=0x7ffff752f038, v211219932=0x40e478, v134427062=0x7ffff7430049, v202526176=0x7ffff742f069, 
+    v268164216=0x7ffff742f089, v53399310=0x7ffff742f079, v1728710173=0x7ffff7431021) at NoMonomorphism_code.c:3137
+#12 0x000000000040502c in E__fW$__fW$__fNumeric_floatToDigits$d25 (gc=0x7ffff752f030, arg=0x7ffff7432028) at NoMonomorphism_code.c:1177
+#13 0x00000000004016d1 in eval (gc=0x7ffff752f030, s=0x7ffff7432029) at rtstdir/rts/jhc_rts.c:149
+#14 0x000000000040d4be in ftheMain$d3 (gc=0x7ffff752f030, v235511026=0x7ffff7432029) at NoMonomorphism_code.c:3534
+#15 0x000000000040589f in E__ftheMain$d3 (gc=0x7ffff752f028, arg=0x7ffff742f2b8) at NoMonomorphism_code.c:1340
+#16 0x00000000004016d1 in eval (gc=0x7ffff752f028, s=0x7ffff742f2b9) at rtstdir/rts/jhc_rts.c:149
+#17 0x00000000004081eb in fW$__fNumeric_67__doFmt (gc=0x7ffff752f018, v225564906=2, v71383250=0x7ffff7432029, v56741148=0x7ffff7431021) at NoMonomorphism_code.c:2100
+#18 0x000000000040d335 in ftheMain$d10 (gc=0x7ffff752f018, v215350918=0x2) at NoMonomorphism_code.c:3474
+#19 0x000000000040d427 in ftheMain$d12 (gc=0x7ffff752f018) at NoMonomorphism_code.c:3511
+#20 0x000000000040575c in E__ftheMain$d12 (gc=0x7ffff752f018, arg=0x6116d8) at NoMonomorphism_code.c:1318
+#21 0x00000000004016d1 in eval (gc=0x7ffff752f018, s=0x6116d9) at rtstdir/rts/jhc_rts.c:149
+#22 0x00000000004060d7 in fR$__fJhc_Basics_$pp (gc=0x7ffff752f010, v29534742=0x6116d9, v29534740=0x10002) at NoMonomorphism_code.c:1500
+#23 0x0000000000405c73 in fJhc_Basics_$pp (gc=0x7ffff752f010, u1=0x2, v102=0x6116d9, v104=0x10002) at NoMonomorphism_code.c:1426
+#24 0x000000000040d186 in ftheMain (gc=0x7ffff752f010) at NoMonomorphism_code.c:3432
+#25 0x0000000000405c40 in b__main (gc=0x7ffff752f010) at NoMonomorphism_code.c:1420
+#26 0x0000000000405c23 in _amain () at NoMonomorphism_code.c:1414
+#27 0x000000000040177b in main (argc=1, argv=0x7fffffffe078) at rtstdir/rts/jhc_rts.c:172
+Kill the program being debugged? (y or n) [answered Y; input not from terminal]

@@ -1,0 +1,1029 @@
+-- ajhc --tdir=./rtstdir -fdebug -o NoMonomorphism NoMonomorphism.hs --ignore-cache -dcore -dcore-afterlift -dcore-beforelift -dcore-initial -dcore-mangled -dcore-mini -dcore-pass -dcore-steps -ddatatable -ddatatable-builtin -de-alias -de-info -de-verbose -doptimization-stats -drules -drules-spec -dgrin -dgrin-datalog -dgrin-final -dgrin-graph -dgrin-initial -dgrin-normalized -dgrin-posteval -dgrin-preeval -dsteps -dtags -dc
+-- ajhc 0.8.0.5 (210da9343b6b7e38a89eb28f85602471a325647a)
+
+
+-- Cafs
+v-844905495 := (FtheMain$12)
+v-842021911 := (FtheMain$11)
+v-834681877 := (FtheMain$9)
+-- Functions
+b_main :: () -> ()
+b_main  = do
+  ftheMain 
+
+fJhc.Basics.reverse :: (N) -> (N)
+fJhc.Basics.reverse nd1688746017 = do
+  ni1688747032 <- demote nd1688746017
+  let
+      fR@.fJhc.Basics.81_rev ni242479192 nd117740408 = do
+        ni117741429 <- demote nd117740408
+        nd100154 <- eval ni242479192
+        case nd100154 of
+          (CJhc.Prim.Prim.: ni1035 ni14) -> do
+            nd1731 <- dstore (CJhc.Prim.Prim.: ni1035 ni117741429)
+            fR@.fJhc.Basics.81_rev ni14 nd1731
+          [] -> return nd117740408
+   in
+    fR@.fJhc.Basics.81_rev ni1688747032 []
+
+fW@.fJhc.Basics.drop :: (bits32,I) -> (N)
+fW@.fJhc.Basics.drop w1670789167 ni1673803813 = do
+  let
+      fW@.fR@.fJhc.Basics.136_f w80100076 ni196335312 = do
+        h100158 <- 0 `Gte` w80100076
+        case h100158 of
+          1 -> eval ni196335312
+          0 -> do
+            nd100160 <- eval ni196335312
+            case nd100160 of
+              (CJhc.Prim.Prim.: ni0 ni80) -> do
+                w153480252 <- w80100076 - 1
+                fW@.fR@.fJhc.Basics.136_f w153480252 ni80
+              [] -> return []
+   in
+    fW@.fR@.fJhc.Basics.136_f w1670789167 ni1673803813
+
+fW@.fPrelude.CType.intToDigit :: (bits32) -> (bits32)
+fW@.fPrelude.CType.intToDigit w1444941875 = do
+  h100166 <- 10 > w1444941875
+  case h100166 of
+    1 -> do
+      w170441214 <- 48 + w1444941875
+      (bits32)ConvOp B2B bits32 w170441214
+    0 -> do
+      h100168 <- 16 > w1444941875
+      case h100168 of
+        1 -> do
+          w110947988 <- 87 + w1444941875
+          (bits32)ConvOp B2B bits32 w110947988
+        0 -> error "Prelude.error: Char.intToDigit: not a digit"
+
+fW@.fJhc.Inst.Show.showWord :: (bits32,N) -> (N)
+fW@.fJhc.Inst.Show.showWord w144711731 nd1692809261 = do
+  let
+      fW@.fR@.fJhc.Inst.Show.showWord w178901586 nd135594734 = do
+        ni135595716 <- demote nd135594734
+        w260457474 <- w178901586 / 10
+        w61835124 <- w178901586 % 10
+        bm86428116 <- (bits<max>)ConvOp Zx bits32 w61835124
+        w59642628 <- (bits32)ConvOp Lobits bits<max> bm86428116
+        w13468102 <- 48 + w59642628
+        w59199098 <- (bits32)ConvOp B2B bits32 w13468102
+        nd36 <- dstore (CJhc.Type.Basic.Char w59199098)
+        ni44342088 <- demote nd36
+        case w260457474 of
+          0 -> dstore (CJhc.Prim.Prim.: ni44342088 ni135595716)
+          w0 -> do
+            nd2023 <- dstore (CJhc.Prim.Prim.: ni44342088 ni135595716)
+            fW@.fR@.fJhc.Inst.Show.showWord w260457474 nd2023
+   in
+    fW@.fR@.fJhc.Inst.Show.showWord w144711731 nd1692809261
+
+fR@.fJhc.Basics.++ :: (I,I) -> (N)
+fR@.fJhc.Basics.++ ni29534742 ni29534740 = do
+  nd100810 <- eval ni29534742
+  case nd100810 of
+    (CJhc.Prim.Prim.: ni106 ni108) -> do
+      ni69834446 <- istore (FR@.fJhc.Basics.++ ni108 ni29534740)
+      dstore (CJhc.Prim.Prim.: ni106 ni69834446)
+    [] -> eval ni29534740
+
+fJhc.Basics.++ :: (N,I,I) -> (N)
+fJhc.Basics.++ nd0 ni102 ni104 = do
+  fR@.fJhc.Basics.++ ni102 ni104
+
+ftheMain :: () -> ()
+ftheMain  = do
+  nd100000 <- fJhc.Basics.++ (@hole) ni-844905495 &[]
+  ni133921598 <- demote nd100000
+  nd951 <- let
+      fJhc.Monad.72_go ni10 = do
+        nd100004 <- eval ni10
+        case nd100004 of
+          (CJhc.Prim.Prim.: ni69432558 ni88379832) -> do
+            nd100006 <- eval ni69432558
+            (CJhc.Type.Basic.Char w215884494) <- return nd100006
+            w243292918 <- (bits32)ConvOp B2B bits32 w215884494
+            (void)jhc_utf8_putchar(int) w243292918
+            fJhc.Monad.72_go ni88379832
+          [] -> return (CJhc.Prim.Prim.())
+   in
+    fJhc.Monad.72_go ni133921598
+  (void)jhc_utf8_putchar(int) 10
+
+ftheMain$6 :: (bits32,I) -> (N)
+ftheMain$6 w157166250 ni1629750813 = do
+  nd100156 <- fW@.fJhc.Basics.drop w157166250 ni1629750813
+  case nd100156 of
+    [] -> return "0"
+    (CJhc.Prim.Prim.: ni14441426 ni170257032) -> dstore (CJhc.Prim.Prim.: ni14441426 ni170257032)
+
+ftheMain$2 :: (I) -> (N)
+ftheMain$2 ni59150088 = do
+  nd100164 <- eval ni59150088
+  (CJhc.Type.Word.Int w264254030) <- return nd100164
+  w44725406 <- fW@.fPrelude.CType.intToDigit w264254030
+  dstore (CJhc.Type.Basic.Char w44725406)
+
+fW@.fW@.fNumeric.floatToDigits$30 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$30 ni1066 = do
+  nd100024 <- eval ni1066
+  (CJhc.Type.Basic.Integer bm135370990) <- return nd100024
+  w29375120 <- (bits32)ConvOp Lobits bits<max> bm135370990
+  dstore (CJhc.Type.Word.Int w29375120)
+
+fJhc.Basics.45_go :: (I) -> (N)
+fJhc.Basics.45_go ni1058 = do
+  nd100022 <- eval ni1058
+  case nd100022 of
+    (CJhc.Prim.Prim.: ni146793348 ni1065) -> do
+      ni61074636 <- istore (FW@.fW@.fNumeric.floatToDigits$30 ni146793348)
+      ni187711388 <- istore (FJhc.Basics.45_go ni1065)
+      dstore (CJhc.Prim.Prim.: ni61074636 ni187711388)
+    [] -> return []
+
+fW@.fW@.fNumeric.floatToDigits$29 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$29 ni250404512 = do
+  nd100078 <- eval ni250404512
+  (CJhc.Type.Basic.Integer bm90747886) <- return nd100078
+  bm207134660 <- 1 + bm90747886
+  dstore (CJhc.Type.Basic.Integer bm207134660)
+
+fW@.fW@.fNumeric.floatToDigits$28 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$28 ni264446462 = do
+  nd100080 <- eval ni264446462
+  (CJhc.Type.Basic.Integer bm63362408) <- return nd100080
+  bm29726858 <- 1 + bm63362408
+  dstore (CJhc.Type.Basic.Integer bm29726858)
+
+fW@.fW@.fNumeric.floatToDigits$27 :: (N,bits<max>) -> (N)
+fW@.fW@.fNumeric.floatToDigits$27 nd51476038 bm154420602 = do
+  (CJhc.Type.Basic.Integer bm159664608) <- return nd51476038
+  bm3497556 <- bm154420602 * bm159664608
+  dstore (CJhc.Type.Basic.Integer bm3497556)
+
+fW@.fW@.fNumeric.floatToDigits$21 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$21 ni113838344 = do
+  nd100084 <- eval ni113838344
+  (CJhc.Prim.Prim.(,,,) ni3200 ni3202 ni3204 ni3206) <- return nd100084
+  eval ni3204
+
+fW@.fW@.fNumeric.floatToDigits$20 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$20 ni69432560 = do
+  nd100086 <- eval ni69432560
+  (CJhc.Prim.Prim.(,,,) ni3208 ni3210 ni3212 ni3214) <- return nd100086
+  eval ni3208
+
+fW@.fW@.fNumeric.floatToDigits$19 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$19 ni1710622253 = do
+  nd100088 <- eval ni1710622253
+  (CJhc.Prim.Prim.(,,,) ni3192 ni3194 ni3196 ni3198) <- return nd100088
+  eval ni3194
+
+fW@.fW@.fNumeric.floatToDigits$17 :: (bits<max>) -> (N)
+fW@.fW@.fNumeric.floatToDigits$17 bm132029984 = do
+  bm173886986 <- 2 * bm132029984
+  bm178033788 <- 2 * bm173886986
+  dstore (CJhc.Type.Basic.Integer bm178033788)
+
+fW@.fW@.fNumeric.floatToDigits$15 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$15 ni36059414 = do
+  nd100106 <- eval ni36059414
+  (CJhc.Type.Basic.Integer bm10194302) <- return nd100106
+  bm52214544 <- 2 * bm10194302
+  dstore (CJhc.Type.Basic.Integer bm52214544)
+
+fW@.fW@.fNumeric.floatToDigits$13 :: (bits<max>,I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$13 bm201297312 ni178901588 = do
+  nd100108 <- eval ni178901588
+  (CJhc.Type.Basic.Integer bm215224070) <- return nd100108
+  bm73520034 <- bm201297312 * bm215224070
+  bm236625870 <- 2 * bm73520034
+  dstore (CJhc.Type.Basic.Integer bm236625870)
+
+fW@.fW@.fNumeric.floatToDigits$12 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$12 ni209100920 = do
+  nd100110 <- eval ni209100920
+  (CJhc.Type.Basic.Integer bm238570298) <- return nd100110
+  bm233660398 <- 2 * bm238570298
+  dstore (CJhc.Type.Basic.Integer bm233660398)
+
+fW@.fW@.fNumeric.floatToDigits$11 :: (bits<max>,I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$11 bm154397124 ni1704986143 = do
+  nd100112 <- eval ni1704986143
+  (CJhc.Type.Basic.Integer bm164562416) <- return nd100112
+  bm136589144 <- bm154397124 * bm164562416
+  bm159700512 <- 2 * bm136589144
+  bm74199388 <- 2 * bm159700512
+  dstore (CJhc.Type.Basic.Integer bm74199388)
+
+fW@.fW@.fNumeric.floatToDigits$9 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$9 ni207549704 = do
+  nd100114 <- eval ni207549704
+  (CJhc.Prim.Prim.(,) ni3222 ni3224) <- return nd100114
+  eval ni3222
+
+fW@.fW@.fNumeric.floatToDigits$8 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$8 ni1702102573 = do
+  nd100116 <- eval ni1702102573
+  (CJhc.Prim.Prim.(,) ni3226 ni3228) <- return nd100116
+  eval ni3228
+
+fW@.fW@.fNumeric.floatToDigits$6 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$6 ni174020696 = do
+  nd100120 <- eval ni174020696
+  (CJhc.Prim.Prim.(,) ni3236 ni3238) <- return nd100120
+  eval ni3236
+
+fW@.fW@.fNumeric.floatToDigits$4 :: (I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$4 ni1679951403 = do
+  nd100122 <- eval ni1679951403
+  (CJhc.Prim.Prim.(,) ni3232 ni3234) <- return nd100122
+  eval ni3234
+
+fW@.fW@.fNumeric.floatToDigits$3 :: (fbits64) -> (N)
+fW@.fW@.fNumeric.floatToDigits$3 f4342 = do
+  f253015758 <- (double)ldexp(double,int) f4342 53
+  bm263821002 <- (bits<max>)ConvOp F2I fbits64 f253015758
+  dstore (CJhc.Type.Basic.Integer bm263821002)
+
+fW@.fW@.fNumeric.floatToDigits$2 :: (fbits64) -> (N)
+fW@.fW@.fNumeric.floatToDigits$2 f1150171673 = do
+  (f11751994,w4344) <- (double)frexp(double) f1150171673
+  w236343106 <- w4344 - 53
+  nd176 <- dstore (CJhc.Type.Word.Int w236343106)
+  ni110947982 <- demote nd176
+  ni216085086 <- istore (FW@.fW@.fNumeric.floatToDigits$3 f11751994)
+  dstore (CJhc.Prim.Prim.(,) ni216085086 ni110947982)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$14 :: (I,N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$14 ni79964294 nd163734714 = do
+  case nd163734714 of
+    (TJhc.Type.Float.Double) -> do
+      nd100206 <- eval ni79964294
+      (CJhc.Type.Float.Double f59642630) <- return nd100206
+      f217301934 <- (fbits64)FNeg f59642630
+      dstore (CJhc.Type.Float.Double f217301934)
+    (TJhc.Type.Word.Int) -> do
+      nd100208 <- eval ni79964294
+      (CJhc.Type.Word.Int w264446468) <- return nd100208
+      w59150090 <- (bits32)Neg w264446468
+      dstore (CJhc.Type.Word.Int w59150090)
+    (TJhc.Type.Basic.Integer) -> do
+      nd100210 <- eval ni79964294
+      (CJhc.Type.Basic.Integer bm52590396) <- return nd100210
+      bm119514822 <- (bits<max>)Neg bm52590396
+      dstore (CJhc.Type.Basic.Integer bm119514822)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$13 :: (N,N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$13 nd90861650 nd201839440 = do
+  case nd201839440 of
+    (TJhc.Type.Word.Int) -> do
+      (CJhc.Type.Word.Int w205779222) <- return nd90861650
+      case w205779222 of
+        0 -> return (CJhc.Type.Word.Int 0)
+        w0 -> do
+          h100216 <- 0 `Lt` w205779222
+          case h100216 of
+            1 -> return (CJhc.Type.Word.Int 1)
+            0 -> return (CJhc.Type.Word.Int -1)
+    (TJhc.Type.Basic.Integer) -> do
+      (CJhc.Type.Basic.Integer bm163734716) <- return nd90861650
+      case bm163734716 of
+        0 -> return (CJhc.Type.Basic.Integer 0)
+        bm0 -> do
+          h100220 <- 0 `Lt` bm163734716
+          case h100220 of
+            1 -> return (CJhc.Type.Basic.Integer 1)
+            0 -> return (CJhc.Type.Basic.Integer -1)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$12 :: (N,N,I) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$12 nd75583672 nd103925132 ni181754692 = do
+  case nd103925132 of
+    (TJhc.Type.Word.Int) -> do
+      nd100224 <- eval ni181754692
+      (CJhc.Type.Word.Int w181754694) <- return nd100224
+      (CJhc.Type.Word.Int w194346574) <- return nd75583672
+      w127754102 <- w181754694 + w194346574
+      dstore (CJhc.Type.Word.Int w127754102)
+    (TJhc.Type.Basic.Integer) -> do
+      nd100228 <- eval ni181754692
+      (CJhc.Type.Basic.Integer bm1217246) <- return nd100228
+      (CJhc.Type.Basic.Integer bm201839446) <- return nd75583672
+      bm137643142 <- bm1217246 + bm201839446
+      dstore (CJhc.Type.Basic.Integer bm137643142)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$11 :: (N,N,I) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$11 nd209206800 nd99988804 ni1581791273 = do
+  case nd99988804 of
+    (TJhc.Type.Word.Int) -> do
+      nd100234 <- eval ni1581791273
+      (CJhc.Type.Word.Int w1674610) <- return nd100234
+      (CJhc.Type.Word.Int w99988808) <- return nd209206800
+      w251973246 <- w1674610 - w99988808
+      dstore (CJhc.Type.Word.Int w251973246)
+    (TJhc.Type.Basic.Integer) -> do
+      nd100238 <- eval ni1581791273
+      (CJhc.Type.Basic.Integer bm808) <- return nd100238
+      (CJhc.Type.Basic.Integer bm80256464) <- return nd209206800
+      bm75583674 <- bm808 - bm80256464
+      dstore (CJhc.Type.Basic.Integer bm75583674)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$10 :: (N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$10 nd1674606 = do
+  case nd1674606 of
+    (TJhc.Type.Float.Double) -> return (CJhc.Type.Float.Double 1)
+    (TJhc.Type.Word.Int) -> return (CJhc.Type.Word.Int 1)
+    (TJhc.Type.Basic.Integer) -> return (CJhc.Type.Basic.Integer 1)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$9 :: (N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$9 nd119514824 = do
+  (CJhc.Prim.Prim.(,) ni930 ni932) <- return nd119514824
+  eval ni930
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$8 :: (N,I) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$8 nd217301932 ni651561001 = do
+  case nd217301932 of
+    (TJhc.Type.Word.Int) -> do
+      nd100248 <- eval ni651561001
+      (CJhc.Type.Word.Int w10527820) <- return nd100248
+      case w10527820 of
+        0 -> return (CJhc.Type.Word.Int 0)
+        w0 -> do
+          h100250 <- 0 `Lt` w10527820
+          case h100250 of
+            1 -> return (CJhc.Type.Word.Int 1)
+            0 -> return (CJhc.Type.Word.Int -1)
+    (TJhc.Type.Basic.Integer) -> do
+      nd100252 <- eval ni651561001
+      (CJhc.Type.Basic.Integer bm209623820) <- return nd100252
+      case bm209623820 of
+        0 -> return (CJhc.Type.Basic.Integer 0)
+        bm0 -> do
+          h100254 <- 0 `Lt` bm209623820
+          case h100254 of
+            1 -> return (CJhc.Type.Basic.Integer 1)
+            0 -> return (CJhc.Type.Basic.Integer -1)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$7 :: (N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$7 nd643041335 = do
+  (CJhc.Prim.Prim.(,) ni926 ni928) <- return nd643041335
+  eval ni928
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$6 :: (N,N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$6 nd23565122 nd132127014 = do
+  (CJhc.Type.Basic.Integer bm118721824) <- return nd132127014
+  (CJhc.Type.Basic.Integer bm132679390) <- return nd23565122
+  bm242159976 <- bm118721824 `Quot` bm132679390
+  dstore (CJhc.Type.Basic.Integer bm242159976)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$5 :: (N,N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$5 nd260952208 nd73786432 = do
+  (CJhc.Type.Basic.Integer bm29375126) <- return nd73786432
+  (CJhc.Type.Basic.Integer bm215884496) <- return nd260952208
+  bm242479198 <- bm29375126 `Rem` bm215884496
+  dstore (CJhc.Type.Basic.Integer bm242479198)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$4 :: (N,N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$4 nd154420598 nd256943494 = do
+  (CJhc.Type.Word.Int w73786440) <- return nd256943494
+  (CJhc.Type.Word.Int w166168410) <- return nd154420598
+  w23565124 <- w73786440 `Quot` w166168410
+  dstore (CJhc.Type.Word.Int w23565124)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$3 :: (N,N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$3 nd186210172 nd216807138 = do
+  (CJhc.Type.Word.Int w44725408) <- return nd216807138
+  (CJhc.Type.Word.Int w228308042) <- return nd186210172
+  w119285248 <- w44725408 `Rem` w228308042
+  dstore (CJhc.Type.Word.Int w119285248)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default$2 :: (N,N,N) -> (N)
+fW@.fInstance@.iJhc.Class.Real.divMod.default$2 nd132679388 nd242159978 nd646580261 = do
+  (ni252,ni736) <- case nd646580261 of
+    (TJhc.Type.Word.Int) -> do
+      ni80100070 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$4 nd132679388 nd242159978)
+      ni196335304 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$3 nd132679388 nd242159978)
+      return (ni80100070,ni196335304)
+    (TJhc.Type.Basic.Integer) -> do
+      ni194635136 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$6 nd132679388 nd242159978)
+      ni80100072 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$5 nd132679388 nd242159978)
+      return (ni194635136,ni80100072)
+  dstore (CJhc.Prim.Prim.(,) ni252 ni736)
+
+fW@.fInstance@.iJhc.Class.Real.divMod.default :: (N,I,I) -> (I,I)
+fW@.fInstance@.iJhc.Class.Real.divMod.default nd110207574 ni654182441 ni648939561 = do
+  nd100180 <- eval ni654182441
+  nd100184 <- eval ni648939561
+  nd422 <- fW@.fInstance@.iJhc.Class.Real.divMod.default$2 nd100184 nd100180 nd110207574
+  ni1780406 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$13 nd100184 nd110207574)
+  ni176830360 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$14 ni1780406 nd110207574)
+  ni238502450 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$7 nd422)
+  ni201070560 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$8 nd110207574 ni238502450)
+  h278 <- case nd110207574 of
+    (TJhc.Type.Word.Int) -> do
+      nd100190 <- eval ni201070560
+      (CJhc.Type.Word.Int w216085090) <- return nd100190
+      nd100192 <- eval ni176830360
+      (CJhc.Type.Word.Int w29534746) <- return nd100192
+      w216085090 == w29534746
+    (TJhc.Type.Basic.Integer) -> do
+      nd100194 <- eval ni201070560
+      (CJhc.Type.Basic.Integer bm40405748) <- return nd100194
+      nd100196 <- eval ni176830360
+      (CJhc.Type.Basic.Integer bm194635138) <- return nd100196
+      bm40405748 == bm194635138
+    (TJhc.Type.Float.Double) -> do
+      nd100198 <- eval ni201070560
+      (CJhc.Type.Float.Double f153480246) <- return nd100198
+      nd100200 <- eval ni176830360
+      (CJhc.Type.Float.Double f137248442) <- return nd100200
+      f153480246 `FEq` f137248442
+  case h278 of
+    1 -> do
+      ni195071286 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$12 nd100184 nd110207574 ni238502450)
+      nd442 <- fW@.fInstance@.iJhc.Class.Real.divMod.default$10 nd110207574
+      ni130564414 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$9 nd422)
+      ni195071284 <- istore (FW@.fInstance@.iJhc.Class.Real.divMod.default$11 nd442 nd110207574 ni130564414)
+      return (ni195071284,ni195071286)
+    0 -> do
+      (CJhc.Prim.Prim.(,) ni934 ni936) <- return nd422
+      return (ni934,ni936)
+
+fW@.fW@.fNumeric.floatToDigits$7 :: (I,I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$7 ni240844478 ni1688602143 = do
+  (ni153819166
+  ,ni177904410) <- fW@.fInstance@.iJhc.Class.Real.divMod.default (TJhc.Type.Basic.Integer) ni1688602143 ni240844478
+  eval ni153819166
+
+fW@.fW@.fNumeric.floatToDigits$26 :: (N
+                                     ,N
+                                     ,bits<max>
+                                     ,bits<max>
+                                     ,bits<max>
+                                     ,bits<max>) -> (N)
+fW@.fW@.fNumeric.floatToDigits$26 nd67338508 nd117740416 bm232701278 bm256943490 bm62470118 bm260457472 = do
+  let
+      bRfW@.fW@.fNumeric.floatToDigits$26 nd67338817 nd117740726 bm232701589 bm256943802 bm62470431 bm260457786 = do
+        ni117741335 <- demote nd117740726
+        nd357 <- dstore (CJhc.Type.Basic.Integer bm256943802)
+        ni44725400 <- demote nd357
+        ni135991280 <- istore (FW@.fW@.fNumeric.floatToDigits$27 nd67338817 bm232701589)
+        (ni67443748
+        ,ni59150084) <- fW@.fInstance@.iJhc.Class.Real.divMod.default (TJhc.Type.Basic.Integer) ni135991280 ni44725400
+        nd100072 <- eval ni59150084
+        (CJhc.Type.Basic.Integer bm264254032) <- return nd100072
+        (CJhc.Type.Basic.Integer bm183644104) <- return nd67338817
+        bm72360250 <- bm260457786 * bm183644104
+        h138937716 <- bm264254032 `Lt` bm72360250
+        bm206784658 <- bm62470431 * bm183644104
+        bm234543190 <- bm264254032 + bm206784658
+        h91126072 <- bm234543190 `Gt` bm256943802
+        case h138937716 of
+          0 -> do
+            case h91126072 of
+              0 -> do
+                nd373 <- dstore (CJhc.Prim.Prim.: ni67443748 ni117741335)
+                bRfW@.fW@.fNumeric.floatToDigits$26 nd67338817 nd373 bm264254032 bm256943802 bm206784658 bm72360250
+              1 -> do
+                ni59213654 <- istore (FW@.fW@.fNumeric.floatToDigits$28 ni67443748)
+                dstore (CJhc.Prim.Prim.: ni59213654 ni117741335)
+          1 -> do
+            (ni1605,ni319) <- case h91126072 of
+              0 -> return (ni67443748,ni117741335)
+              1 -> do
+                bm190594774 <- 2 * bm264254032
+                h100076 <- bm190594774 `Lt` bm256943802
+                case h100076 of
+                  1 -> return (ni67443748,ni117741335)
+                  0 -> do
+                    ni96741324 <- istore (FW@.fW@.fNumeric.floatToDigits$29 ni67443748)
+                    return (ni96741324,ni117741335)
+            dstore (CJhc.Prim.Prim.: ni1605 ni319)
+   in
+    bRfW@.fW@.fNumeric.floatToDigits$26 nd67338508 nd117740416 bm232701278 bm256943490 bm62470118 bm260457472
+
+fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^$3 :: (I,I) -> (N)
+fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^$3 ni115766306 ni40405742 = do
+  nd100338 <- eval ni40405742
+  nd100340 <- eval ni115766306
+  (CJhc.Type.Basic.Integer bm58099870) <- return nd100338
+  (CJhc.Type.Basic.Integer bm200654378) <- return nd100340
+  bm241096360 <- bm58099870 * bm200654378
+  dstore (CJhc.Type.Basic.Integer bm241096360)
+
+fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^$2 :: (I) -> (N)
+fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^$2 ni119285244 = do
+  nd100342 <- eval ni119285244
+  (CJhc.Type.Basic.Integer bm164466462) <- return nd100342
+  bm261754148 <- bm164466462 * bm164466462
+  dstore (CJhc.Type.Basic.Integer bm261754148)
+
+fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ :: (N,bits32) -> (N)
+fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ nd55748264 w595462177 = do
+  ni55748811 <- demote nd55748264
+  case w595462177 of
+    0 -> return (CJhc.Type.Basic.Integer 1)
+    w0 -> do
+      h100334 <- 0 `Lt` w595462177
+      case h100334 of
+        1 -> do
+          w138591038 <- w595462177 - 1
+          let
+              fW@.fx95688111 ni212210744 w120257688 ni196335306 = do
+                case w120257688 of
+                  0 -> eval ni196335306
+                  w0 -> do
+                    let
+                        fW@.fx15896136 ni10527818 w135370998 = do
+                          w100336 <- w135370998 `Rem` 2
+                          case w100336 of
+                            0 -> do
+                              ni164454568 <- istore (FW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^$2 ni10527818)
+                              w135243418 <- w135370998 `Quot` 2
+                              fW@.fx15896136 ni164454568 w135243418
+                            w0 -> do
+                              w9075028 <- w135370998 - 1
+                              ni138818196 <- istore (FW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^$3 ni196335306 ni10527818)
+                              fW@.fx95688111 ni10527818 w9075028 ni138818196
+                     in
+                      fW@.fx15896136 ni212210744 w120257688
+           in
+            fW@.fx95688111 ni55748811 w138591038 ni55748811
+        0 -> error "Prelude.error: Prelude.^: negative exponent"
+
+fW@.fW@.fNumeric.floatToDigits$5 :: (I,I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$5 ni208364912 ni28059878 = do
+  nd100118 <- eval ni28059878
+  (CJhc.Type.Word.Int w16184236) <- return nd100118
+  w53416706 <- -1074 - w16184236
+  h113353658 <- 0 `Lt` w53416706
+  ni90105168 <- istore (FW@.fW@.fNumeric.floatToDigits$6 ni208364912)
+  (ni733,ni358) <- case h113353658 of
+    1 -> do
+      w13803848 <- w16184236 + w53416706
+      ni212413206 <- istore (FW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ (CJhc.Type.Basic.Integer 2) w53416706)
+      ni119589970 <- istore (FW@.fW@.fNumeric.floatToDigits$7 ni212413206 ni90105168)
+      nd420 <- dstore (CJhc.Type.Word.Int w13803848)
+      ni233866754 <- demote nd420
+      return (ni119589970,ni233866754)
+    0 -> return (ni90105168,ni28059878)
+  dstore (CJhc.Prim.Prim.(,) ni733 ni358)
+
+fW@.fW@.fNumeric.floatToDigits$14 :: (bits32) -> (N)
+fW@.fW@.fNumeric.floatToDigits$14 w19530610 = do
+  nd100332 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ (CJhc.Type.Basic.Integer 2) w19530610
+  (CJhc.Type.Basic.Integer bm246097322) <- return nd100332
+  bm38644154 <- 2 * bm246097322
+  dstore (CJhc.Type.Basic.Integer bm38644154)
+
+fW@.fW@.fNumeric.floatToDigits$16 :: (bits32) -> (N)
+fW@.fW@.fNumeric.floatToDigits$16 w128611262 = do
+  nd100330 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ (CJhc.Type.Basic.Integer 2) w128611262
+  (CJhc.Type.Basic.Integer bm78259272) <- return nd100330
+  bm145737756 <- 2 * bm78259272
+  dstore (CJhc.Type.Basic.Integer bm145737756)
+
+fW@.fW@.fNumeric.floatToDigits$18 :: (bits32) -> (N)
+fW@.fW@.fNumeric.floatToDigits$18 w22697324 = do
+  nd100328 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ (CJhc.Type.Basic.Integer 2) w22697324
+  (CJhc.Type.Basic.Integer bm252594042) <- return nd100328
+  bm246473314 <- 2 * bm252594042
+  dstore (CJhc.Type.Basic.Integer bm246473314)
+
+fW@.fW@.fNumeric.floatToDigits$10 :: (I,I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$10 ni137486610 ni86428118 = do
+  nd100090 <- eval ni86428118
+  (CJhc.Type.Word.Int w147773776) <- return nd100090
+  h100092 <- 0 `Lte` w147773776
+  (ni906,ni407,ni409,ni325) <- case h100092 of
+    1 -> do
+      nd100094 <- eval ni137486610
+      (CJhc.Type.Basic.Integer bm247340482) <- return nd100094
+      nd100096 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ (CJhc.Type.Basic.Integer 2) 52
+      (CJhc.Type.Basic.Integer bm48277546) <- return nd100096
+      h220151332 <- bm247340482 == bm48277546
+      ni50432182 <- istore (FW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ (CJhc.Type.Basic.Integer 2) w147773776)
+      case h220151332 of
+        1 -> do
+          ni107337456 <- istore (FW@.fW@.fNumeric.floatToDigits$12 ni50432182)
+          ni220622136 <- istore (FW@.fW@.fNumeric.floatToDigits$11 bm247340482 ni50432182)
+          return (ni220622136
+                 ,&(CJhc.Type.Basic.Integer 4)
+                 ,ni107337456
+                 ,&(CJhc.Type.Basic.Integer 2))
+        0 -> do
+          ni157224844 <- istore (FW@.fW@.fNumeric.floatToDigits$13 bm247340482 ni50432182)
+          return (ni157224844
+                 ,&(CJhc.Type.Basic.Integer 2)
+                 ,ni50432182
+                 ,ni50432182)
+    0 -> do
+      h100098 <- -1074 `Lt` w147773776
+      (ni900,ni404,ni503) <- case h100098 of
+        0 -> do
+          w107672530 <- (bits32)Neg w147773776
+          ni15725352 <- istore (FW@.fW@.fNumeric.floatToDigits$15 ni137486610)
+          ni260772456 <- istore (FW@.fW@.fNumeric.floatToDigits$14 w107672530)
+          return (ni15725352,ni260772456,&(CJhc.Type.Basic.Integer 1))
+        1 -> do
+          nd100100 <- eval ni137486610
+          (CJhc.Type.Basic.Integer bm53587372) <- return nd100100
+          nd100102 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ (CJhc.Type.Basic.Integer 2) 52
+          (CJhc.Type.Basic.Integer bm97616042) <- return nd100102
+          h100104 <- bm53587372 == bm97616042
+          case h100104 of
+            1 -> do
+              w135520224 <- (bits32)Neg w147773776
+              w146226744 <- 1 + w135520224
+              nd794 <- fW@.fW@.fNumeric.floatToDigits$17 bm53587372
+              ni37321524 <- demote nd794
+              ni160825212 <- istore (FW@.fW@.fNumeric.floatToDigits$16 w146226744)
+              return (ni37321524,ni160825212,&(CJhc.Type.Basic.Integer 2))
+            0 -> do
+              bm49994606 <- 2 * bm53587372
+              w179695638 <- (bits32)Neg w147773776
+              nd961 <- dstore (CJhc.Type.Basic.Integer bm49994606)
+              ni16257346 <- demote nd961
+              ni265843062 <- istore (FW@.fW@.fNumeric.floatToDigits$18 w179695638)
+              return (ni16257346,ni265843062,&(CJhc.Type.Basic.Integer 1))
+      return (ni900,ni404,ni503,&(CJhc.Type.Basic.Integer 1))
+  dstore (CJhc.Prim.Prim.(,,,) ni906 ni407 ni409 ni325)
+
+fW@.fW@.fNumeric.floatToDigits$23 :: (N,I,I,I,bits32) -> (bits32)
+fW@.fW@.fNumeric.floatToDigits$23 nd3148 ni1713505821 ni1715340833 ni1717437981 w101519594 = do
+  let
+      bRfW@.fW@.fNumeric.floatToDigits$23 nd3583 ni1713506257 ni1715341270 ni1717438419 w101520033 = do
+        h100302 <- 0 `Lte` w101520033
+        case h100302 of
+          1 -> do
+            nd100574 <- eval ni1717438419
+            (CJhc.Type.Basic.Integer bm129659906) <- return nd100574
+            nd100306 <- eval ni1715341270
+            (CJhc.Type.Basic.Integer bm119514818) <- return nd100306
+            bm136238518 <- bm129659906 + bm119514818
+            nd100308 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ nd3583 w101520033
+            (CJhc.Type.Basic.Integer bm14053568) <- return nd100308
+            nd100310 <- eval ni1713506257
+            (CJhc.Type.Basic.Integer bm251973242) <- return nd100310
+            bm65312582 <- bm14053568 * bm251973242
+            h100312 <- bm136238518 `Lte` bm65312582
+            case h100312 of
+              1 -> return w101520033
+              0 -> do
+                w913262 <- 1 + w101520033
+                bRfW@.fW@.fNumeric.floatToDigits$23 nd3583 ni1713506257 ni1715341270 ni1717438419 w913262
+          0 -> do
+            w181754690 <- (bits32)Neg w101520033
+            nd100316 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ nd3583 w181754690
+            (CJhc.Type.Basic.Integer bm194346572) <- return nd100316
+            nd100318 <- eval ni1717438419
+            (CJhc.Type.Basic.Integer bm247305776) <- return nd100318
+            nd100320 <- eval ni1715341270
+            (CJhc.Type.Basic.Integer bm90861648) <- return nd100320
+            bm201839438 <- bm247305776 + bm90861648
+            bm137643138 <- bm194346572 * bm201839438
+            nd100322 <- eval ni1713506257
+            (CJhc.Type.Basic.Integer bm205779218) <- return nd100322
+            h100324 <- bm137643138 `Lte` bm205779218
+            case h100324 of
+              1 -> return w101520033
+              0 -> do
+                w240673846 <- 1 + w101520033
+                bRfW@.fW@.fNumeric.floatToDigits$23 nd3583 ni1713506257 ni1715341270 ni1717438419 w240673846
+   in
+    bRfW@.fW@.fNumeric.floatToDigits$23 nd3148 ni1713505821 ni1715340833 ni1717437981 w101519594
+
+fW@.fW@.fNumeric.floatToDigits$24 :: (N,I,I,I,bits32) -> (bits32)
+fW@.fW@.fNumeric.floatToDigits$24 nd61835122 ni264254028 ni44725398 ni182639120 w194635134 = do
+  let
+      bRfW@.fW@.fNumeric.floatToDigits$24 nd61835593 ni264254500 ni44725871 ni182639594 w194635609 = do
+        h100276 <- 0 `Lte` w194635609
+        case h100276 of
+          1 -> do
+            nd100278 <- eval ni182639594
+            (CJhc.Type.Basic.Integer bm153480248) <- return nd100278
+            nd100280 <- eval ni44725871
+            (CJhc.Type.Basic.Integer bm137248438) <- return nd100280
+            bm253468956 <- bm153480248 + bm137248438
+            nd100282 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ nd61835593 w194635609
+            (CJhc.Type.Basic.Integer bm209623814) <- return nd100282
+            nd100284 <- eval ni264254500
+            (CJhc.Type.Basic.Integer bm105553378) <- return nd100284
+            bm61835120 <- bm209623814 * bm105553378
+            h100286 <- bm253468956 `Lte` bm61835120
+            case h100286 of
+              1 -> return w194635609
+              0 -> do
+                w44725404 <- 1 + w194635609
+                bRfW@.fW@.fNumeric.floatToDigits$24 nd61835593 ni264254500 ni44725871 ni182639594 w44725404
+          0 -> do
+            w135370992 <- (bits32)Neg w194635609
+            nd100290 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ nd61835593 w135370992
+            (CJhc.Type.Basic.Integer bm44000682) <- return nd100290
+            nd100292 <- eval ni182639594
+            (CJhc.Type.Basic.Integer bm242479194) <- return nd100292
+            nd100294 <- eval ni44725871
+            (CJhc.Type.Basic.Integer bm154420600) <- return nd100294
+            bm256943492 <- bm242479194 + bm154420600
+            bm62470116 <- bm44000682 * bm256943492
+            nd100296 <- eval ni264254500
+            (CJhc.Type.Basic.Integer bm260952206) <- return nd100296
+            h100298 <- bm62470116 `Lte` bm260952206
+            case h100298 of
+              1 -> return w194635609
+              0 -> do
+                w98167652 <- 1 + w194635609
+                bRfW@.fW@.fNumeric.floatToDigits$24 nd61835593 ni264254500 ni44725871 ni182639594 w98167652
+   in
+    bRfW@.fW@.fNumeric.floatToDigits$24 nd61835122 ni264254028 ni44725398 ni182639120 w194635134
+
+fW@.fW@.fNumeric.floatToDigits$22 :: (N,I,I,I,I,I,I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$22 nd253791876 ni1697646111 ni1706952221 ni1708787229 ni237992580 ni172090968 ni111142934 = do
+  (CJhc.Type.Basic.Integer bm241939046) <- return nd253791876
+  w510 <- case bm241939046 of
+    10 -> do
+      nd100172 <- eval ni1697646111
+      (CJhc.Type.Word.Int w47322492) <- return nd100172
+      w109901816 <- 52 + w47322492
+      w62483066 <- 3 * w109901816
+      nd1189 <- dstore (CJhc.Type.Word.Int w62483066)
+      ni39061214 <- demote nd1189
+      (ni68216826
+      ,ni155054258) <- fW@.fInstance@.iJhc.Class.Real.divMod.default (TJhc.Type.Word.Int) ni39061214 &(CJhc.Type.Word.Int 10)
+      nd100174 <- eval ni68216826
+      (CJhc.Type.Word.Int w201839444) <- return nd100174
+      fW@.fW@.fNumeric.floatToDigits$23 nd253791876 ni237992580 ni172090968 ni111142934 w201839444
+    bm0 -> do
+      nd100176 <- eval ni1706952221
+      (CJhc.Type.Basic.Integer bm161443782) <- return nd100176
+      bm97286416 <- 1 + bm161443782
+      f262269098 <- (fbits64)ConvOp I2F bits<max> bm97286416
+      f62470112 <- (fbits64)Log f262269098
+      nd100178 <- eval ni1708787229
+      (CJhc.Type.Word.Int w218304844) <- return nd100178
+      f110947986 <- (fbits64)ConvOp I2F bits32 w218304844
+      f196278420 <- f110947986 `FMul` (fbits64)Log(2)::fbits64
+      f132811632 <- f62470112 `FAdd` f196278420
+      f195537776 <- (fbits64)ConvOp I2F bits<max> bm241939046
+      f42970046 <- (fbits64)Log f195537776
+      f197291872 <- f132811632 `FDiv` f42970046
+      f215350916 <- (double)ceil(double) f197291872
+      bm59642622 <- (bits<max>)ConvOp F2I fbits64 f215350916
+      w40405744 <- (bits32)ConvOp Lobits bits<max> bm59642622
+      fW@.fW@.fNumeric.floatToDigits$24 nd253791876 ni237992580 ni172090968 ni111142934 w40405744
+  dstore (CJhc.Type.Word.Int w510)
+
+fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int$2 :: (bits32,N) -> (N)
+fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int$2 w1023936051 nd127502482 = do
+  w179364108 <- (bits32)Neg w1023936051
+  bm160064800 <- (bits<max>)ConvOp Sx bits32 w179364108
+  w196970364 <- (bits32)ConvOp Lobits bits<max> bm160064800
+  ni19029132 <- istore (FW@.fJhc.Inst.Show.showWord w196970364 nd127502482)
+  dstore (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 45) ni19029132)
+
+fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int :: (bits32
+                                                        ,bits32
+                                                        ,N) -> (N)
+fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int w1027212851 w115160438 nd85122216 = do
+  ni85122463 <- demote nd85122216
+  h100348 <- 0 `Gt` w115160438
+  case h100348 of
+    1 -> do
+      h100350 <- 6 `Lt` w1027212851
+      case h100350 of
+        1 -> do
+          nd605 <- dstore (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 41) ni85122463)
+          nd1865 <- fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int$2 w115160438 nd605
+          ni164098062 <- demote nd1865
+          dstore (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 40) ni164098062)
+        0 -> fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int$2 w115160438 nd85122216
+    0 -> do
+      bm247340480 <- (bits<max>)ConvOp Sx bits32 w115160438
+      w163333522 <- (bits32)ConvOp Lobits bits<max> bm247340480
+      fW@.fJhc.Inst.Show.showWord w163333522 nd85122216
+
+ftheMain$4 :: (I) -> (N)
+ftheMain$4 ni122527200 = do
+  nd100346 <- eval ni122527200
+  (CJhc.Type.Word.Int w248470270) <- return nd100346
+  w59914986 <- w248470270 - 1
+  fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int 0 w59914986 []
+
+ftheMain$5 :: (I) -> (N)
+ftheMain$5 ni216085088 = do
+  nd100344 <- eval ni216085088
+  (CJhc.Type.Word.Int w36469144) <- return nd100344
+  w169458480 <- w36469144 - 1
+  fW@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Word.Int 0 w169458480 []
+
+ftheMain$11 :: () -> (N)
+ftheMain$11  = do
+  w100014 <- (int)signbit(double) 2.8957571600107794e-36
+  case w100014 of
+    0 -> return (CJhc.Prim.Prim.Bool# 0)
+    w0 -> return (CJhc.Prim.Prim.Bool# 1)
+
+ftheMain$7 :: (bits32) -> (N)
+ftheMain$7 w108955764 = do
+  h100016 <- 0 `Gte` w108955764
+  case h100016 of
+    1 -> return []
+    0 -> do
+      w194508210 <- w108955764 - 1
+      ni80256468 <- istore (FtheMain$7 w194508210)
+      dstore (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 48) ni80256468)
+
+ftheMain$8 :: (bits32,I) -> (N)
+ftheMain$8 w114991274 ni167886982 = do
+  nd100148 <- ftheMain$7 w114991274
+  ni80660166 <- demote nd100148
+  nd100152 <- fJhc.Basics.++ (@hole) ni80660166 ni167886982
+  case nd100152 of
+    [] -> return "0"
+    (CJhc.Prim.Prim.: ni246604782 ni263341212) -> dstore (CJhc.Prim.Prim.: ni246604782 ni263341212)
+
+ftheMain$3 :: (I) -> (N)
+ftheMain$3 ni235511026 = do
+  nd100162 <- eval ni235511026
+  case nd100162 of
+    (CJhc.Prim.Prim.: ni135170744 ni29821312) -> do
+      ni52590392 <- istore (FtheMain$2 ni135170744)
+      ni119514820 <- istore (FtheMain$3 ni29821312)
+      dstore (CJhc.Prim.Prim.: ni52590392 ni119514820)
+    [] -> return []
+
+fW@.fW@.fNumeric.floatToDigits$31 :: (N) -> (N)
+fW@.fW@.fNumeric.floatToDigits$31 nd2976460 = do
+  ni2976663 <- demote nd2976460
+  fJhc.Basics.45_go ni2976663
+
+fW@.fW@.fNumeric.floatToDigits$25 :: (N,I,I,I,I,I) -> (N)
+fW@.fW@.fNumeric.floatToDigits$25 nd211219932 ni134427062 ni202526176 ni268164216 ni53399310 ni1728710173 = do
+  ni211220077 <- demote nd211219932
+  nd100030 <- eval ni1728710173
+  nd100032 <- eval ni134427062
+  (CJhc.Prim.Prim.(,,,) ni3176 ni3178 ni3180 ni3182) <- return nd100032
+  nd100034 <- eval ni3182
+  (CJhc.Type.Word.Int w234543524) <- return nd100030
+  h73127152 <- 0 `Lte` w234543524
+  (CJhc.Type.Basic.Integer bm17805442) <- return nd100034
+  (ni596,bm598,bm600,bm602,bm192) <- case h73127152 of
+    1 -> do
+      nd100036 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ nd211219932 w234543524
+      (CJhc.Type.Basic.Integer bm108744) <- return nd100036
+      nd100038 <- eval ni202526176
+      (CJhc.Type.Basic.Integer bm120668476) <- return nd100038
+      bm93822474 <- bm120668476 * bm108744
+      nd100040 <- eval ni268164216
+      (CJhc.Type.Basic.Integer bm158113096) <- return nd100040
+      nd100042 <- eval ni53399310
+      (CJhc.Type.Basic.Integer bm154420606) <- return nd100042
+      return (ni211220077,bm154420606,bm93822474,bm158113096,bm17805442)
+    0 -> do
+      w187779984 <- (bits32)Neg w234543524
+      nd100052 <- fW@.fSpec@.Jhc.Numeric.20.fJhc.Numeric.^ nd211219932 w187779984
+      (CJhc.Type.Basic.Integer bm236397358) <- return nd100052
+      nd100054 <- eval ni268164216
+      (CJhc.Type.Basic.Integer bm108076) <- return nd100054
+      bm73043328 <- bm108076 * bm236397358
+      bm253808490 <- bm17805442 * bm236397358
+      nd100056 <- eval ni53399310
+      (CJhc.Type.Basic.Integer bm112431790) <- return nd100056
+      bm27092184 <- bm112431790 * bm236397358
+      nd100058 <- eval ni202526176
+      (CJhc.Type.Basic.Integer bm130564412) <- return nd100058
+      return (ni211220077,bm27092184,bm130564412,bm73043328,bm253808490)
+  nd389 <- promote ni596
+  nd1197 <- fW@.fW@.fNumeric.floatToDigits$26 nd389 [] bm598 bm600 bm602 bm192
+  nd1813 <- fJhc.Basics.reverse nd1197
+  fW@.fW@.fNumeric.floatToDigits$31 nd1813
+
+fW@.fW@.fNumeric.floatToDigits :: (N,fbits64) -> (I,I)
+fW@.fW@.fNumeric.floatToDigits nd95073924 f15818818 = do
+  h100028 <- 0 `FEq` f15818818
+  case h100028 of
+    1 -> return (&[],&(CJhc.Type.Word.Int 0))
+    0 -> do
+      ni71920768 <- istore (FW@.fW@.fNumeric.floatToDigits$2 f15818818)
+      ni85806474 <- istore (FW@.fW@.fNumeric.floatToDigits$4 ni71920768)
+      ni151167342 <- istore (FW@.fW@.fNumeric.floatToDigits$5 ni71920768 ni85806474)
+      ni24658036 <- istore (FW@.fW@.fNumeric.floatToDigits$8 ni151167342)
+      ni150886634 <- istore (FW@.fW@.fNumeric.floatToDigits$9 ni151167342)
+      ni194492352 <- istore (FW@.fW@.fNumeric.floatToDigits$10 ni150886634 ni24658036)
+      ni226176096 <- istore (FW@.fW@.fNumeric.floatToDigits$19 ni194492352)
+      ni240576404 <- istore (FW@.fW@.fNumeric.floatToDigits$20 ni194492352)
+      ni117603324 <- istore (FW@.fW@.fNumeric.floatToDigits$21 ni194492352)
+      ni212210746 <- istore (FW@.fW@.fNumeric.floatToDigits$22 nd95073924 ni85806474 ni150886634 ni24658036 ni226176096 ni117603324 ni240576404)
+      ni215884490 <- istore (FW@.fW@.fNumeric.floatToDigits$25 nd95073924 ni194492352 ni226176096 ni117603324 ni240576404 ni212210746)
+      return (ni215884490,ni212210746)
+
+fW@.fR@.fJhc.List.387_f :: (bits32,I) -> (N)
+fW@.fR@.fJhc.List.387_f w216085092 ni110947990 = do
+  h100018 <- 0 `Gte` w216085092
+  case h100018 of
+    1 -> return []
+    0 -> do
+      nd100020 <- eval ni110947990
+      case nd100020 of
+        (CJhc.Prim.Prim.: ni304 ni1121) -> do
+          w194508206 <- w216085092 - 1
+          ni178933326 <- istore (FW@.fR@.fJhc.List.387_f w194508206 ni1121)
+          dstore (CJhc.Prim.Prim.: ni304 ni178933326)
+        [] -> return []
+
+fW@.fNumeric.67_doFmt :: (bits16,I,I) -> (N)
+fW@.fNumeric.67_doFmt h225564906 ni71383250 ni56741148 = do
+  let
+      bRfW@.fNumeric.67_doFmt h225565562 ni71383907 ni56741806 = do
+        ni92400194 <- istore (FtheMain$3 ni71383907)
+        case h225565562 of
+          0 -> do
+            nd100126 <- eval ni92400194
+            case nd100126 of
+              (CJhc.Prim.Prim.: ni3064 ni3066) -> do
+                nd100128 <- eval ni3066
+                (ni638,ni640) <- case nd100128 of
+                  [] -> do
+                    ni71423084 <- istore (FtheMain$4 ni56741806)
+                    ni107005534 <- istore (FJhc.Basics.++ (@hole) &".0e" ni71423084)
+                    return (ni3064,ni107005534)
+                  (CJhc.Prim.Prim.: ni0 ni0) -> do
+                    ni61415316 <- istore (FtheMain$5 ni56741806)
+                    nd734 <- dstore (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 101) ni61415316)
+                    ni131535980 <- demote nd734
+                    ni60981616 <- istore (FJhc.Basics.++ (@hole) ni3066 ni131535980)
+                    nd1585 <- dstore (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 46) ni60981616)
+                    ni226855492 <- demote nd1585
+                    return (ni3064,ni226855492)
+                dstore (CJhc.Prim.Prim.: ni638 ni640)
+              [] -> return "0.0e0"
+          1 -> do
+            nd100130 <- eval ni56741806
+            (CJhc.Type.Word.Int w163333524) <- return nd100130
+            h100132 <- 0 `Lt` w163333524
+            (ni1531,ni1534) <- case h100132 of
+              1 -> do
+                nd1598 <- dstore (CJhc.Prim.Prim.: ?::I ?::I)
+                ni1117661731 <- demote nd1598
+                overwrite ni1117661731 (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 48) ni1117661731)
+                ni74953232 <- istore (FJhc.Basics.++ (@hole) ni92400194 ni1117661731)
+                nd100138 <- fW@.fR@.fJhc.List.387_f w163333524 ni74953232
+                ni233267568 <- demote nd100138
+                ni17699900 <- istore (FtheMain$6 w163333524 ni92400194)
+                nd749 <- dstore (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 46) ni17699900)
+                ni45901368 <- demote nd749
+                return (ni233267568,ni45901368)
+              0 -> do
+                w73700196 <- (bits32)Neg w163333524
+                ni3601048 <- istore (FtheMain$8 w73700196 ni92400194)
+                return (&"0.",ni3601048)
+            fJhc.Basics.++ (@hole) ni1531 ni1534
+          2 -> do
+            nd100142 <- eval ni56741806
+            ni261292856 <- demote nd100142
+            (CJhc.Type.Word.Int w119285246) <- return nd100142
+            h100144 <- 0 `Gt` w119285246
+            (h1352,ni1548,ni665) <- case h100144 of
+              0 -> do
+                h100146 <- 7 `Lt` w119285246
+                case h100146 of
+                  1 -> return (0,ni71383907,ni261292856)
+                  0 -> return (1,ni71383907,ni261292856)
+              1 -> return (0,ni71383907,ni261292856)
+            bRfW@.fNumeric.67_doFmt h1352 ni1548 ni665
+   in
+    bRfW@.fNumeric.67_doFmt h225564906 ni71383250 ni56741148
+
+ftheMain$9 :: () -> (N)
+ftheMain$9  = do
+  (ni62470114
+  ,ni260457468) <- fW@.fW@.fNumeric.floatToDigits (CJhc.Type.Basic.Integer 10) -2.8957571600107794e-36
+  fW@.fNumeric.67_doFmt 2 ni62470114 ni260457468
+
+ftheMain$10 :: (I) -> (N)
+ftheMain$10 ni215350918 = do
+  nd100026 <- eval ni215350918
+  (CJhc.Prim.Prim.Bool# h3052) <- return nd100026
+  case h3052 of
+    1 -> return (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 45) ni-834681877)
+    0 -> do
+      (ni10527816
+      ,ni137248436) <- fW@.fW@.fNumeric.floatToDigits (CJhc.Type.Basic.Integer 10) 2.8957571600107794e-36
+      fW@.fNumeric.67_doFmt 2 ni10527816 ni137248436
+
+ftheMain$12 :: () -> (N)
+ftheMain$12  = do
+  w100008 <- (int)isnan(double) 2.8957571600107794e-36
+  case w100008 of
+    0 -> do
+      w100010 <- (int)isinf(double) 2.8957571600107794e-36
+      case w100010 of
+        0 -> do
+          ni673 <- case (0 `FEq` 2.8957571600107794e-36) of
+            0 -> return &(CJhc.Prim.Prim.Bool# 0)
+            1 -> return ni-842021911
+          ftheMain$10 ni673
+        w0 -> return "Infinity"
+    w0 -> return "NaN"
+
