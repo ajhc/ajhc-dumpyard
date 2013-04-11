@@ -9,5 +9,5 @@ gdb.log: $(PROG)
 	gdb -x script.gdb $(PROG) > gdb.log
 
 clean:
-	rm -f *~ $(PROG) *.grin *.log *.jhc_core *.datalog *.dot $(PROG)_code.c
+	rm -f *~ $(PROG) *.grin *.log *.jhc_core *.datalog *.dot $(PROG)_code.c *.o *.hi hs.out
 	rm -rf rtstdir
