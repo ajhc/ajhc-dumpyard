@@ -1,6 +1,6 @@
 -- copy from lib/jhc/Numeric.hs
 x :: Double
-x = 0.0001
+x = (234 ** (-15))
 base :: Integer
 base = 10
 
@@ -30,9 +30,9 @@ e :: Int     -- OK
 (f, e) = let n = minExp - e0
          in  if n > 0 then (f0 `div` (b^n), e0+n) else (f0, e0)
 
-mDn :: Integer
+mDn :: Integer -- OK
 mUp :: Integer -- OK
-s :: Integer
+s :: Integer   -- BAD!
 r :: Integer   -- OK
 (r, s, mUp, mDn) =
    if e >= 0 then
@@ -47,7 +47,7 @@ r :: Integer   -- OK
        else
            (f*2, b^(-e)*2, 1, 1)
 
-k :: Int -- OK
+k :: Int -- ???
 k =
     let k0 =
             if b==2 && base==10 then
@@ -83,7 +83,7 @@ rds =
     if k >= 0 then
         gen [] r (s * expt k) mUp mDn
     else
-        let bk = expt (-k)
+        let bk = expt (-k) -- BAD!
         in  gen [] (r * bk) s (mUp * bk) (mDn * bk)
 
 
@@ -92,11 +92,50 @@ floatToDigits = (map fromIntegral (reverse rds), k)
 
 main :: IO ()
 main = do
-  print k           -- => -3
-  print $ expt (-k) -- => 1000
+  print ("f0", f0)
+  print ("e0", e0)
+  print ("minExp0", minExp0)
+  print ("p", p)
+  print ("b", b)
+  print ("minExp", minExp)
+  print ("f", f)
+  print ("e", e)
+  print ("mUp", mUp)
+  print ("mDn", mDn)
+  print ("s", s)
+  print ("r", r)
+  print ("k", k)
   let bk = expt (-k)
-  print (r * bk)    -- => 14757395258967642000  -- ajhc return -3689348814741909616
-  print s           -- => 147573952589676412928 -- ajhc return 0
-  print (mUp * bk)  -- => 1000
-  print (mDn * bk)  -- => 1000
-  print rds         -- => [1] -- ajhc will crash here
+  print ("bk", bk)
+  let rn = r * bk
+      mUpN = mUp * bk
+      mDnN = mDn * bk
+      (dn, rn') = (rn * base) `divMod` s
+  print ("rn", rn)
+  print ("mUpN", mUpN)
+  print ("mDnN", mDnN)
+  print ("dn", dn)
+  print ("rn'", rn')
+  print ("rds", rds)
+{--
+("f0",8667451045208964)
+("e0",-171)
+("minExp0",-1021)
+("p",53)
+("b",2)
+("minExp",-1074)
+("f",8667451045208964)
+("e",-171)
+("mUp",1)
+("mDn",1)
+("s",5986310706507378352962293074805895248510699696029696)  -- BAD! ("s",0)
+("r",17334902090417928)
+("k",-35)                                                   -- ??? ("k",-34)
+("bk",100000000000000000000000000000000000)                 -- BAD! ("bk",4003012203950112768)
+("rn",1733490209041792800000000000000000000000000000000000) -- BAD! ("rn",5286151877111578624)
+("mUpN",100000000000000000000000000000000000)               -- BAD! ("mUpN",4003012203950112768)
+("mDnN",100000000000000000000000000000000000)               -- BAD! ("mDnN",4003012203950112768)
+("dn",2)
+("rn'",5362280677403171294075413850388209502978600607940608)
+("rds",[4,9,7,7,0,1,0,0,6,1,7,5,7,5,9,8,2])
+--}
