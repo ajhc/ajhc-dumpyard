@@ -8,32 +8,32 @@ expt :: Int -> Integer
 expt n = base^n
 
 f0 :: Integer
-e0 :: Int
+e0 :: Int -- OK
 (f0, e0) = decodeFloat x
 
-minExp0 :: Int
+minExp0 :: Int -- OK
 (minExp0, _) = floatRange x
 
-p :: Int
+p :: Int -- OK
 p = floatDigits x
 
-b :: Integer
+b :: Integer -- OK
 b = floatRadix x
 
-minExp :: Int
+minExp :: Int -- OK
 minExp = minExp0 - p            -- the real minimum exponent
 
 -- Haskell requires that f be adjusted so denormalized numbers
 -- will have an impossibly low exponent.  Adjust for this.
-f :: Integer
-e :: Int
+f :: Integer -- OK
+e :: Int     -- OK
 (f, e) = let n = minExp - e0
          in  if n > 0 then (f0 `div` (b^n), e0+n) else (f0, e0)
 
 mDn :: Integer
-mUp :: Integer
+mUp :: Integer -- OK
 s :: Integer
-r :: Integer
+r :: Integer   -- OK
 (r, s, mUp, mDn) =
    if e >= 0 then
        let be = b^e in
@@ -46,7 +46,8 @@ r :: Integer
            (f*b*2, b^(-e+1)*2, b, 1)
        else
            (f*2, b^(-e)*2, 1, 1)
-k :: Int
+
+k :: Int -- OK
 k =
     let k0 =
             if b==2 && base==10 then
@@ -67,7 +68,7 @@ k =
                                                    else fixup (n+1)
     in  fixup (k0::Int)
 
-gen :: [Integer] -> Integer -> Integer -> Integer -> Integer -> [Integer]
+gen :: [Integer] -> Integer -> Integer -> Integer -> Integer -> [Integer] -- ???
 gen ds rn sN mUpN mDnN =
     let (dn, rn') = (rn * base) `divMod` sN
         mUpN' = mUpN * base
@@ -77,7 +78,7 @@ gen ds rn sN mUpN mDnN =
         (False, True)  -> dn+1 : ds
         (True,  True)  -> if rn' * 2 < sN then dn : ds else dn+1 : ds
         (False, False) -> gen (dn:ds) rn' sN mUpN' mDnN'
-rds :: [Integer]
+rds :: [Integer] -- BAD!
 rds =
     if k >= 0 then
         gen [] r (s * expt k) mUp mDn
@@ -91,6 +92,11 @@ floatToDigits = (map fromIntegral (reverse rds), k)
 
 main :: IO ()
 main = do
-  print k             -- => -3
-  print $ reverse rds -- => [1] will crash on ajhc
-  print floatToDigits -- => ([1],-3)
+  print k           -- => -3
+  print $ expt (-k) -- => 1000
+  let bk = expt (-k)
+  print (r * bk)    -- => 14757395258967642000  -- ajhc return -3689348814741909616
+  print s           -- => 147573952589676412928 -- ajhc return 0
+  print (mUp * bk)  -- => 1000
+  print (mDn * bk)  -- => 1000
+  print rds         -- => [1] -- ajhc will crash here
