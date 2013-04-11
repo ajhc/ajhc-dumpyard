@@ -899,7 +899,7 @@ ftheMain$8 w114991274 ni167886982 = do
                                                              ,ni263341212)
         dstore (CJhc.Prim.Prim.: ni246604782 ni263341212)
 
-ftheMain$3 :: (I) -> (N)
+ftheMain$3 :: (I) -> (N) -- xxx #14
 ftheMain$3 ni235511026 = do
   nd100162 <- eval ni235511026
   case nd100162 of
@@ -1010,12 +1010,12 @@ fW@.fR@.fJhc.List.387_f w216085092 ni110947990 = do
               dstore (CJhc.Prim.Prim.: ni304 ni178933326)
         [] -> return []
 
-fW@.fNumeric.67_doFmt :: (bits16,I,I) -> (N)
+fW@.fNumeric.67_doFmt :: (bits16,I,I) -> (N) -- xxx #17 formatRealFloatのdoFmt
 fW@.fNumeric.67_doFmt h225564906 ni71383250 ni56741148 = do
   let
       bRfW@.fNumeric.67_doFmt h225565562 ni71383907 ni56741806 = do
         withRoots(ni56741806,ni71383907)
-          ni92400194 <- istore (FtheMain$3 ni71383907)
+          ni92400194 <- istore (FtheMain$3 ni71383907) -- xxx
           case h225565562 of
             0 -> do
               nd100126 <- eval ni92400194
@@ -1088,7 +1088,7 @@ ftheMain$9  = do
   ,ni260457468) <- fW@.fW@.fNumeric.floatToDigits (CJhc.Type.Basic.Integer 10) -2.8957571600107794e-36
   fW@.fNumeric.67_doFmt 2 ni62470114 ni260457468
 
-ftheMain$10 :: (I) -> (N)
+ftheMain$10 :: (I) -> (N) -- xxx #18 
 ftheMain$10 ni215350918 = do
   nd100026 <- eval ni215350918
   (CJhc.Prim.Prim.Bool# h3052) <- return nd100026
@@ -1096,10 +1096,10 @@ ftheMain$10 ni215350918 = do
     1 -> return (CJhc.Prim.Prim.: &(CJhc.Type.Basic.Char 45) ni-834681877)
     0 -> do
       (ni10527816
-      ,ni137248436) <- fW@.fW@.fNumeric.floatToDigits (CJhc.Type.Basic.Integer 10) 2.8957571600107794e-36
+      ,ni137248436) <- fW@.fW@.fNumeric.floatToDigits (CJhc.Type.Basic.Integer 10) 2.8957571600107794e-36 xxx 後の関数で評価される
       fW@.fNumeric.67_doFmt 2 ni10527816 ni137248436
 
-ftheMain$12 :: () -> (N)
+ftheMain$12 :: () -> (N) -- xxx #19 formatRealFloatのsの部分 doFmtは別
 ftheMain$12  = do
   w100008 <- (int)isnan(double) 2.8957571600107794e-36
   case w100008 of
