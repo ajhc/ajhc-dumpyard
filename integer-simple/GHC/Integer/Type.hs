@@ -1,4 +1,3 @@
-
 {-# LANGUAGE CPP, MagicHash, ForeignFunctionInterface,
              NoImplicitPrelude, BangPatterns, UnboxedTuples,
              UnliftedFFITypes #-}
@@ -22,17 +21,15 @@
 
 module GHC.Integer.Type where
 
-import GHC.Prim
-import GHC.Classes
-import GHC.Types
-import GHC.Tuple ()
-#if WORD_SIZE_IN_BITS < 64
-import GHC.IntWord64
-#endif
+import Jhc.Basics
+import Jhc.Prim.Bits
+import Jhc.Class.Ord
+import Jhc.Num
+import Data.Bits
 
 #if !defined(__HADDOCK__)
 
-data Integer = Positive !Positive | Negative !Positive | Naught
+data IntegerSimple = Positive !Positive | Negative !Positive | Naught
 
 -------------------------------------------------------------------
 -- The hard work is done on positive numbers
@@ -46,7 +43,7 @@ type Positives = List Positive
 
 data Digits = Some !Digit !Digits
             | None
-type Digit = Word#
+type Digit = Word_
 
 -- XXX Could move [] above us
 data List a = Nil | Cons a (List a)
@@ -55,116 +52,116 @@ mkInteger :: Bool   -- non-negative?
           -> [Int]  -- absolute value in 31 bit chunks, least significant first
                     -- ideally these would be Words rather than Ints, but
                     -- we don't have Word available at the moment.
-          -> Integer
+          -> IntegerSimple
 mkInteger nonNegative is = let abs = f is
                            in if nonNegative then abs else negateInteger abs
     where f [] = Naught
-          f (I# i : is') = smallInteger i `orInteger` shiftLInteger (f is') 31#
+          f (Int i : is') = smallInteger i `orInteger` shiftLInteger (f is') 31#
 
-errorInteger :: Integer
+errorInteger :: IntegerSimple
 errorInteger = Positive errorPositive
 
 errorPositive :: Positive
-errorPositive = Some 47## None -- Random number
+errorPositive = Some 47# None -- Random number
 
 {-# NOINLINE smallInteger #-}
-smallInteger :: Int# -> Integer
-smallInteger i = if i >=# 0# then wordToInteger (int2Word# i)
+smallInteger :: Int_ -> IntegerSimple
+smallInteger i = if i >= 0# then wordToInteger i
                  else -- XXX is this right for -minBound?
-                      negateInteger (wordToInteger (int2Word# (negateInt# i)))
+                      negateInteger (wordToInteger (- i))
 
 {-# NOINLINE wordToInteger #-}
-wordToInteger :: Word# -> Integer
-wordToInteger w = if w `eqWord#` 0##
+wordToInteger :: Word_ -> IntegerSimple
+wordToInteger w = if w == 0#
                   then Naught
                   else Positive (Some w None)
 
 {-# NOINLINE integerToWord #-}
-integerToWord :: Integer -> Word#
+integerToWord :: IntegerSimple -> Word_
 integerToWord (Positive (Some w _)) = w
-integerToWord (Negative (Some w _)) = 0## `minusWord#` w
+integerToWord (Negative (Some w _)) = 0# - w
 -- Must be Naught by the invariant:
-integerToWord _ = 0##
+integerToWord _ = 0#
 
 {-# NOINLINE integerToInt #-}
-integerToInt :: Integer -> Int#
-integerToInt i = word2Int# (integerToWord i)
+integerToInt :: IntegerSimple -> Int_
+integerToInt i = integerToWord i
 
 #if WORD_SIZE_IN_BITS == 64
 -- Nothing
 #elif WORD_SIZE_IN_BITS == 32
 {-# NOINLINE integerToWord64 #-}
-integerToWord64 :: Integer -> Word64#
+integerToWord64 :: IntegerSimple -> Bits64_
 integerToWord64 i = int64ToWord64# (integerToInt64 i)
 
 {-# NOINLINE word64ToInteger #-}
-word64ToInteger:: Word64# -> Integer
-word64ToInteger w = if w `eqWord64#` wordToWord64# 0##
+word64ToInteger:: Bits64_ -> IntegerSimple
+word64ToInteger w = if w == 0#
                     then Naught
                     else Positive (word64ToPositive w)
 
 {-# NOINLINE integerToInt64 #-}
-integerToInt64 :: Integer -> Int64#
+integerToInt64 :: IntegerSimple -> Bits64_
 integerToInt64 Naught = intToInt64# 0#
 integerToInt64 (Positive p) = word64ToInt64# (positiveToWord64 p)
 integerToInt64 (Negative p)
     = negateInt64# (word64ToInt64# (positiveToWord64 p))
 
 {-# NOINLINE int64ToInteger #-}
-int64ToInteger :: Int64# -> Integer
+int64ToInteger :: Bits64_ -> IntegerSimple
 int64ToInteger i
- = if i `eqInt64#` intToInt64# 0#
+ = if i == 0#
    then Naught
-   else if i `gtInt64#` intToInt64# 0#
+   else if i > 0#
    then Positive (word64ToPositive (int64ToWord64# i))
    else Negative (word64ToPositive (int64ToWord64# (negateInt64# i)))
 #else
 #error WORD_SIZE_IN_BITS not supported
 #endif
 
-oneInteger :: Integer
+oneInteger :: IntegerSimple
 oneInteger = Positive onePositive
 
-negativeOneInteger :: Integer
+negativeOneInteger :: IntegerSimple
 negativeOneInteger = Negative onePositive
 
-twoToTheThirtytwoInteger :: Integer
+twoToTheThirtytwoInteger :: IntegerSimple
 twoToTheThirtytwoInteger = Positive twoToTheThirtytwoPositive
 
 {-# NOINLINE encodeDoubleInteger #-}
-encodeDoubleInteger :: Integer -> Int# -> Double#
-encodeDoubleInteger (Positive ds0) e0 = f 0.0## ds0 e0
+encodeDoubleInteger :: IntegerSimple -> Int_ -> Float64_
+encodeDoubleInteger (Positive ds0) e0 = f 0.0# ds0 e0
     where f !acc None        (!_) = acc
-          f !acc (Some d ds) !e   = f (acc +## encodeDouble# d e)
+          f !acc (Some d ds) !e   = f (acc + encodeDouble_ d e)
                                       ds
                                       -- XXX We assume that this adding to e
                                       -- isn't going to overflow
-                                      (e +# WORD_SIZE_IN_BITS#)
+                                      (e + WORD_SIZE_IN_BITS#)
 encodeDoubleInteger (Negative ds) e
     = negateDouble# (encodeDoubleInteger (Positive ds) e)
-encodeDoubleInteger Naught _ = 0.0##
+encodeDoubleInteger Naught _ = ( 0.0# )
 
 foreign import ccall unsafe "__word_encodeDouble"
-        encodeDouble# :: Word# -> Int# -> Double#
+        encodeDouble_ :: Word_ -> Int_ -> Float64_
 
 {-# NOINLINE encodeFloatInteger #-}
-encodeFloatInteger :: Integer -> Int# -> Float#
+encodeFloatInteger :: IntegerSimple -> Int_ -> Float_
 encodeFloatInteger (Positive ds0) e0 = f 0.0# ds0 e0
     where f !acc None        (!_) = acc
-          f !acc (Some d ds) !e   = f (acc `plusFloat#` encodeFloat# d e)
+          f !acc (Some d ds) !e   = f (acc + encodeFloat# d e)
                                       ds
                                       -- XXX We assume that this adding to e
                                       -- isn't going to overflow
-                                      (e +# WORD_SIZE_IN_BITS#)
+                                      (e + WORD_SIZE_IN_BITS#)
 encodeFloatInteger (Negative ds) e
     = negateFloat# (encodeFloatInteger (Positive ds) e)
-encodeFloatInteger Naught _ = 0.0#
+encodeFloatInteger Naught _ = ( 0.0# )
 
 foreign import ccall unsafe "__word_encodeFloat"
-    encodeFloat# :: Word# -> Int# -> Float#
+    encodeFloat_ :: Word_ -> Int_ -> Float_
 
 {-# NOINLINE decodeFloatInteger #-}
-decodeFloatInteger :: Float# -> (# Integer, Int# #)
+decodeFloatInteger :: Float_ -> (# IntegerSimple, Int_ #)
 decodeFloatInteger f = case decodeFloat_Int# f of
                        (# mant, exp #) -> (# smallInteger mant, exp #)
 
@@ -172,7 +169,7 @@ decodeFloatInteger f = case decodeFloat_Int# f of
 -- using single 64bit value for the mantissa, or doing the multiplication
 -- by just building the Digits directly
 {-# NOINLINE decodeDoubleInteger #-}
-decodeDoubleInteger :: Double# -> (# Integer, Int# #)
+decodeDoubleInteger :: Float64_ -> (# IntegerSimple, Int_ #)
 decodeDoubleInteger d
  = case decodeDouble_2Int# d of
    (# mantSign, mantHigh, mantLow, exp #) ->
@@ -182,19 +179,19 @@ decodeDoubleInteger d
           exp #)
 
 {-# NOINLINE doubleFromInteger #-}
-doubleFromInteger :: Integer -> Double#
-doubleFromInteger Naught = 0.0##
+doubleFromInteger :: IntegerSimple -> Float64_
+doubleFromInteger Naught = ( 0.0# )
 doubleFromInteger (Positive p) = doubleFromPositive p
 doubleFromInteger (Negative p) = negateDouble# (doubleFromPositive p)
 
 {-# NOINLINE floatFromInteger #-}
-floatFromInteger :: Integer -> Float#
-floatFromInteger Naught = 0.0#
+floatFromInteger :: IntegerSimple -> Float_
+floatFromInteger Naught = ( 0.0# )
 floatFromInteger (Positive p) = floatFromPositive p
 floatFromInteger (Negative p) = negateFloat# (floatFromPositive p)
 
 {-# NOINLINE andInteger #-}
-andInteger :: Integer -> Integer -> Integer
+andInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 Naught     `andInteger` (!_)       = Naught
 (!_)       `andInteger` Naught     = Naught
 Positive x `andInteger` Positive y = digitsToInteger (x `andDigits` y)
@@ -238,7 +235,7 @@ Negative x `andInteger` Negative y = let x' = x `minusPositive` onePositive
                                      in digitsToNegativeInteger z'
 
 {-# NOINLINE orInteger #-}
-orInteger :: Integer -> Integer -> Integer
+orInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 Naught     `orInteger` (!i)       = i
 (!i)       `orInteger` Naught     = i
 Positive x `orInteger` Positive y = Positive (x `orDigits` y)
@@ -269,7 +266,7 @@ Negative x `orInteger` Negative y = let x' = x `minusPositive` onePositive
                                     in digitsToNegativeInteger z'
 
 {-# NOINLINE xorInteger #-}
-xorInteger :: Integer -> Integer -> Integer
+xorInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 Naught     `xorInteger` (!i)       = i
 (!i)       `xorInteger` Naught     = i
 Positive x `xorInteger` Positive y = digitsToInteger (x `xorDigits` y)
@@ -298,17 +295,17 @@ Negative x `xorInteger` Negative y = let x' = x `minusPositive` onePositive
                                      in digitsToInteger z
 
 {-# NOINLINE complementInteger #-}
-complementInteger :: Integer -> Integer
+complementInteger :: IntegerSimple -> IntegerSimple
 complementInteger x = negativeOneInteger `minusInteger` x
 
 {-# NOINLINE shiftLInteger #-}
-shiftLInteger :: Integer -> Int# -> Integer
+shiftLInteger :: IntegerSimple -> Int_ -> IntegerSimple
 shiftLInteger (Positive p) i = Positive (shiftLPositive p i)
 shiftLInteger (Negative n) i = Negative (shiftLPositive n i)
 shiftLInteger Naught       _ = Naught
 
 {-# NOINLINE shiftRInteger #-}
-shiftRInteger :: Integer -> Int# -> Integer
+shiftRInteger :: IntegerSimple -> Int_ -> IntegerSimple
 shiftRInteger (Positive p)   i = shiftRPositive p i
 shiftRInteger j@(Negative _) i
     = complementInteger (shiftRInteger (complementInteger j) i)
@@ -317,7 +314,7 @@ shiftRInteger Naught         _ = Naught
 -- XXX this could be a lot more efficient, but this is a quick
 -- reimplementation of the default Data.Bits instance, so that we can
 -- implement the Integer interface
-testBitInteger :: Integer -> Int# -> Bool
+testBitInteger :: IntegerSimple -> Int_ -> Bool
 testBitInteger x i = (x `andInteger` (smallInteger 1# `shiftLInteger` i))
         `neqInteger` smallInteger 0#
 
@@ -332,14 +329,14 @@ flipBitsDigits None = None
 flipBitsDigits (Some w ws) = Some (not# w) (flipBitsDigits ws)
 
 {-# NOINLINE negateInteger #-}
-negateInteger :: Integer -> Integer
+negateInteger :: IntegerSimple -> IntegerSimple
 negateInteger (Positive p) = Negative p
 negateInteger (Negative p) = Positive p
 negateInteger Naught       = Naught
 
 -- Note [Avoid patError]
 {-# NOINLINE plusInteger #-}
-plusInteger :: Integer -> Integer -> Integer
+plusInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 Positive p1    `plusInteger` Positive p2 = Positive (p1 `plusPositive` p2)
 Negative p1    `plusInteger` Negative p2 = Negative (p1 `plusPositive` p2)
 Positive p1    `plusInteger` Negative p2
@@ -356,11 +353,11 @@ i@(Positive _) `plusInteger` Naught         = i
 i@(Negative _) `plusInteger` Naught         = i
 
 {-# NOINLINE minusInteger #-}
-minusInteger :: Integer -> Integer -> Integer
+minusInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 i1 `minusInteger` i2 = i1 `plusInteger` negateInteger i2
 
 {-# NOINLINE timesInteger #-}
-timesInteger :: Integer -> Integer -> Integer
+timesInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 Positive p1 `timesInteger` Positive p2 = Positive (p1 `timesPositive` p2)
 Negative p1 `timesInteger` Negative p2 = Positive (p1 `timesPositive` p2)
 Positive p1 `timesInteger` Negative p2 = Negative (p1 `timesPositive` p2)
@@ -368,7 +365,7 @@ Negative p1 `timesInteger` Positive p2 = Negative (p1 `timesPositive` p2)
 (!_)        `timesInteger` (!_)        = Naught
 
 {-# NOINLINE divModInteger #-}
-divModInteger :: Integer -> Integer -> (# Integer, Integer #)
+divModInteger :: IntegerSimple -> IntegerSimple -> (# IntegerSimple, IntegerSimple #)
 n `divModInteger` d =
     case n `quotRemInteger` d of
         (# q, r #) ->
@@ -378,17 +375,17 @@ n `divModInteger` d =
             else (# q, r #)
 
 {-# NOINLINE divInteger #-}
-divInteger :: Integer -> Integer -> Integer
+divInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 n `divInteger` d = quotient
     where (# quotient, _ #) = n `divModInteger` d
 
 {-# NOINLINE modInteger #-}
-modInteger :: Integer -> Integer -> Integer
+modInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 n `modInteger` d = modulus
     where (# _, modulus #) = n `divModInteger` d
 
 {-# NOINLINE quotRemInteger #-}
-quotRemInteger :: Integer -> Integer -> (# Integer, Integer #)
+quotRemInteger :: IntegerSimple -> IntegerSimple -> (# IntegerSimple, IntegerSimple #)
 Naught      `quotRemInteger` (!_)        = (# Naught, Naught #)
 (!_)        `quotRemInteger` Naught
     = (# errorInteger, errorInteger #) -- XXX Can't happen
@@ -406,17 +403,17 @@ Negative p1 `quotRemInteger` Negative p2 = case p1 `quotRemPositive` p2 of
                                                (# q, negateInteger r #)
 
 {-# NOINLINE quotInteger #-}
-quotInteger :: Integer -> Integer -> Integer
+quotInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 x `quotInteger` y = case x `quotRemInteger` y of
                     (# q, _ #) -> q
 
 {-# NOINLINE remInteger #-}
-remInteger :: Integer -> Integer -> Integer
+remInteger :: IntegerSimple -> IntegerSimple -> IntegerSimple
 x `remInteger` y = case x `quotRemInteger` y of
                    (# _, r #) -> r
 
 {-# NOINLINE compareInteger #-}
-compareInteger :: Integer -> Integer -> Ordering
+compareInteger :: IntegerSimple -> IntegerSimple -> Ordering
 Positive x `compareInteger` Positive y = x `comparePositive` y
 Positive _ `compareInteger` (!_)       = GT
 Naught     `compareInteger` Naught     = EQ
@@ -425,46 +422,46 @@ Negative x `compareInteger` Negative y = y `comparePositive` x
 (!_)       `compareInteger` (!_)       = LT
 
 {-# NOINLINE eqInteger #-}
-eqInteger :: Integer -> Integer -> Bool
+eqInteger :: IntegerSimple -> IntegerSimple -> Bool
 x `eqInteger` y = case x `compareInteger` y of
                   EQ -> True
                   _ -> False
 
 {-# NOINLINE neqInteger #-}
-neqInteger :: Integer -> Integer -> Bool
+neqInteger :: IntegerSimple -> IntegerSimple -> Bool
 x `neqInteger` y = case x `compareInteger` y of
                    EQ -> False
                    _ -> True
 
-instance  Eq Integer  where
+instance  Eq IntegerSimple  where
     (==) = eqInteger
     (/=) = neqInteger
 
 {-# NOINLINE ltInteger #-}
-ltInteger :: Integer -> Integer -> Bool
+ltInteger :: IntegerSimple -> IntegerSimple -> Bool
 x `ltInteger` y = case x `compareInteger` y of
                   LT -> True
                   _ -> False
 
 {-# NOINLINE gtInteger #-}
-gtInteger :: Integer -> Integer -> Bool
+gtInteger :: IntegerSimple -> IntegerSimple -> Bool
 x `gtInteger` y = case x `compareInteger` y of
                   GT -> True
                   _ -> False
 
 {-# NOINLINE leInteger #-}
-leInteger :: Integer -> Integer -> Bool
+leInteger :: IntegerSimple -> IntegerSimple -> Bool
 x `leInteger` y = case x `compareInteger` y of
                   GT -> False
                   _ -> True
 
 {-# NOINLINE geInteger #-}
-geInteger :: Integer -> Integer -> Bool
+geInteger :: IntegerSimple -> IntegerSimple -> Bool
 x `geInteger` y = case x `compareInteger` y of
                   LT -> False
                   _ -> True
 
-instance Ord Integer where
+instance Ord IntegerSimple where
     (<=) = leInteger
     (>)  = gtInteger
     (<)  = ltInteger
@@ -472,19 +469,19 @@ instance Ord Integer where
     compare = compareInteger
 
 {-# NOINLINE absInteger #-}
-absInteger :: Integer -> Integer
+absInteger :: IntegerSimple -> IntegerSimple
 absInteger (Negative x) = Positive x
 absInteger x = x
 
 {-# NOINLINE signumInteger #-}
-signumInteger :: Integer -> Integer
+signumInteger :: IntegerSimple -> IntegerSimple
 signumInteger (Negative _) = negativeOneInteger
 signumInteger Naught       = Naught
 signumInteger (Positive _) = oneInteger
 
 -- XXX This isn't a great hash function
 {-# NOINLINE hashInteger #-}
-hashInteger :: Integer -> Int#
+hashInteger :: IntegerSimple -> Int_
 hashInteger (!_) = 42#
 
 -------------------------------------------------------------------
@@ -495,40 +492,40 @@ onePositive = Some 1## None
 
 halfBoundUp, fullBound :: () -> Digit
 lowHalfMask :: () -> Digit
-highHalfShift :: () -> Int#
+highHalfShift :: () -> Int_
 twoToTheThirtytwoPositive :: Positive
 #if WORD_SIZE_IN_BITS == 64
-halfBoundUp   () = 0x8000000000000000##
-fullBound     () = 0xFFFFFFFFFFFFFFFF##
-lowHalfMask   () = 0xFFFFFFFF##
+halfBoundUp   () = 0x8000000000000000#
+fullBound     () = 0xFFFFFFFFFFFFFFFF#
+lowHalfMask   () = 0xFFFFFFFF#
 highHalfShift () = 32#
-twoToTheThirtytwoPositive = Some 0x100000000## None
+twoToTheThirtytwoPositive = Some 0x100000000# None
 #elif WORD_SIZE_IN_BITS == 32
-halfBoundUp   () = 0x80000000##
-fullBound     () = 0xFFFFFFFF##
-lowHalfMask   () = 0xFFFF##
+halfBoundUp   () = 0x80000000#
+fullBound     () = 0xFFFFFFFF#
+lowHalfMask   () = 0xFFFF#
 highHalfShift () = 16#
-twoToTheThirtytwoPositive = Some 0## (Some 1## None)
+twoToTheThirtytwoPositive = Some 0# (Some 1# None)
 #else
 #error Unhandled WORD_SIZE_IN_BITS
 #endif
 
-digitsMaybeZeroToInteger :: Digits -> Integer
+digitsMaybeZeroToInteger :: Digits -> IntegerSimple
 digitsMaybeZeroToInteger None = Naught
 digitsMaybeZeroToInteger ds = Positive ds
 
-digitsToInteger :: Digits -> Integer
+digitsToInteger :: Digits -> IntegerSimple
 digitsToInteger ds = case removeZeroTails ds of
                      None -> Naught
                      ds' -> Positive ds'
 
-digitsToNegativeInteger :: Digits -> Integer
+digitsToNegativeInteger :: Digits -> IntegerSimple
 digitsToNegativeInteger ds = case removeZeroTails ds of
                              None -> Naught
                              ds' -> Negative ds'
 
 removeZeroTails :: Digits -> Digits
-removeZeroTails (Some w ds) = if w `eqWord#` 0##
+removeZeroTails (Some w ds) = if w `eqWord_` 0#
                               then case removeZeroTails ds of
                                    None -> None
                                    ds' -> Some w ds'
@@ -536,24 +533,24 @@ removeZeroTails (Some w ds) = if w `eqWord#` 0##
 removeZeroTails None = None
 
 #if WORD_SIZE_IN_BITS < 64
-word64ToPositive :: Word64# -> Positive
+word64ToPositive :: Bits64_ -> Positive
 word64ToPositive w
- = if w `eqWord64#` wordToWord64# 0##
+ = if w == wordToWord64# 0#
    then None
-   else Some (word64ToWord# w) (word64ToPositive (w `uncheckedShiftRL64#` 32#))
+   else Some (word64ToWord_ w) (word64ToPositive (w `shiftR` 32#))
 
-positiveToWord64 :: Positive -> Word64#
-positiveToWord64 None = wordToWord64# 0## -- XXX Can't happen
+positiveToWord64 :: Positive -> Bits64_
+positiveToWord64 None = wordToWord64# 0# -- XXX Can't happen
 positiveToWord64 (Some w None) = wordToWord64# w
 positiveToWord64 (Some low (Some high _))
-    = wordToWord64# low `or64#` (wordToWord64# high `uncheckedShiftL64#` 32#)
+    = wordToWord64# low .|. (wordToWord64# high `shiftL` 32#)
 #endif
 
 -- Note [Avoid patError]
 comparePositive :: Positive -> Positive -> Ordering
 Some x xs `comparePositive` Some y ys = case xs `comparePositive` ys of
-                                        EQ ->      if x `ltWord#` y then LT
-                                              else if x `gtWord#` y then GT
+                                        EQ ->      if x `ltWord_` y then LT
+                                              else if x `gtWord_` y then GT
                                               else                       EQ
                                         res -> res
 None      `comparePositive` None      = EQ
@@ -569,59 +566,59 @@ plusPositive x0 y0 = addWithCarry 0## x0 y0
        addWithCarry c xs@(Some {})    None            = addOnCarry c xs
        addWithCarry c None            ys@(Some {})    = addOnCarry c ys
        addWithCarry c xs@(Some x xs') ys@(Some y ys')
-        = if x `ltWord#` y then addWithCarry c ys xs
+        = if x `ltWord_` y then addWithCarry c ys xs
           -- Now x >= y
-          else if y `geWord#` halfBoundUp ()
+          else if y `geWord_` halfBoundUp ()
                -- So they are both at least halfBoundUp, so we subtract
                -- halfBoundUp from each and thus carry 1
-               then case x `minusWord#` halfBoundUp () of
+               then case x `minusWord_` halfBoundUp () of
                     x' ->
-                     case y `minusWord#` halfBoundUp () of
+                     case y `minusWord_` halfBoundUp () of
                      y' ->
-                      case x' `plusWord#` y' `plusWord#` c of
+                      case x' `plusWord_` y' `plusWord_` c of
                       this ->
                        Some this withCarry
-          else if x `geWord#` halfBoundUp ()
-               then case x `minusWord#` halfBoundUp () of
+          else if x `geWord_` halfBoundUp ()
+               then case x `minusWord_` halfBoundUp () of
                     x' ->
-                     case x' `plusWord#` y `plusWord#` c of
+                     case x' `plusWord_` y `plusWord_` c of
                      z ->
                       -- We've taken off halfBoundUp, so now we need to
                       -- add it back on
-                      if z `ltWord#` halfBoundUp ()
-                       then Some (z `plusWord#`  halfBoundUp ()) withoutCarry
-                       else Some (z `minusWord#` halfBoundUp ()) withCarry
-          else Some (x `plusWord#` y `plusWord#` c) withoutCarry
+                      if z `ltWord_` halfBoundUp ()
+                       then Some (z `plusWord_`  halfBoundUp ()) withoutCarry
+                       else Some (z `minusWord_` halfBoundUp ()) withCarry
+          else Some (x `plusWord_` y `plusWord_` c) withoutCarry
            where withCarry    = addWithCarry 1## xs' ys'
                  withoutCarry = addWithCarry 0## xs' ys'
 
        -- digit `elem` [0, 1]
        addOnCarry :: Digit -> Positive -> Positive
-       addOnCarry (!c) (!ws) = if c `eqWord#` 0##
+       addOnCarry (!c) (!ws) = if c `eqWord_` 0#
                                then ws
                                else succPositive ws
 
 -- digit `elem` [0, 1]
 succPositive :: Positive -> Positive
-succPositive None = Some 1## None
-succPositive (Some w ws) = if w `eqWord#` fullBound ()
-                           then Some 0## (succPositive ws)
-                           else Some (w `plusWord#` 1##) ws
+succPositive None = Some 1# None
+succPositive (Some w ws) = if w `eqWord_` fullBound ()
+                           then Some 0# (succPositive ws)
+                           else Some (w `plusWord_` 1#) ws
 
 -- Requires x > y
 -- In recursive calls, x >= y and x == y => result is None
 -- Note [Avoid patError]
 minusPositive :: Positive -> Positive -> Positive
 Some x xs `minusPositive` Some y ys
- = if x `eqWord#` y
+ = if x `eqWord_` y
    then case xs `minusPositive` ys of
         None -> None
         s -> Some 0## s
-   else if x `gtWord#` y then
-        Some (x `minusWord#` y) (xs `minusPositive` ys)
-   else case (fullBound () `minusWord#` y) `plusWord#` 1## of
+   else if x `gtWord_` y then
+        Some (x `minusWord_` y) (xs `minusPositive` ys)
+   else case (fullBound () `minusWord_` y) `plusWord_` 1# of
         z -> -- z = 2^n - y, calculated without overflow
-         case z `plusWord#` x of
+         case z `plusWord_` x of
          z' -> -- z = 2^n + (x - y), calculated without overflow
           Some z' ((xs `minusPositive` ys) `minusPositive` onePositive)
 xs@(Some {}) `minusPositive` None      = xs
@@ -648,10 +645,10 @@ xs@(Some x xs') `timesPositive` ys@(Some y ys')
        case ys' of
        None ->
            -- y is the last digit in a Positive number, so is not 0.
-           let zs = Some 0## (xs' `timesPositive` ys)
+           let zs = Some 0# (xs' `timesPositive` ys)
            in -- We could actually skip this test, and everything would
               -- turn out OK. We already play tricks like that in timesPositive.
-              if x `eqWord#` 0##
+              if x `eqWord_` 0#
               then zs
               else (x `timesDigit` y) `plusPositive` zs
        Some {} ->
@@ -676,21 +673,21 @@ timesDigit (!x) (!y)
    (# xh, xl #) ->
     case splitHalves y of
     (# yh, yl #) ->
-     case xh `timesWord#` yh of
+     case xh `timesWord_` yh of
      xhyh ->
-      case splitHalves (xh `timesWord#` yl) of
+      case splitHalves (xh `timesWord_` yl) of
       (# xhylh, xhyll #) ->
-       case xhyll `uncheckedShiftL#` highHalfShift () of
+       case xhyll `shiftL` highHalfShift () of
        xhyll' ->
-        case splitHalves (xl `timesWord#` yh) of
+        case splitHalves (xl `timesWord_` yh) of
         (# xlyhh, xlyhl #) ->
-         case xlyhl `uncheckedShiftL#` highHalfShift () of
+         case xlyhl `shiftL` highHalfShift () of
          xlyhl' ->
-          case xl `timesWord#` yl of
+          case xl `timesWord_` yl of
           xlyl ->
            -- Add up all the high word results. As the result fits in
            -- 4n bits this can't overflow.
-           case xhyh `plusWord#` xhylh `plusWord#` xlyhh of
+           case xhyh `plusWord_` xhylh `plusWord_` xlyhh of
            high ->
            -- low: xhyll<<n + xlyhl<<n + xlyl
             -- From this point we might make (Some 0 None), but we know
@@ -702,38 +699,38 @@ timesDigit (!x) (!y)
             let low = Some xhyll' None `plusPositive`
                       Some xlyhl' None `plusPositive`
                       Some xlyl   None
-            in if high `eqWord#` 0##
+            in if high `eqWord_` 0#
                then low
-               else Some 0## (Some high None) `plusPositive` low
+               else Some 0# (Some high None) `plusPositive` low
 
 splitHalves :: Digit -> (# {- High -} Digit, {- Low -} Digit #)
-splitHalves (!x) = (# x `uncheckedShiftRL#` highHalfShift (),
-                      x `and#` lowHalfMask () #)
+splitHalves (!x) = (# x `shiftR` highHalfShift (),
+                      x .&. lowHalfMask () #)
 
 -- Assumes 0 <= i
-shiftLPositive :: Positive -> Int# -> Positive
+shiftLPositive :: Positive -> Int_ -> Positive
 shiftLPositive p i
     = if i >=# WORD_SIZE_IN_BITS#
-      then shiftLPositive (Some 0## p) (i -# WORD_SIZE_IN_BITS#)
+      then shiftLPositive (Some 0# p) (i -# WORD_SIZE_IN_BITS#)
       else smallShiftLPositive p i
 
 -- Assumes 0 <= i < WORD_SIZE_IN_BITS#
-smallShiftLPositive :: Positive -> Int# -> Positive
+smallShiftLPositive :: Positive -> Int_ -> Positive
 smallShiftLPositive (!p) 0# = p
 smallShiftLPositive (!p) (!i) =
     case WORD_SIZE_IN_BITS# -# i of
-    j -> let f carry None = if carry `eqWord#` 0##
+    j -> let f carry None = if carry `eqWord_` 0#
                             then None
                             else Some carry None
-             f carry (Some w ws) = case w `uncheckedShiftRL#` j of
+             f carry (Some w ws) = case w `shiftR` j of
                                    carry' ->
-                                    case w `uncheckedShiftL#` i of
+                                    case w `shiftL` i of
                                     me ->
-                                     Some (me `or#` carry) (f carry' ws)
-         in f 0## p
+                                     Some (me .&. carry) (f carry' ws)
+         in f 0# p
 
 -- Assumes 0 <= i
-shiftRPositive :: Positive -> Int# -> Integer
+shiftRPositive :: Positive -> Int_ -> IntegerSimple
 shiftRPositive None _ = Naught
 shiftRPositive p@(Some _ q) i
     = if i >=# WORD_SIZE_IN_BITS#
@@ -741,7 +738,7 @@ shiftRPositive p@(Some _ q) i
       else smallShiftRPositive p i
 
 -- Assumes 0 <= i < WORD_SIZE_IN_BITS#
-smallShiftRPositive :: Positive -> Int# -> Integer
+smallShiftRPositive :: Positive -> Int_ -> IntegerSimple
 smallShiftRPositive (!p) (!i) =
     if i ==# 0#
     then Positive p
@@ -750,7 +747,7 @@ smallShiftRPositive (!p) (!i) =
          _                    -> Naught
 
 -- Long division
-quotRemPositive :: Positive -> Positive -> (# Integer, Integer #)
+quotRemPositive :: Positive -> Positive -> (# IntegerSimple, IntegerSimple #)
 (!xs) `quotRemPositive` (!ys)
     = case f xs of
       (# d, m #) -> (# digitsMaybeZeroToInteger d,
@@ -773,23 +770,23 @@ quotRemPositive :: Positive -> Positive -> (# Integer, Integer #)
                 (# ds, m #) ->
                     let -- We need to avoid making (Some Zero None) here
                         m' = some z m
-                    in case g 0## subtractors m' of
+                    in case g 0# subtractors m' of
                        (# d, m'' #) ->
                         (# some d ds, m'' #)
 
           g :: Digit -> Positives -> Digits -> (# Digit, Digits #)
           g (!d) Nil             (!m) = (# d, m #)
           g (!d) (Cons sub subs) (!m)
-              = case d `uncheckedShiftL#` 1# of
+              = case d `shiftL` 1# of
                 d' ->
                  case m `comparePositive` sub of
                  LT -> g d' subs m
-                 _  -> g (d' `plusWord#` 1##)
+                 _  -> g (d' `plusWord_` 1#)
                          subs
                          (m `minusPositive` sub)
 
 some :: Digit -> Digits -> Digits
-some (!w) None  = if w `eqWord#` 0## then None else Some w None
+some (!w) None  = if w `eqWord_` 0# then None else Some w None
 some (!w) (!ws) = Some w ws
 
 -- Note [Avoid patError]
@@ -797,7 +794,7 @@ andDigits :: Digits -> Digits -> Digits
 andDigits None          None          = None
 andDigits (Some {})     None          = None
 andDigits None          (Some {})     = None
-andDigits (Some w1 ws1) (Some w2 ws2) = Some (w1 `and#` w2) (andDigits ws1 ws2)
+andDigits (Some w1 ws1) (Some w2 ws2) = Some (w1 .&. w2) (andDigits ws1 ws2)
 
 -- DigitsOnes is just like Digits, only None is really 0xFFFFFFF...,
 -- i.e. ones off to infinity. This makes sense when we want to "and"
@@ -811,43 +808,43 @@ andDigitsOnes (DigitsOnes None)          None          = None
 andDigitsOnes (DigitsOnes None)          ws2@(Some {}) = ws2
 andDigitsOnes (DigitsOnes (Some {}))     None          = None
 andDigitsOnes (DigitsOnes (Some w1 ws1)) (Some w2 ws2)
-    = Some (w1 `and#` w2) (andDigitsOnes (DigitsOnes ws1) ws2)
+    = Some (w1 .&. w2) (andDigitsOnes (DigitsOnes ws1) ws2)
 
 -- Note [Avoid patError]
 orDigits :: Digits -> Digits -> Digits
 orDigits None          None          = None
 orDigits None          ds@(Some {})  = ds
 orDigits ds@(Some {})  None          = ds
-orDigits (Some w1 ds1) (Some w2 ds2) = Some (w1 `or#` w2) (orDigits ds1 ds2)
+orDigits (Some w1 ds1) (Some w2 ds2) = Some (w1 .|. w2) (orDigits ds1 ds2)
 
 -- Note [Avoid patError]
 xorDigits :: Digits -> Digits -> Digits
 xorDigits None          None          = None
 xorDigits None          ds@(Some {})  = ds
 xorDigits ds@(Some {})  None          = ds
-xorDigits (Some w1 ds1) (Some w2 ds2) = Some (w1 `xor#` w2) (xorDigits ds1 ds2)
+xorDigits (Some w1 ds1) (Some w2 ds2) = Some (w1 `xor` w2) (xorDigits ds1 ds2)
 
 -- XXX We'd really like word2Double# for this
-doubleFromPositive :: Positive -> Double#
-doubleFromPositive None = 0.0##
+doubleFromPositive :: Positive -> Float64_
+doubleFromPositive None = ( 0.0# )
 doubleFromPositive (Some w ds)
     = case splitHalves w of
       (# h, l #) ->
-       (doubleFromPositive ds *## (2.0## **## WORD_SIZE_IN_BITS.0##))
-       +## (int2Double# (word2Int# h) *##
-              (2.0## **## int2Double# (highHalfShift ())))
-       +## int2Double# (word2Int# l)
+       (doubleFromPositive ds * (( 2.0# ) ** ( WORD_SIZE_IN_BITS.0# )))
+       + (int2Double_ (word2Int_ h) *
+              (( 2.0# ) ** int2Double_ (highHalfShift ())))
+       + int2Double_ (word2Int_ l)
 
 -- XXX We'd really like word2Float# for this
-floatFromPositive :: Positive -> Float#
-floatFromPositive None = 0.0#
+floatFromPositive :: Positive -> Float_
+floatFromPositive None = ( 0.0# )
 floatFromPositive (Some w ds)
     = case splitHalves w of
       (# h, l #) ->
-       (floatFromPositive ds `timesFloat#` (2.0# `powerFloat#` WORD_SIZE_IN_BITS.0#))
-       `plusFloat#` (int2Float# (word2Int# h) `timesFloat#`
-             (2.0# `powerFloat#` int2Float# (highHalfShift ())))
-       `plusFloat#` int2Float# (word2Int# l)
+       (floatFromPositive ds `timesFloat` (( 2.0# ) `powerFloat` ( WORD_SIZE_IN_BITS.0# )))
+       `plusFloat` (int2Float (word2Int_ h) `timesFloat`
+             (( 2.0# ) `powerFloat` int2Float (highHalfShift ())))
+       `plusFloat` int2Float (word2Int_ l)
 
 #endif
 

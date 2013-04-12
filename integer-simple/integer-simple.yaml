@@ -1,0 +1,12 @@
+Name:           integer-simple
+Version:        0.1.1.0
+
+Build-Depends: [jhc-prim, jhc]
+Exposed-Modules:
+  - GHC.Integer
+  - GHC.Integer.Simple.Internals
+  - GHC.Integer.Logarithms
+  - GHC.Integer.Logarithms.Internals
+Hidden-Modules:
+  - GHC.Integer.Type
+Extensions: [CPP, MagicHash, BangPatterns, UnboxedTuples, ForeignFunctionInterface, UnliftedFFITypes, NoImplicitPrelude]
