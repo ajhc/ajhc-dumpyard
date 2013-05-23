@@ -1,0 +1,108 @@
+-- ajhc -fffi -fno-standalone --tdir=tmp -C -o hs_main.c Main.hs --ignore-cache -dcore -dcore-afterlift -dcore-beforelift -dcore-initial -dcore-mangled -dcore-mini -dcore-pass -dcore-steps -ddatatable -ddatatable-builtin -de-alias -de-info -de-verbose -doptimization-stats -drules -drules-spec -dgrin -dgrin-datalog -dgrin-final -dgrin-graph -dgrin-initial -dgrin-normalized -dgrin-posteval -dgrin-preeval -dsteps -dtags -dc
+-- ajhc 0.8.0.5 (31c207fd41d9a9dc1209453606db37818045d29c)
+
+
+[Arity 2 False,\\ArT,CLevel (Level 0),L,<2,[S,L]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]
+R@.fJhc.Basics.zipWith :: [CInt@(Int)] → [CInt@(Int)] → [CInt@(Int)]
+R@.fJhc.Basics.zipWith :: Πx91319560[S,Level 1,[],{}]∷[CInt@(Int)].
+                          Πx59774545[L,Level 1,[],{}]∷[CInt@(Int)].
+    [CInt@(Int)]
+R@.fJhc.Basics.zipWith = λx91319560[S,Level 1,[],{}]∷[CInt@(Int)].
+                         λx59774545[L,Level 1,[],{}]∷[CInt@(Int)].
+    case _x14767370[Level 1,[],{}]∷[CInt@(Int)] <- x91319560[S,Level 1,[],{}]∷[CInt@(Int)] of
+      (x20202870[Level 1,[],{}]∷CInt@(Int)):(x20[Level 1,[],{}]∷[CInt@(Int)]) →
+        case _x34108412[Level 1,[],{}]∷[CInt@(Int)] <- x59774545[L,Level 1,[],{}]∷[CInt@(Int)] of
+          (x97317566[Level 1,[],{}]∷CInt@(Int)):(x22[Level 1,[],{}]∷[CInt@(Int)]) →
+            let
+              x124030897[Arity 0 False,ArT,CLevel (Level 1),L,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷[CInt@(Int)] =
+                (R@.fJhc.Basics.zipWith[Arity 2 False,\\ArT,CLevel (Level 0),L,<2,[S,L]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷[CInt@(Int)] → [CInt@(Int)] → [CInt@(Int)]) (x20[Level 1,[],{}]∷[CInt@(Int)]) (x22[Level 1,[],{}]∷[CInt@(Int)]);
+              x114554580[Arity 0 False,ArT,CLevel (Level 1),L,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Word.Int(⊤)]∷CInt@(Int) =
+                (Fib.fibonacci$2[<2,[S,S]>,[],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλJhc.Type.Word.Int(⊤)]∷CInt@(Int) → CInt@(Int) → CInt@(Int)) (x20202870[Level 1,[],{}]∷CInt@(Int)) (x97317566[Level 1,[],{}]∷CInt@(Int));
+              in
+              (x114554580[Arity 0 False,ArT,CLevel (Level 1),L,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Word.Int(⊤)]∷CInt@(Int)):(x124030897[Arity 0 False,ArT,CLevel (Level 1),L,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷[CInt@(Int)]);
+          [] → [];∷[CInt@(Int)];
+      [] → [];∷[CInt@(Int)]
+
+[<2,[S,S]>,[],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλJhc.Type.Word.Int(⊤)]
+Fib.fibonacci$2 :: CInt@(Int) → CInt@(Int) → CInt@(Int)
+Fib.fibonacci$2 :: Πx19[S,Level 1,[],{}]∷CInt@(Int).
+                   Πx21[S,Level 1,[],{}]∷CInt@(Int).
+    CInt@(Int)
+Fib.fibonacci$2 = λx19[S,Level 1,[],{}]∷CInt@(Int).
+                  λx21[S,Level 1,[],{}]∷CInt@(Int).
+    case _x108042543[Level 1,[],{}]∷CInt@(Int) <- x19[S,Level 1,[],{}]∷CInt@(Int) of
+      Int (x57580220[Level 1,[],{}]∷bits32) →
+        case _x55473991[Level 1,[],{}]∷CInt@(Int) <- x21[S,Level 1,[],{}]∷CInt@(Int) of
+          Int (x57580222[Level 1,[],{}]∷bits32) →
+            case <(bits32)Add (x57580220[Level 1,[],{}]∷bits32) (x57580222[Level 1,[],{}]∷bits32)∷bits32> of
+              x62470113[Level 1,[],{}]∷bits32 →
+                Int (x62470113[Level 1,[],{}]∷bits32);∷CInt@(Int);∷CInt@(Int);∷CInt@(Int)
+
+[Arity 0 False,ArT,<0,[]>,Level 0,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},Jhc.Type.Word.Int(1):Jhc.Type.Word.Int(1):⊤]
+Fib.fibonacci :: [CInt@(Int)]
+Fib.fibonacci :: [CInt@(Int)]
+Fib.fibonacci = let
+      Fib.fl@x115626478$15[Arity 0 False,ArT,CLevel (Level 0),L,<0,[]>,Level 0,[_CYCLIC],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Word.Int(1):⊤]∷[CInt@(Int)] =
+        Int (1∷bits32):(Fib.fl@x17281689$76[Arity 0 False,ArT,CLevel (Level 0),L,<0,[]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},⊤]∷[CInt@(Int)]);
+      Fib.fl@x17281689$76[Arity 0 False,ArT,CLevel (Level 0),L,<0,[]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},⊤]∷[CInt@(Int)] =
+        (R@.fJhc.Basics.zipWith[Arity 2 False,\\ArT,CLevel (Level 0),L,<2,[S,L]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷[CInt@(Int)] → [CInt@(Int)] → [CInt@(Int)]) (Fib.fibonacci[Arity 0 False,ArT,<0,[]>,Level 0,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},Jhc.Type.Word.Int(1):Jhc.Type.Word.Int(1):⊤]∷[CInt@(Int)]) (Fib.fl@x115626478$15[Arity 0 False,ArT,CLevel (Level 0),L,<0,[]>,Level 0,[_CYCLIC],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Word.Int(1):⊤]∷[CInt@(Int)]);
+      in
+      Int (1∷bits32):(Fib.fl@x115626478$15[Arity 0 False,ArT,CLevel (Level 0),L,<0,[]>,Level 0,[_CYCLIC],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Word.Int(1):⊤]∷[CInt@(Int)])
+
+[Arity 2 False,\\ArT,<2,[L,L]>,FfiExport {ffiExportCName = "fib", ffiExportSafety = Safe, ffiExportCallConv = CCall, ffiExportArgTypes = [int], ffiExportRetType = int},Level 0,[],UseInfo {useOccurance = Many, minimumArgs = 0},λλ(#2#)(⊤,⊤)]
+FE@.CCall.fib :: bits32 → RealWorld_ → (# RealWorld_, bits32 #)
+FE@.CCall.fib :: Πx4[L,Level 1,[],{}]∷bits32.Πx5[L,Level 1,[],{}]∷RealWorld_.
+    (# RealWorld_, bits32 #)
+FE@.CCall.fib = λx4[L,Level 1,[],{}]∷bits32.λx5[L,Level 1,[],{}]∷RealWorld_.
+    case __[Level 1,[],{}]∷(# RealWorld_
+                           , CInt@(Int) #) <- case __[Level 1,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) <- <(bits16)BinOp Lte bits32 bits32 (0∷bits32) (x4[L,Level 1,[],{}]∷bits32)∷Jhc.Prim.Prim.Bool#@(bits16)> of
+        0∷Jhc.Prim.Prim.Bool#@(bits16) → (# x5[L,Level 1,[],{}]∷RealWorld_
+                                         , Int (0∷bits32) #);
+        1∷Jhc.Prim.Prim.Bool#@(bits16) →
+          case __[Level 1,[],{}]∷Bool_@(bits16) <- <(bits16)BinOp Gte bits32 bits32 (40∷bits32) (x4[L,Level 1,[],{}]∷bits32)∷Jhc.Prim.Prim.Bool#@(bits16)> of
+            True# →
+              case __[[],{}]∷Bool_@(bits16) <- <(bits16)BinOp Gt bits32 bits32 (0∷bits32) (x4[L,Level 1,[],{}]∷bits32)∷Jhc.Prim.Prim.Bool#@(bits16)> of
+                True# →
+                  <⊥:Prelude.error: Prelude.(!!): negative index∷(# RealWorld_
+                                                                 , CInt@(Int) #)>;
+                False# → let
+                    W@.fR@.fJhc.List.243_sub[Arity 2 False,\\ArT,S(S(S)),<2,[S,S]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷[CInt@(Int)] → bits32 → CInt@(Int) =
+                      λx57580219[S,[],{}]∷[CInt@(Int)].
+                      λx62470112[S,[],{}]∷bits32.
+                      case _x59774543[[],{}]∷[CInt@(Int)] <- x57580219[S,[],{}]∷[CInt@(Int)] of
+                        (x66[[],{}]∷CInt@(Int)):(x67[[],{}]∷[CInt@(Int)]) →
+                          case x62470112[S,[],{}]∷bits32 of
+                            0∷bits32 → x66[[],{}]∷CInt@(Int);
+                            x57580221[[],{}]∷bits32 →
+                              case <(bits32)Sub (x62470112[S,[],{}]∷bits32) (1∷bits32)∷bits32> of
+                                x89203822[[],{}]∷bits32 →
+                                  (W@.fR@.fJhc.List.243_sub[Arity 2 False,\\ArT,S(S(S)),<2,[S,S]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷[CInt@(Int)] → bits32 → CInt@(Int)) (x67[[],{}]∷[CInt@(Int)]) (x89203822[[],{}]∷bits32);∷CInt@(Int);∷CInt@(Int);
+                        [] →
+                          <⊥:Prelude.error: Prelude.(!!): index too large∷CInt@(Int)>;∷CInt@(Int);
+                    in
+                    case __[Arity 0 False,ArT,CLevel (Level 2),S,<0,[]>,Level 1,[],{},⊤]∷CInt@(Int) <- (W@.fR@.fJhc.List.243_sub[Arity 2 False,\\ArT,S(S(S)),<2,[S,S]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷[CInt@(Int)] → bits32 → CInt@(Int)) (Fib.fibonacci[Arity 0 False,ArT,<0,[]>,Level 0,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},Jhc.Type.Word.Int(1):Jhc.Type.Word.Int(1):⊤]∷[CInt@(Int)]) (x4[L,Level 1,[],{}]∷bits32) of
+                      Int (x57580223[]∷bits32) → let
+                          x62470114[Arity 0 False,ArT,CLevel (Level 2),S,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷CInt@(Int) =
+                            Int (x57580223[]∷bits32);
+                          in (# x5[L,Level 1,[],{}]∷RealWorld_
+                             , x62470114[Arity 0 False,ArT,CLevel (Level 2),S,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷CInt@(Int) #);∷(# RealWorld_
+                                                                                                                                                                    , CInt@(Int) #);∷(# RealWorld_
+                                                                                                                                                                                     , CInt@(Int) #);
+            False# → (# x5[L,Level 1,[],{}]∷RealWorld_
+                     , Int (0∷bits32) #);∷(# RealWorld_
+                                          , CInt@(Int) #);∷(# RealWorld_
+                                                           , CInt@(Int) #) of
+      (# x6[Level 1,[],{}]∷RealWorld_, x14767371[Level 1,[],{}]∷CInt@(Int) #) →
+        case _x62470115[Level 1,[],{}]∷CInt@(Int) <- x14767371[Level 1,[],{}]∷CInt@(Int) of
+          Int (x8[Level 1,[],{}]∷bits32) → (# x6[Level 1,[],{}]∷RealWorld_
+                                           , x8[Level 1,[],{}]∷bits32 #);∷(# RealWorld_
+                                                                          , bits32 #);∷(# RealWorld_
+                                                                                       , bits32 #)
+
+[Arity 1 False,\ArT,<1,[S]>,[_EXPORTED],UseInfo {useOccurance = Many, minimumArgs = 0},λ⊤]
+theMain :: RealWorld_ → RealWorld_
+theMain :: Πx1[S,[],{}]∷RealWorld_. RealWorld_
+theMain = λx1[S,[],{}]∷RealWorld_. x1[S,[],{}]∷RealWorld_
+MainEntry: theMain
+EntryPoints: FE@.CCall.fib theMain
+

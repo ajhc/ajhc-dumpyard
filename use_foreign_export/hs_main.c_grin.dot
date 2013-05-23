@@ -1,0 +1,9 @@
+digraph fgl {
+	0 [label = "b_main",shape = "box"]
+	1 [label = "fFib.fibonacci$2"]
+	2 [label = "ftheMain"]
+	3 [label = "fR@.fJhc.Basics.zipWith"]
+	4 [label = "fFib.fibonacci"]
+	5 [label = "fFE@.CCall.fib",color = "red",shape = "box"]
+	0 -> 2
+}

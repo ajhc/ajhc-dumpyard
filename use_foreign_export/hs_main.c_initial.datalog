@@ -1,0 +1,99 @@
+% ajhc -fffi -fno-standalone --tdir=tmp -C -o hs_main.c Main.hs --ignore-cache -dcore -dcore-afterlift -dcore-beforelift -dcore-initial -dcore-mangled -dcore-mini -dcore-pass -dcore-steps -ddatatable -ddatatable-builtin -de-alias -de-info -de-verbose -doptimization-stats -drules -drules-spec -dgrin -dgrin-datalog -dgrin-final -dgrin-graph -dgrin-initial -dgrin-normalized -dgrin-posteval -dgrin-preeval -dsteps -dtags -dc
+% ajhc 0.8.0.5 (31c207fd41d9a9dc1209453606db37818045d29c)
+
+
+% cafs
+what('v-1797535773','caf').
+typeof('v-1797535773',inode).
+% functions
+func('b_main',0).
+func('fFib.fibonacci$2',2).
+perform(assign,'v38','fFib.fibonacci$2@arg@0').
+what('fFib.fibonacci$2@arg@0',funarg).
+typeof('fFib.fibonacci$2@arg@0','I').
+typeof('v38','I').
+perform(assign,'v42','fFib.fibonacci$2@arg@1').
+what('fFib.fibonacci$2@arg@1',funarg).
+typeof('fFib.fibonacci$2@arg@1','I').
+typeof('v42','I').
+what('fFib.fibonacci$2@ret@0',funret).
+typeof('fFib.fibonacci$2@ret@0','N').
+perform(eval,'v100004','v38').
+unknown('v216085086','("assign",Right ?::I').
+perform(eval,'v100006','v42').
+unknown('v110947982','("assign",Right ?::I').
+perform(assign,'v124940226','v124940226').
+unknown('fFib.fibonacci$2@ret@0','("assign",?::N)').
+func('ftheMain',0).
+func('fR@.fJhc.Basics.zipWith',2).
+perform(assign,'v182639120','fR@.fJhc.Basics.zipWith@arg@0').
+what('fR@.fJhc.Basics.zipWith@arg@0',funarg).
+typeof('fR@.fJhc.Basics.zipWith@arg@0','I').
+typeof('v182639120','I').
+perform(assign,'v119549090','fR@.fJhc.Basics.zipWith@arg@1').
+what('fR@.fJhc.Basics.zipWith@arg@1',funarg).
+typeof('fR@.fJhc.Basics.zipWith@arg@1','I').
+typeof('v119549090','I').
+what('fR@.fJhc.Basics.zipWith@ret@0',funret).
+typeof('fR@.fJhc.Basics.zipWith@ret@0','N').
+perform(eval,'v100000','v182639120').
+unknown('v29534740','("assign",Right ?::I').
+unknown('v40','("assign",Right nd10').
+unknown('v40405740','("assign",Right nd10').
+perform(eval,'v100002','v119549090').
+unknown('v68216824','("assign",Right ?::I').
+unknown('v44','("assign",Right nd10').
+unknown('v194635132','("assign",Right nd10').
+unknown('v229109160','("assign",Right ?::I').
+unknown('v248061794','("assign",Right ?::I').
+unknown('fR@.fJhc.Basics.zipWith@ret@0','("assign",?::N)').
+unknown('fR@.fJhc.Basics.zipWith@ret@0','("assign",("CJhc.Prim.Prim.[]"))').
+unknown('fR@.fJhc.Basics.zipWith@ret@0','("assign",("CJhc.Prim.Prim.[]"))').
+func('fFib.fibonacci',0).
+what('fFib.fibonacci@ret@0',funret).
+typeof('fFib.fibonacci@ret@0','N').
+unknown('v1429610537','("assign",Right ?::I').
+unknown('v1','("assign",Right ?::N').
+unknown('v1396842539','("assign",Right ?::I').
+unknown('fFib.fibonacci@ret@0','("assign",?::N)').
+func('fFE@.CCall.fib',1).
+perform(assign,'v8','fFE@.CCall.fib@arg@0').
+what('fFE@.CCall.fib@arg@0',funarg).
+typeof('fFE@.CCall.fib@arg@0','bits32').
+typeof('v8','bits32').
+what('fFE@.CCall.fib@ret@0',funret).
+typeof('fFE@.CCall.fib@ret@0','bits32').
+unknown('v29534742','("assign",Right &("C').
+func('fW@.fR@.fJhc.List.243_sub',2).
+perform(assign,'v115160438','fW@.fR@.fJhc.List.243_sub@arg@0').
+what('fW@.fR@.fJhc.List.243_sub@arg@0',funarg).
+typeof('fW@.fR@.fJhc.List.243_sub@arg@0','I').
+typeof('v115160438','I').
+perform(assign,'v124940224','fW@.fR@.fJhc.List.243_sub@arg@1').
+what('fW@.fR@.fJhc.List.243_sub@arg@1',funarg).
+typeof('fW@.fR@.fJhc.List.243_sub@arg@1','bits32').
+typeof('v124940224','bits32').
+what('fW@.fR@.fJhc.List.243_sub@ret@0',funret).
+typeof('fW@.fR@.fJhc.List.243_sub@ret@0','N').
+perform(eval,'v100024','v115160438').
+unknown('v119549086','("assign",Right ?::I').
+unknown('v132','("assign",Right nd10').
+unknown('v134','("assign",Right nd10').
+perform(assign,'v115160442','v124940224').
+perform(eval,'fW@.fR@.fJhc.List.243_sub@ret@0','v132').
+perform(assign,'v115160442','v115160442').
+perform(assign,'v178407644','v178407644').
+perform(assign,'fW@.fR@.fJhc.List.243_sub@arg@0','v134').
+perform(assign,'fW@.fR@.fJhc.List.243_sub@arg@1','v178407644').
+perform(assign,'fW@.fR@.fJhc.List.243_sub@ret@0','fW@.fR@.fJhc.List.243_sub@ret@0').
+subfunc('fW@.fR@.fJhc.List.243_sub','fFE@.CCall.fib').
+perform(assign,'fW@.fR@.fJhc.List.243_sub@arg@0','v-1797535773').
+perform(assign,'fW@.fR@.fJhc.List.243_sub@arg@1','v8').
+perform(assign,'v100022','fW@.fR@.fJhc.List.243_sub@ret@0').
+unknown('v1','("assign",Right ?::N').
+unknown('v124940228','("assign",Right ?::I').
+perform(assign,'v29534742','v124940228').
+unknown('v29534742','("assign",Right &("C').
+perform(eval,'v100026','v29534742').
+unknown('v124940230','("assign",Right ?::I').
+perform(assign,'fFE@.CCall.fib@ret@0','v16').

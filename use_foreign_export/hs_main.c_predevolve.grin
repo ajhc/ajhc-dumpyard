@@ -1,0 +1,80 @@
+-- ajhc -fffi -fno-standalone --tdir=tmp -C -o hs_main.c Main.hs --ignore-cache -dcore -dcore-afterlift -dcore-beforelift -dcore-initial -dcore-mangled -dcore-mini -dcore-pass -dcore-steps -ddatatable -ddatatable-builtin -de-alias -de-info -de-verbose -doptimization-stats -drules -drules-spec -dgrin -dgrin-datalog -dgrin-final -dgrin-graph -dgrin-initial -dgrin-normalized -dgrin-posteval -dgrin-preeval -dsteps -dtags -dc
+-- ajhc 0.8.0.5 (31c207fd41d9a9dc1209453606db37818045d29c)
+
+
+-- Cafs
+v-1797535773 := (FFib.fibonacci)
+-- Functions
+b_main :: () -> ()
+b_main  = do
+  ftheMain 
+
+fFib.fibonacci$2 :: (I,I) -> (N)
+fFib.fibonacci$2 ni38 ni42 = do
+  nd100004 <- eval ni38
+  nd100006 <- eval ni42
+  (CJhc.Type.Word.Int w115160440) <- return nd100004
+  (CJhc.Type.Word.Int w115160444) <- return nd100006
+  w124940226 <- w115160440 + w115160444
+  dstore (CJhc.Type.Word.Int w124940226)
+
+ftheMain :: () -> ()
+ftheMain  = do
+  return ()
+
+fR@.fJhc.Basics.zipWith :: (I,I) -> (N)
+fR@.fJhc.Basics.zipWith ni182639120 ni119549090 = do
+  nd100000 <- eval ni182639120
+  case nd100000 of
+    (CJhc.Prim.Prim.: ni40405740 ni40) -> do
+      nd100002 <- eval ni119549090
+      case nd100002 of
+        (CJhc.Prim.Prim.: ni194635132 ni44) -> do
+          ni229109160 <- istore (FFib.fibonacci$2 ni40405740 ni194635132)
+          ni248061794 <- istore (FR@.fJhc.Basics.zipWith ni40 ni44)
+          dstore (CJhc.Prim.Prim.: ni229109160 ni248061794)
+        [] -> return []
+    [] -> return []
+
+fFib.fibonacci :: () -> (N)
+fFib.fibonacci  = do
+  ni1429610537 <- istore (FR@.fJhc.Basics.zipWith ?::I ?::I)
+  nd24 <- dstore (CJhc.Prim.Prim.: ?::I ?::I)
+  ni1396842539 <- demote nd24
+  overwrite ni1429610537 (FR@.fJhc.Basics.zipWith ni-1797535773 ni1396842539)
+  overwrite ni1396842539 (CJhc.Prim.Prim.: &(CJhc.Type.Word.Int 1) ni1429610537)
+  dstore (CJhc.Prim.Prim.: &(CJhc.Type.Word.Int 1) ni1396842539)
+
+fFE@.CCall.fib :: (bits32) -> (bits32)
+fFE@.CCall.fib w8 = do
+  h100016 <- 0 `Lte` w8
+  nd68 <- case h100016 of
+    0 -> return (CJhc.Type.Word.Int 0)
+    1 -> do
+      h100018 <- 40 `Gte` w8
+      case h100018 of
+        1 -> do
+          h100020 <- 0 `Gt` w8
+          w77 <- case h100020 of
+            1 -> error "Prelude.error: Prelude.(!!): negative index"
+            0 -> do
+              nd100022 <- let
+                  fW@.fR@.fJhc.List.243_sub ni115160438 w124940224 = do
+                    nd100024 <- eval ni115160438
+                    case nd100024 of
+                      (CJhc.Prim.Prim.: ni132 ni134) -> do
+                        case w124940224 of
+                          0 -> eval ni132
+                          w0 -> do
+                            w178407644 <- w124940224 - 1
+                            fW@.fR@.fJhc.List.243_sub ni134 w178407644
+                      [] -> error "Prelude.error: Prelude.(!!): index too large"
+               in
+                fW@.fR@.fJhc.List.243_sub ni-1797535773 w8
+              (CJhc.Type.Word.Int w115160446) <- return nd100022
+              return w115160446
+          dstore (CJhc.Type.Word.Int w77)
+        0 -> return (CJhc.Type.Word.Int 0)
+  (CJhc.Type.Word.Int w35) <- return nd68
+  return w35
+
