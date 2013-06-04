@@ -20,9 +20,10 @@ data ThreadId = ThreadId CPthreadT
 forkOS :: IO () -> IO Int
 forkOS f = do
   entry <- newStablePtr f
-  err <- c_forkOS_createThread $ unsafeCoerce entry
+  err <- c_forkOS_createThread entry
   when (err /= 0) $ fail "Cannot create OS thread."
   return err
 
 -- int forkOS_createThread(pthread_t *tid, void *entry);
-foreign import ccall "OSThreads.h forkOS_createThread" c_forkOS_createThread :: FunPtr (IO ()) -> IO Int
+foreign import ccall "OSThreads.h forkOS_createThread" c_forkOS_createThread ::
+  StablePtr (IO ()) -> IO Int
