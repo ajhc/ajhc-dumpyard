@@ -9,6 +9,7 @@ jhc-conc-pthread.hl: ${HLSRC}
 	ajhc --build-hl jhc-conc-pthread/jhc-conc-pthread.yaml -o $@
 
 clean:
+	rm -f jhc-conc-pthread.hl
 	rm -rf tmp
 
 .PHONY: clean
