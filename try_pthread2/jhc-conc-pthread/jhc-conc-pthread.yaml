@@ -1,0 +1,10 @@
+Name: jhc-conc-pthread
+Version: 1.0
+Extensions: [ ForeignFunctionInterface ]
+Hs-Source-Dir: .
+build-depends: [ jhc-prim, jhc, haskell-extras ]
+Options: [ --noauto ]
+Exposed-Modules:
+        - Jhc.Conc
+c-sources:         cbits/OSThreads.c
+include-sources:   include/OSThreads.h
