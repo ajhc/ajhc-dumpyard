@@ -1,3 +1,3 @@
 #include <pthread.h>
 
-int forkOS_createThread(void *entry);
+pthread_t forkOS_createThread(void *entry, int *err);

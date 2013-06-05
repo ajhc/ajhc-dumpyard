@@ -1,12 +1,12 @@
 #include "OSThreads.h"
 
-int
-forkOS_createThread(void *entry)
+pthread_t
+forkOS_createThread(void *entry, int *err)
 {
 	pthread_t tid;
-	int result = pthread_create(&tid, NULL, entry, NULL);
-	if (!result) {
+        *err = pthread_create(&tid, NULL, entry, NULL);
+	if (*err) {
 		pthread_detach(tid);
 	}
-	return result;
+	return tid;
 }
