@@ -1,6 +1,6 @@
 #include "OSThreads.h"
 
-pthread_t
+jhc_threadid_t
 forkOS_createThread(void *entry, int *err)
 {
 	pthread_t tid;

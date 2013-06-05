@@ -6,12 +6,11 @@ import Foreign.Marshal.Alloc
 import Control.Monad (when)
 
 {-- POSIX thread --}
-data {-# CTYPE "-lpthread pthread.h pthread_t" #-}      CPthreadT
-data {-# CTYPE "-lpthread pthread.h pthread_attr_t" #-} CPthreadAttrT
-data ThreadId = ThreadId CPthreadT
+data {-# CTYPE "-lpthread OSThreads.h jhc_threadid_t" #-} CthreadIdT
+data ThreadId = ThreadId CthreadIdT
 
 foreign import ccall "-lpthread OSThreads.h forkOS_createThread" forkOScreateThread ::
-  FunPtr (Ptr () -> IO (Ptr ())) -> Ptr Int -> IO CPthreadT
+  FunPtr (Ptr () -> IO (Ptr ())) -> Ptr Int -> IO CthreadIdT
 
 -- forkOS :: IO () -> IO Int
 forkOS :: FunPtr (Ptr () -> IO (Ptr ())) -> IO ThreadId

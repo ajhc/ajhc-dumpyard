@@ -3,6 +3,7 @@
 
 #include <pthread.h>
 
+typedef pthread_t jhc_threadid_t;
 typedef pthread_mutex_t jhc_mutex_t;
 
 #define jhc_mutex_init(M)	(void) pthread_mutex_init((M), NULL)
