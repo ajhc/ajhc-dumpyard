@@ -1,0 +1,33 @@
+digraph fgl {
+	0 [label = "fR@.fPrelude.IO.getLine"]
+	1 [label = "b_main",shape = "box"]
+	2 [label = "fPrelude.IO.putStrLn"]
+	3 [label = "fPrelude.IO.getChar",color = "red"]
+	4 [label = "fR@.fJhc.Basics.++"]
+	5 [label = "fJhc.Basics.++"]
+	6 [label = "fW@.fPrelude.Text.showLitChar$2"]
+	7 [label = "fW@.fPrelude.Text.showLitChar$4"]
+	8 [label = "fW@.fJhc.Inst.Show.showWord"]
+	9 [label = "fW@.fPrelude.Text.showLitChar$3"]
+	10 [label = "fW@.fR@.fJhc.List.243_sub",color = "red"]
+	11 [label = "fW@.fPrelude.Text.showLitChar$5",color = "red"]
+	12 [label = "fW@.fPrelude.Text.showLitChar"]
+	13 [label = "fPrelude.Text.30_showl"]
+	14 [label = "fInstance@.iJhc.Show.show.default"]
+	15 [label = "ftheMain$2"]
+	16 [label = "ftheMain"]
+	0 -> 0 [style = "dotted"]
+	0 -> 3 [style = "dotted"]
+	1 -> 16
+	5 -> 4
+	6 -> 5
+	7 -> 5
+	9 -> 8
+	11 -> 10
+	12 -> 5
+	13 -> 5
+	13 -> 12
+	15 -> 14 [style = "dotted"]
+	15 -> 2 [style = "dotted"]
+	16 -> 0 [style = "dotted"]
+}

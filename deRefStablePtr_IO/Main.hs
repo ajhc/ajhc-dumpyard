@@ -2,7 +2,8 @@ import Foreign.StablePtr
 
 main :: IO ()
 main = do
-  p <- newStablePtr $ print "hoge"
+  l <- getLine
+  p <- newStablePtr $ print l
   d <- deRefStablePtr p
-  d
+--  d
   return ()
