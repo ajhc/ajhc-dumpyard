@@ -1,21 +1,35 @@
 {-# LANGUAGE ForeignFunctionInterface #-}
 module Jhc.Conc (forkOS, ThreadId) where
 import Foreign.Ptr
+import Foreign.StablePtr
 import Foreign.Storable
 import Foreign.Marshal.Alloc
 import Control.Monad (when)
+import Jhc.Prim.Rts
 
-{-- POSIX thread --}
 data {-# CTYPE "-lpthread OSThreads.h jhc_threadid_t" #-} CthreadIdT
 data ThreadId = ThreadId CthreadIdT
 
 foreign import ccall "-lpthread OSThreads.h forkOS_createThread" forkOScreateThread ::
-  FunPtr (Ptr () -> IO (Ptr ())) -> Ptr Int -> IO CthreadIdT
+   FunPtr (Bang_ (StablePtr (IO ())) -> IO (Ptr ())) -> Bang_ a -> Ptr Int -> IO CthreadIdT
 
--- forkOS :: IO () -> IO Int
-forkOS :: FunPtr (Ptr () -> IO (Ptr ())) -> IO ThreadId
+forkOScreateThreadWrapper :: Bang_ (StablePtr (IO ())) -> IO (Ptr ())
+forkOScreateThreadWrapper b = do
+  let s = fromBang_ b
+  d <- deRefStablePtr s
+  d
+  freeStablePtr s
+  return nullPtr
+
+foreign export ccall "forkOScreateThreadWrapper" forkOScreateThreadWrapper ::
+  Bang_ (StablePtr (IO ())) -> IO (Ptr ())
+foreign import ccall "&forkOScreateThreadWrapper" p_forkOScreateThreadWrapper ::
+  FunPtr (Bang_ (StablePtr (IO ())) -> IO (Ptr ()))
+
+forkOS :: IO () -> IO ThreadId
 forkOS f = alloca $ \ip -> do
-  pth <- forkOScreateThread f ip
+  s <- newStablePtr f
+  pth <- forkOScreateThread p_forkOScreateThreadWrapper (toBang_ s) ip
   i <- peek ip
   when (i /= 0) $ fail "Cannot create OS thread."
   return $ ThreadId pth

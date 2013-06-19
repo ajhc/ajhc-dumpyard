@@ -10,6 +10,6 @@ typedef pthread_mutex_t jhc_mutex_t;
 #define jhc_mutex_lock(M)	pthread_mutex_lock((M))
 #define jhc_mutex_unlock(M)	pthread_mutex_unlock((M))
 
-pthread_t forkOS_createThread(void *entry, int *err);
+pthread_t forkOS_createThread(void *wrapper, void *entry, int *err);
 
 #endif /* _OS_THREADS_H */
