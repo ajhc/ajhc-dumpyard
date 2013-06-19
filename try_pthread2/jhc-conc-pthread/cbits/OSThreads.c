@@ -1,7 +1,17 @@
 #include "OSThreads.h"
 
+
+#if _JHC_CONC == _JHC_CONC_NONE
 jhc_threadid_t
-forkOS_createThread(void *wrapper, void *entry, int *err)
+forkOS_createThread(void *(*wrapper) (void *), void *entry, int *err)
+{
+	(*wrapper)(entry);
+	return 0; /* xxx */
+}
+
+#elif _JHC_CONC == _JHC_CONC_PTHREAD
+jhc_threadid_t
+forkOS_createThread(void *(*wrapper) (void *), void *entry, int *err)
 {
 	pthread_t tid;
         *err = pthread_create(&tid, NULL, wrapper, entry);
@@ -10,3 +20,9 @@ forkOS_createThread(void *wrapper, void *entry, int *err)
 	}
 	return tid;
 }
+
+#elif _JHC_CONC == _JHC_CONC_CUSTOM
+/* You should impl me at your side. */
+#else
+#error "You should choose _JHC_CONC."
+#endif /* _JHC_CONC == ??? */
