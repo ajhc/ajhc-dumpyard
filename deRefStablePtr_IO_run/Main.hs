@@ -10,11 +10,9 @@ runB :: StablePtr (IO ()) -> IO ()
 runB b = do
   io <- deRefStablePtr b
   io
-  return ()
 
 main :: IO ()
 main = do
   l <- getLine
   b <- iToB $ print l
   runB b
-  return ()
