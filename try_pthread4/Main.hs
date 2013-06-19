@@ -3,7 +3,7 @@ import Control.Concurrent
 
 main :: IO ()
 main = do
-  l <- getLine
+  l <- putStrLn "Type some string and enter." >> getLine
   forkOS $ (forever $ putChar '*')
   forkOS $ (forever $ putStr l)
   forever $ putChar '.'
