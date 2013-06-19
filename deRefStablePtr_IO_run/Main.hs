@@ -4,17 +4,17 @@ import Jhc.Prim.Rts
 iToB :: IO () -> IO (StablePtr (IO ()))
 iToB io = do
   s <- newStablePtr io
-  return $ s
+  return s
 
-runB :: StablePtr (IO ()) -> IO (IO ())
+runB :: StablePtr (IO ()) -> IO ()
 runB b = do
   io <- deRefStablePtr b
-  return io
+  io
+  return ()
 
 main :: IO ()
 main = do
   l <- getLine
   b <- iToB $ print l
-  io <- runB b
-  io
+  runB b
   return ()
