@@ -1,3 +1,4 @@
+#include <sys/time.h>
 #include <unistd.h>
 #include "jhc_rts_header.h"
 #include "rts/conc.h"
@@ -16,11 +17,21 @@ getTimingDelay()
 void *run_timingDelayDecrement(void *p)
 {
 	for (;;) {
-		sleep(1);
+#define MILLI_SEC(N)  ((N) * 1000)
+		usleep(MILLI_SEC(100));
 		timingDelayDecrement();
 	}
 	/* NOTREACHED */
 	return NULL;
+}
+
+uint64_t
+getTime()
+{
+	struct timeval time;
+	gettimeofday(&time, NULL);
+
+	return time.tv_sec;
 }
 
 int
