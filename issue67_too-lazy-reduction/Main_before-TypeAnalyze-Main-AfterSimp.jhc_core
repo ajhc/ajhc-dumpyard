@@ -1,0 +1,849 @@
+-- ajhc --tdir=./rtstdir -fdebug -o Main Main.hs --ignore-cache -dcore -dcore-afterlift -dcore-beforelift -dcore-initial -dcore-mangled -dcore-mini -dcore-pass -dcore-steps -ddatatable -ddatatable-builtin -de-alias -de-info -de-verbose -doptimization-stats -drules -drules-spec -dgrin -dgrin-datalog -dgrin-final -dgrin-graph -dgrin-initial -dgrin-normalized -dgrin-posteval -dgrin-preeval -dsteps -dtags -dc
+-- ajhc 0.8.0.11 (131db5216ddca9f096ff072395aa18e0d6939965)
+
+
+[Arity 1 False,\ArT,[_EXPORTED],UseInfo {useOccurance = Many, minimumArgs = 0}]
+theMain :: RealWorld_ → RealWorld_
+theMain :: Πx1[[],{}]∷RealWorld_. RealWorld_
+theMain = λx1[[],{}]∷RealWorld_.
+    let
+      x33166992[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String =
+        case Prelude.IO.10_getContents'[Arity 1 False,\ArT,<1,[L]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λ(#2#)(⊤,⊤)]∷IO@(Λx1.
+          ST@(Λx1.Λx2.
+          State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                            , x2[]∷* #)) RealWorld (x1[]∷*)) String of
+          x12501939[<0,[]>,[],{}]∷IO@(Λx1.
+            ST@(Λx1.Λx2.
+            State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                              , x2[]∷* #)) RealWorld (x1[]∷*)) String →
+            case _x97373675[[],{}]∷(# RealWorld_
+                                   , String #) <- (x12501939[<0,[]>,[],{}]∷IO@(Λx1.
+              ST@(Λx1.Λx2.
+              State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                , x2[]∷* #)) RealWorld (x1[]∷*)) String) (x1[[],{}]∷RealWorld_) of
+              (# x63876865[[],{}]∷RealWorld_, x117671573[[],{}]∷String #) →
+                x117671573[[],{}]∷String;∷String;∷String;
+      x84679225[Arity 0 False,ArT,CLevel (Level 1),L,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},(⊤,⊤,⊤)]∷(Integer
+                                                                                                                                  ,Integer
+                                                                                                                                  ,Bool) =
+        (W@.fData.List.610_lgo[Arity 4 False,\\\\ArT,L,<4,[L,L,L,S]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλλλ(⊤,⊤,⊤)]∷Integer → Integer → Bool → String → (Integer
+                                                                                                                                                                                                 ,Integer
+                                                                                                                                                                                                 ,Bool)) (Integer (0∷bits<max>)) (Integer (0∷bits<max>)) (Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16))) (x33166992[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String);
+      Prelude.IO.10_getContents'[Arity 1 False,\ArT,<1,[L]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λ(#2#)(⊤,⊤)]∷IO@(Λx1.
+        ST@(Λx1.Λx2.
+        State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                          , x2[]∷* #)) RealWorld (x1[]∷*)) String =
+        λx74347200[[],{}]∷RealWorld_.
+        case __[[],{}]∷(# RealWorld_
+                       , bits32 #) <- <(int)jhc_utf8_getchar() (x74347200[[],{}]∷RealWorld_)∷(# RealWorld_
+                                                                                             , bits32 #)> of
+          (# x54304725[[],{}]∷RealWorld_, x132301978[[],{}]∷bits32 #) →
+            case x132301978[[],{}]∷bits32 of
+              -1∷bits32 → (# x54304725[[],{}]∷RealWorld_, "" #);
+              x59774545[[],{}]∷bits32 →
+                case <(bits32)ConvOp B2B bits32 (x132301978[[],{}]∷bits32)∷Char_@(bits32)> of
+                  x24404011[[],{}]∷Char_@(bits32) → let
+                      x71173201[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤)]∷Char =
+                        Char (x24404011[[],{}]∷Char_@(bits32));
+                      x13475164[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String =
+                        case Prelude.IO.10_getContents'[Arity 1 False,\ArT,<1,[L]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λ(#2#)(⊤,⊤)]∷IO@(Λx1.
+                          ST@(Λx1.Λx2.
+                          State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                            , x2[]∷* #)) RealWorld (x1[]∷*)) String of
+                          x107942245[<0,[]>,[],{}]∷IO@(Λx1.
+                            ST@(Λx1.Λx2.
+                            State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                              , x2[]∷* #)) RealWorld (x1[]∷*)) String →
+                            case _x71556703[[],{}]∷(# RealWorld_
+                                                   , String #) <- (x107942245[<0,[]>,[],{}]∷IO@(Λx1.
+                              ST@(Λx1.Λx2.
+                              State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                                , x2[]∷* #)) RealWorld (x1[]∷*)) String) (x54304725[[],{}]∷RealWorld_) of
+                              (# x77210299[[],{}]∷RealWorld_
+                              , x38344749[[],{}]∷String #) →
+                                x38344749[[],{}]∷String;∷String;∷String;
+                      x111099996[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤):⊤]∷String =
+                        (x71173201[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤)]∷Char):(x13475164[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String);
+                      in (# x54304725[[],{}]∷RealWorld_
+                         , x111099996[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤):⊤]∷String #);∷(# RealWorld_
+                                                                                                                                                         , String #);∷(# RealWorld_
+                                                                                                                                                                      , String #);∷(# RealWorld_
+                                                                                                                                                                                   , String #);
+      W@.fData.List.610_lgo[Arity 4 False,\\\\ArT,L,<4,[L,L,L,S]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλλλ(⊤,⊤,⊤)]∷Integer → Integer → Bool → String → (Integer
+                                                                                                                                                                                              ,Integer
+                                                                                                                                                                                              ,Bool) =
+        λx57580220[L,[],{}]∷Integer.λx14687560[L,[],{}]∷Integer.
+        λx108042545[L,[],{}]∷Bool.λx55473994[S,Level 2,[],{}]∷String.
+        case _x22000340[Level 2,[],{}]∷String <- x55473994[S,Level 2,[],{}]∷String of
+          (x413[Level 2,[],{}]∷Char):(x414[Level 2,[],{}]∷String) → let
+              x107942246[Arity 0 False,ArT,S(S(S)LL),<0,[]>,Level 2,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},(⊤,⊤,⊤)]∷(Integer
+                                                                                                                                  ,Integer
+                                                                                                                                  ,Bool) =
+                (x57580220[L,[],{}]∷Integer
+                ,x14687560[L,[],{}]∷Integer
+                ,x108042545[L,[],{}]∷Bool);
+              in
+              case _x121239596[Level 2,[],{}]∷Integer <- x57580220[L,[],{}]∷Integer of
+                Integer (x57580221[Level 2,[],{}]∷bits<max>) →
+                  case _x58870204[Level 2,[],{}]∷Integer <- x14687560[L,[],{}]∷Integer of
+                    Integer (x55473993[Level 2,[],{}]∷bits<max>) →
+                      case _x77210300[Level 2,[],{}]∷Bool <- x108042545[L,[],{}]∷Bool of
+                        Bool# (x34108413[Level 2,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) →
+                          let
+                            R@.fMain.wwc[Arity 2 False,\\ArT,CLevel (Level 2),S(S(S)),<2,[S(S(S)LL),L]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ(⊤,⊤,Jhc.Prim.Prim.Bool#(⊤))]∷(Integer
+                                                                                                                                                                                                                   ,Integer
+                                                                                                                                                                                                                   ,Bool) → Char → (Integer
+                                                                                                                                                                                                                                   ,Integer
+                                                                                                                                                                                                                                   ,Bool) =
+                              λx54215764[S(S(S)LL),Level 3,[],{}]∷(Integer
+                                                                  ,Integer
+                                                                  ,Bool).
+                              λx133888606[L,Level 3,[],{}]∷Char.
+                              case _x110131606[Level 3,[],{}]∷(Integer
+                                                              ,Integer
+                                                              ,Bool) <- x54215764[S(S(S)LL),Level 3,[],{}]∷(Integer
+                                                                                                           ,Integer
+                                                                                                           ,Bool) of
+                                (x13[Level 3,[],{}]∷Integer
+                                ,x14[Level 3,[],{}]∷Integer
+                                ,x15[Level 3,[],{}]∷Bool) →
+                                  case _x128471746[[],{}]∷Integer <- x13[Level 3,[],{}]∷Integer of
+                                    Integer (x31235057[[],{}]∷bits<max>) →
+                                      case x31235057[[],{}]∷bits<max> of
+                                        0∷bits<max> →
+                                          case _x31235056[[],{}]∷Integer <- x14[Level 3,[],{}]∷Integer of
+                                            Integer (x130228734[[],{}]∷bits<max>) →
+                                              let
+                                                x20[Arity 1 False,\oArT,CLevel (Level 3),L,<1,[A]>,Level 3,[_JOINPOINT,_ONESHOT],UseInfo {useOccurance = ManyBranch, minimumArgs = 1},{},λ(⊤,⊤,Jhc.Prim.Prim.Bool#(⊤))]∷(#  #) → (Integer
+                                                                                                                                                                                                                                 ,Integer
+                                                                                                                                                                                                                                 ,Bool) =
+                                                  λ_[A,Level 4,[_ONESHOT],{}]∷(#  #).
+                                                  case x52776687[Level 4,[],{}]∷Char <- x133888606[L,Level 3,[],{}]∷Char of
+                                                    Char (x66063507[Level 4,[],{}]∷Char_@(bits32)) →
+                                                      case x66063507[Level 4,[],{}]∷Char_@(bits32) of
+                                                        '\n'# →
+                                                          case <(bits<max>)Add (1∷bits<max>) (x31235057[[],{}]∷bits<max>)∷bits<max>> of
+                                                            x128471745[[],{}]∷bits<max> →
+                                                              let
+                                                                x14109333[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer =
+                                                                  Integer (x128471745[[],{}]∷bits<max>);
+                                                                in
+                                                                (x14109333[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer
+                                                                ,x14[Level 3,[],{}]∷Integer
+                                                                ,Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16)));∷(Integer
+                                                                                                          ,Integer
+                                                                                                          ,Bool);
+                                                        x59360909[Level 4,[],{}]∷Char_@(bits32) →
+                                                          case _x119514817[Level 4,[],{}]∷Bool <- x15[Level 3,[],{}]∷Bool of
+                                                            Bool# (x17[Level 4,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) →
+                                                              case x17[Level 4,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) of
+                                                                0∷Jhc.Prim.Prim.Bool#@(bits16) →
+                                                                  case _x34108412[Level 4,[],{}]∷Bool_@(bits16) <- (W@.fSpec@.Jhc.List.217.fJhc.List.elem[Arity 2 False,\\ArT,<2,[L,S]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]∷Char → String → Jhc.Prim.Prim.Bool#@(bits16)) (x52776687[Level 4,[],{}]∷Char) " \t\n\r\f\v\160" of
+                                                                    True# →
+                                                                      (x13[Level 3,[],{}]∷Integer
+                                                                      ,x14[Level 3,[],{}]∷Integer
+                                                                      ,Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16)));
+                                                                    False# →
+                                                                      case <(bits<max>)Add (1∷bits<max>) (x130228734[[],{}]∷bits<max>)∷bits<max>> of
+                                                                        x107675458[[],{}]∷bits<max> →
+                                                                          let
+                                                                            x44908738[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer =
+                                                                              Integer (x107675458[[],{}]∷bits<max>);
+                                                                            in
+                                                                            (x13[Level 3,[],{}]∷Integer
+                                                                            ,x44908738[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer
+                                                                            ,Bool# (1∷Jhc.Prim.Prim.Bool#@(bits16)));∷(Integer
+                                                                                                                      ,Integer
+                                                                                                                      ,Bool);∷(Integer
+                                                                                                                              ,Integer
+                                                                                                                              ,Bool);
+                                                                x66339693[Level 4,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) →
+                                                                  case _x121079987[Level 4,[],{}]∷Bool_@(bits16) <- (W@.fSpec@.Jhc.List.217.fJhc.List.elem[Arity 2 False,\\ArT,<2,[L,S]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]∷Char → String → Jhc.Prim.Prim.Bool#@(bits16)) (x52776687[Level 4,[],{}]∷Char) " \t\n\r\f\v\160" of
+                                                                    True# →
+                                                                      (x13[Level 3,[],{}]∷Integer
+                                                                      ,x14[Level 3,[],{}]∷Integer
+                                                                      ,Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16)));
+                                                                    False# →
+                                                                      (x13[Level 3,[],{}]∷Integer
+                                                                      ,x14[Level 3,[],{}]∷Integer
+                                                                      ,Bool# (1∷Jhc.Prim.Prim.Bool#@(bits16)));∷(Integer
+                                                                                                                ,Integer
+                                                                                                                ,Bool);∷(Integer
+                                                                                                                        ,Integer
+                                                                                                                        ,Bool);∷(Integer
+                                                                                                                                ,Integer
+                                                                                                                                ,Bool);∷(Integer
+                                                                                                                                        ,Integer
+                                                                                                                                        ,Bool);∷(Integer
+                                                                                                                                                ,Integer
+                                                                                                                                                ,Bool);
+                                                in
+                                                case x130228734[[],{}]∷bits<max> of
+                                                  0∷bits<max> →
+                                                    case _x108650967[Level 3,[],{}]∷Bool <- x15[Level 3,[],{}]∷Bool of
+                                                      Bool# (x21[Level 3,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) →
+                                                        case x21[Level 3,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) of
+                                                          0∷Jhc.Prim.Prim.Bool#@(bits16) →
+                                                            (R@.fMain.wwc[Arity 2 False,\\ArT,CLevel (Level 2),S(S(S)),<2,[S(S(S)LL),L]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ(⊤,⊤,Jhc.Prim.Prim.Bool#(⊤))]∷(Integer
+                                                                                                                                                                                                                                                    ,Integer
+                                                                                                                                                                                                                                                    ,Bool) → Char → (Integer
+                                                                                                                                                                                                                                                                    ,Integer
+                                                                                                                                                                                                                                                                    ,Bool)) (Integer (1∷bits<max>)
+                                                                                                                                                                                                                                                                            ,Integer (0∷bits<max>)
+                                                                                                                                                                                                                                                                            ,Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16))) (x133888606[L,Level 3,[],{}]∷Char);
+                                                          x76740123[Level 3,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) →
+                                                            (x20[Arity 1 False,\oArT,CLevel (Level 3),L,<1,[A]>,Level 3,[_JOINPOINT,_ONESHOT],UseInfo {useOccurance = ManyBranch, minimumArgs = 1},{},λ(⊤,⊤,Jhc.Prim.Prim.Bool#(⊤))]∷(#  #) → (Integer
+                                                                                                                                                                                                                                              ,Integer
+                                                                                                                                                                                                                                              ,Bool)) (#  #);∷(Integer
+                                                                                                                                                                                                                                                              ,Integer
+                                                                                                                                                                                                                                                              ,Bool);∷(Integer
+                                                                                                                                                                                                                                                                      ,Integer
+                                                                                                                                                                                                                                                                      ,Bool);
+                                                  x29821311[[],{}]∷bits<max> →
+                                                    (x20[Arity 1 False,\oArT,CLevel (Level 3),L,<1,[A]>,Level 3,[_JOINPOINT,_ONESHOT],UseInfo {useOccurance = ManyBranch, minimumArgs = 1},{},λ(⊤,⊤,Jhc.Prim.Prim.Bool#(⊤))]∷(#  #) → (Integer
+                                                                                                                                                                                                                                      ,Integer
+                                                                                                                                                                                                                                      ,Bool)) (#  #);∷(Integer
+                                                                                                                                                                                                                                                      ,Integer
+                                                                                                                                                                                                                                                      ,Bool);∷(Integer
+                                                                                                                                                                                                                                                              ,Integer
+                                                                                                                                                                                                                                                              ,Bool);
+                                        x59774544[[],{}]∷bits<max> →
+                                          case x130228735[Level 4,[],{}]∷Char <- x133888606[L,Level 3,[],{}]∷Char of
+                                            Char (x130476103[Level 4,[],{}]∷Char_@(bits32)) →
+                                              case x130476103[Level 4,[],{}]∷Char_@(bits32) of
+                                                '\n'# →
+                                                  case <(bits<max>)Add (1∷bits<max>) (x31235057[[],{}]∷bits<max>)∷bits<max>> of
+                                                    x104811908[[],{}]∷bits<max> →
+                                                      let
+                                                        x11782561[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer =
+                                                          Integer (x104811908[[],{}]∷bits<max>);
+                                                        in
+                                                        (x11782561[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer
+                                                        ,x14[Level 3,[],{}]∷Integer
+                                                        ,Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16)));∷(Integer
+                                                                                                  ,Integer
+                                                                                                  ,Bool);
+                                                x36893216[Level 4,[],{}]∷Char_@(bits32) →
+                                                  case _x20202871[Level 4,[],{}]∷Bool <- x15[Level 3,[],{}]∷Bool of
+                                                    Bool# (x34108414[Level 4,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) →
+                                                      case x34108414[Level 4,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) of
+                                                        0∷Jhc.Prim.Prim.Bool#@(bits16) →
+                                                          case _x98167653[Level 4,[],{}]∷Bool_@(bits16) <- (W@.fSpec@.Jhc.List.217.fJhc.List.elem[Arity 2 False,\\ArT,<2,[L,S]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]∷Char → String → Jhc.Prim.Prim.Bool#@(bits16)) (x130228735[Level 4,[],{}]∷Char) " \t\n\r\f\v\160" of
+                                                            True# →
+                                                              (x13[Level 3,[],{}]∷Integer
+                                                              ,x14[Level 3,[],{}]∷Integer
+                                                              ,Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16)));
+                                                            False# → let
+                                                                x49083826[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer =
+                                                                  case _x5263908[[],{}]∷Integer <- x14[Level 3,[],{}]∷Integer of
+                                                                    Integer (x68624218[[],{}]∷bits<max>) →
+                                                                      case <(bits<max>)Add (1∷bits<max>) (x68624218[[],{}]∷bits<max>)∷bits<max>> of
+                                                                        x83084204[[],{}]∷bits<max> →
+                                                                          Integer (x83084204[[],{}]∷bits<max>);∷Integer;∷Integer;
+                                                                in
+                                                                (x13[Level 3,[],{}]∷Integer
+                                                                ,x49083826[Arity 0 False,ArT,CLevel (Level 4),L,<0,[]>,Level 3,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Integer(⊤)]∷Integer
+                                                                ,Bool# (1∷Jhc.Prim.Prim.Bool#@(bits16)));∷(Integer
+                                                                                                          ,Integer
+                                                                                                          ,Bool);
+                                                        x97317567[Level 4,[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) →
+                                                          case _x40050036[Level 4,[],{}]∷Bool_@(bits16) <- (W@.fSpec@.Jhc.List.217.fJhc.List.elem[Arity 2 False,\\ArT,<2,[L,S]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]∷Char → String → Jhc.Prim.Prim.Bool#@(bits16)) (x130228735[Level 4,[],{}]∷Char) " \t\n\r\f\v\160" of
+                                                            True# →
+                                                              (x13[Level 3,[],{}]∷Integer
+                                                              ,x14[Level 3,[],{}]∷Integer
+                                                              ,Bool# (0∷Jhc.Prim.Prim.Bool#@(bits16)));
+                                                            False# →
+                                                              (x13[Level 3,[],{}]∷Integer
+                                                              ,x14[Level 3,[],{}]∷Integer
+                                                              ,Bool# (1∷Jhc.Prim.Prim.Bool#@(bits16)));∷(Integer
+                                                                                                        ,Integer
+                                                                                                        ,Bool);∷(Integer
+                                                                                                                ,Integer
+                                                                                                                ,Bool);∷(Integer
+                                                                                                                        ,Integer
+                                                                                                                        ,Bool);∷(Integer
+                                                                                                                                ,Integer
+                                                                                                                                ,Bool);∷(Integer
+                                                                                                                                        ,Integer
+                                                                                                                                        ,Bool);∷(Integer
+                                                                                                                                                ,Integer
+                                                                                                                                                ,Bool);∷(Integer
+                                                                                                                                                        ,Integer
+                                                                                                                                                        ,Bool);∷(Integer
+                                                                                                                                                                ,Integer
+                                                                                                                                                                ,Bool);
+                            in
+                            case _Data.List.615_z'[<0,[]>,Level 2,[],{}]∷(Integer
+                                                                         ,Integer
+                                                                         ,Bool) <- (R@.fMain.wwc[Arity 2 False,\\ArT,CLevel (Level 2),S(S(S)),<2,[S(S(S)LL),L]>,Level 1,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ(⊤,⊤,Jhc.Prim.Prim.Bool#(⊤))]∷(Integer
+                                                                                                                                                                                                                                                                           ,Integer
+                                                                                                                                                                                                                                                                           ,Bool) → Char → (Integer
+                                                                                                                                                                                                                                                                                           ,Integer
+                                                                                                                                                                                                                                                                                           ,Bool)) (x107942246[Arity 0 False,ArT,S(S(S)LL),<0,[]>,Level 2,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},(⊤,⊤,⊤)]∷(Integer
+                                                                                                                                                                                                                                                                                                                                                                                                                        ,Integer
+                                                                                                                                                                                                                                                                                                                                                                                                                        ,Bool)) (x413[Level 2,[],{}]∷Char) of
+                              (x117755513[Level 2,[],{}]∷Integer
+                              ,x132223231[Level 2,[],{}]∷Integer
+                              ,x29575042[Level 2,[],{}]∷Bool) →
+                                (W@.fData.List.610_lgo[Arity 4 False,\\\\ArT,L,<4,[L,L,L,S]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλλλ(⊤,⊤,⊤)]∷Integer → Integer → Bool → String → (Integer
+                                                                                                                                                                                                                         ,Integer
+                                                                                                                                                                                                                         ,Bool)) (x117755513[Level 2,[],{}]∷Integer) (x132223231[Level 2,[],{}]∷Integer) (x29575042[Level 2,[],{}]∷Bool) (x414[Level 2,[],{}]∷String);∷(Integer
+                                                                                                                                                                                                                                                                                                                                                                       ,Integer
+                                                                                                                                                                                                                                                                                                                                                                       ,Bool);∷(Integer
+                                                                                                                                                                                                                                                                                                                                                                               ,Integer
+                                                                                                                                                                                                                                                                                                                                                                               ,Bool);∷(Integer
+                                                                                                                                                                                                                                                                                                                                                                                       ,Integer
+                                                                                                                                                                                                                                                                                                                                                                                       ,Bool);∷(Integer
+                                                                                                                                                                                                                                                                                                                                                                                               ,Integer
+                                                                                                                                                                                                                                                                                                                                                                                               ,Bool);
+          [] → (x57580220[L,[],{}]∷Integer
+               ,x14687560[L,[],{}]∷Integer
+               ,x108042545[L,[],{}]∷Bool);∷(Integer,Integer,Bool);
+      in
+      case (Jhc.Show.showsPrec[Arity 4 False,\\\\ArT,<0,[]>,[_CYCLIC,_METHOD,_HASRULE],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},λλλλ⊤]∷∀Jhc.Show.3_a.
+        Int → (Jhc.Show.3_a[[_SCRUTINIZED],{}]∷*) → String → String) (Integer
+                                                                     ,Integer
+                                                                     ,Bool) (Int (0∷bits32)) (x84679225[Arity 0 False,ArT,CLevel (Level 1),L,<0,[]>,Level 1,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},(⊤,⊤,⊤)]∷(Integer
+                                                                                                                                                                                                                          ,Integer
+                                                                                                                                                                                                                          ,Bool)) "" of
+        x34671952[<0,[]>,Level 1,[],{}]∷String → case _x7[[],{}]∷(# RealWorld_
+                                                                 , () #) <- (Prelude.IO.putStr[Arity 2 False,\\ArT,<1,[S]>,[_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λ⊤]∷String → IO@(Λx1.
+            ST@(Λx1.Λx2.
+            State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                              , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x34671952[<0,[]>,Level 1,[],{}]∷String) (x1[[],{}]∷RealWorld_) of
+            (# x40050035[[],{}]∷RealWorld_, x98167652[[],{}]∷() #) →
+              x40050035[[],{}]∷RealWorld_;∷RealWorld_;∷RealWorld_
+
+[Arity 4 False,\\\\ArT,<0,[]>,[_CYCLIC,_METHOD,_HASRULE],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},λλλλ⊤]
+Jhc.Show.showsPrec :: ∀Jhc.Show.3_a.
+    Int → (Jhc.Show.3_a[[_SCRUTINIZED],{}]∷*) → String → String
+Jhc.Show.showsPrec :: ∀Jhc.Show.3_a.Πx40128231[[],{}]∷Int.
+                      Πx37791836[[],{}]∷(Jhc.Show.3_a[[_SCRUTINIZED],{Jhc.Prim.Prim.Bool,Jhc.Prim.Prim.(,,)[(0,{Jhc.Type.Basic.Integer}),(1,{Jhc.Type.Basic.Integer}),(2,{Jhc.Prim.Prim.Bool})],Jhc.Type.Basic.Integer}]∷*).
+                      Πx51962566[[],{}]∷String.
+    String
+Jhc.Show.showsPrec = ΛJhc.Show.3_a.λx40128231[[],{}]∷Int.
+                     λx37791836[[],{}]∷(Jhc.Show.3_a[[_SCRUTINIZED],{Jhc.Prim.Prim.Bool,Jhc.Prim.Prim.(,,)[(0,{Jhc.Type.Basic.Integer}),(1,{Jhc.Type.Basic.Integer}),(2,{Jhc.Prim.Prim.Bool})],Jhc.Type.Basic.Integer}]∷*).
+                     λx51962566[[],{}]∷String.
+    case _x125986621[[_SCRUTINIZED],{}]∷* <- Jhc.Show.3_a[[_SCRUTINIZED],{Jhc.Prim.Prim.Bool,Jhc.Prim.Prim.(,,)[(0,{Jhc.Type.Basic.Integer}),(1,{Jhc.Type.Basic.Integer}),(2,{Jhc.Prim.Prim.Bool})],Jhc.Type.Basic.Integer}]∷* of
+      (x107408144[[_RULEBINDER],{Jhc.Type.Basic.Integer}]∷*
+      ,x107408145[[_RULEBINDER],{Jhc.Type.Basic.Integer}]∷*
+      ,x107408146[[_RULEBINDER],{Jhc.Prim.Prim.Bool}]∷*) →
+        case _x54477879[]∷* <- x107408144[[_RULEBINDER],{Jhc.Type.Basic.Integer}]∷* of
+          Integer →
+            case _x3[]∷* <- x107408145[[_RULEBINDER],{Jhc.Type.Basic.Integer}]∷* of
+              Integer →
+                case _x97254103[]∷* <- x107408146[[_RULEBINDER],{Jhc.Prim.Prim.Bool}]∷* of
+                  Bool → case _x59774547[[],{}]∷(Integer
+                                                ,Integer
+                                                ,Bool) <- x37791836[[],{}]∷(Jhc.Show.3_a[[_SCRUTINIZED],{Jhc.Prim.Prim.Bool,Jhc.Prim.Prim.(,,)[(0,{Jhc.Type.Basic.Integer}),(1,{Jhc.Type.Basic.Integer}),(2,{Jhc.Prim.Prim.Bool})],Jhc.Type.Basic.Integer}]∷*) of
+                      (x57580223[[],{}]∷Integer
+                      ,x62470114[[],{}]∷Integer
+                      ,x108042546[[],{}]∷Bool) →
+                        (W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,)[Arity 4 False,\\\\ArT,<7,[L,L,L,L,L,L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = Many, minimumArgs = 4},λλλλλλλJhc.Type.Basic.Char(40):⊤]∷Integer → Integer → Bool → String → String) (x57580223[[],{}]∷Integer) (x62470114[[],{}]∷Integer) (x108042546[[],{}]∷Bool) (x51962566[[],{}]∷String);∷String;∷String;∷String;∷String;
+      Bool →
+        case _x55473996[[],{}]∷Bool <- x37791836[[],{}]∷(Jhc.Show.3_a[[_SCRUTINIZED],{Jhc.Prim.Prim.Bool,Jhc.Prim.Prim.(,,)[(0,{Jhc.Type.Basic.Integer}),(1,{Jhc.Type.Basic.Integer}),(2,{Jhc.Prim.Prim.Bool})],Jhc.Type.Basic.Integer}]∷*) of
+          Bool# (x14767373[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) →
+            (W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool[Arity 2 False,\\ArT,<2,[S,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]∷Jhc.Prim.Prim.Bool#@(bits16) → String → String) (x14767373[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) (x51962566[[],{}]∷String);∷String;
+      Integer → case _x20202873[[],{}]∷Int <- x40128231[[],{}]∷Int of
+          Int (x34108417[[],{}]∷bits32) →
+            case _x97317568[[],{}]∷Integer <- x37791836[[],{}]∷(Jhc.Show.3_a[[_SCRUTINIZED],{Jhc.Prim.Prim.Bool,Jhc.Prim.Prim.(,,)[(0,{Jhc.Type.Basic.Integer}),(1,{Jhc.Type.Basic.Integer}),(2,{Jhc.Prim.Prim.Bool})],Jhc.Type.Basic.Integer}]∷*) of
+              Integer (x40050038[[],{}]∷bits<max>) →
+                (W@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer[Arity 3 False,\\\ArT,<3,[L,L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 3},λλλ⊤]∷bits32 → bits<max> → String → String) (x34108417[[],{}]∷bits32) (x40050038[[],{}]∷bits<max>) (x51962566[[],{}]∷String);∷String;∷String;∷String
+
+[Arity 3 False,\\\ArT,<3,[S,S,L]>,[_INSTANCE,_WRAPPER],UseInfo {useOccurance = Many, minimumArgs = 0},λλλ⊤]
+Instance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer :: Int → Integer → String → String
+Instance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer :: Πx26295196[[],{}]∷Int.
+                                                        Πx59757409[[],{}]∷Integer.
+                                                        Πx68119259[[],{}]∷String.
+    String
+Instance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer = λx26295196[[],{}]∷Int.
+                                                       λx59757409[[],{}]∷Integer.
+                                                       λx68119259[[],{}]∷String.
+    case _x837303[[],{}]∷Int <- x26295196[[],{}]∷Int of
+      Int (x80256462[[],{}]∷bits32) →
+        case _x49994402[[],{}]∷Integer <- x59757409[[],{}]∷Integer of
+          Integer (x20202870[[],{}]∷bits<max>) →
+            (W@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer[Arity 3 False,\\\ArT,<3,[L,L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 3},λλλ⊤]∷bits32 → bits<max> → String → String) (x80256462[[],{}]∷bits32) (x20202870[[],{}]∷bits<max>) (x68119259[[],{}]∷String);∷String;∷String
+
+[Arity 3 False,\\\ArT,<3,[L,L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 3},λλλ⊤]
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer :: bits32 → bits<max> → String → String
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer :: ΠX@.fJhc.Inst.Show.13_p@1[[],{}]∷bits32.
+                                                            ΠX@.fJhc.Inst.Show.14_x@1[[],{}]∷bits<max>.
+                                                            Πx14910656[[],{}]∷String.
+    String
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Type.Basic.Integer = λX@.fJhc.Inst.Show.13_p@1[[],{}]∷bits32.
+                                                           λX@.fJhc.Inst.Show.14_x@1[[],{}]∷bits<max>.
+                                                           λx14910656[[],{}]∷String.
+    case _x4421745[[],{}]∷Bool_@(bits16) <- <(bits16)BinOp Gt bits<max> bits<max> (0∷bits<max>) (X@.fJhc.Inst.Show.14_x@1[[],{}]∷bits<max>)∷Jhc.Prim.Prim.Bool#@(bits16)> of
+      True# → let
+          x8367093[Arity 1 False,\ArT,<1,[L]>,[],UseInfo {useOccurance = ManyBranch, minimumArgs = 1},{},λJhc.Type.Basic.Char(45):⊤]∷String → String =
+            λx24705436[[],{}]∷String.
+            case <(bits<max>)Neg (X@.fJhc.Inst.Show.14_x@1[[],{}]∷bits<max>)∷bits<max>> of
+              x303194[[],{}]∷bits<max> → let
+                  x95908442[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String =
+                    (W@.fJhc.Inst.Show.showWordMax[Arity 2 False,\\ArT,<2,[L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλJhc.Type.Basic.Char(⊤):⊤]∷bits<max> → String → String) (x303194[[],{}]∷bits<max>) (x24705436[[],{}]∷String);
+                  in
+                  '-':(x95908442[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String);∷String;
+          in
+          case _x65835294[[],{}]∷Bool_@(bits16) <- <(bits16)BinOp Lt bits32 bits32 (6∷bits32) (X@.fJhc.Inst.Show.13_p@1[[],{}]∷bits32)∷Jhc.Prim.Prim.Bool#@(bits16)> of
+            True# → let
+                x57647506[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(41):⊤]∷String =
+                  ')':(x14910656[[],{}]∷String);
+                x103802181[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(45):⊤]∷String =
+                  (x8367093[Arity 1 False,\ArT,<1,[L]>,[],UseInfo {useOccurance = ManyBranch, minimumArgs = 1},{},λJhc.Type.Basic.Char(45):⊤]∷String → String) (x57647506[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(41):⊤]∷String);
+                in
+                '(':(x103802181[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(45):⊤]∷String);
+            False# →
+              (x8367093[Arity 1 False,\ArT,<1,[L]>,[],UseInfo {useOccurance = ManyBranch, minimumArgs = 1},{},λJhc.Type.Basic.Char(45):⊤]∷String → String) (x14910656[[],{}]∷String);∷String;
+      False# →
+        (W@.fJhc.Inst.Show.showWordMax[Arity 2 False,\\ArT,<2,[L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλJhc.Type.Basic.Char(⊤):⊤]∷bits<max> → String → String) (X@.fJhc.Inst.Show.14_x@1[[],{}]∷bits<max>) (x14910656[[],{}]∷String);∷String
+
+[Arity 2 False,\\ArT,<1,[S]>,[_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λ⊤]
+Prelude.IO.putStr :: String → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*), x2[]∷* #)) RealWorld (x1[]∷*)) ()
+Prelude.IO.putStr :: ΠPrelude.IO.4_s[[],{}]∷String.Πx67685495[]∷RealWorld_.
+    (# RealWorld_, () #)
+Prelude.IO.putStr = λPrelude.IO.4_s[[],{}]∷String.λx67685495[]∷RealWorld_.
+    (Jhc.Monad.mapM_[Arity 3 False,\\\ArT,<5,[L,A,L,L,S]>,[_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 3},λλλλλ⊤]∷(Char → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) ()) → String → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (Prelude.IO.putChar[Arity 2 False,\\ArT,<2,[S,L]>,[_WRAPPER],UseInfo {useOccurance = Many, minimumArgs = 0},λλ(#2#)(⊤,Jhc.Prim.Prim.())]∷Char → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (Prelude.IO.4_s[[],{}]∷String) (x67685495[]∷RealWorld_)
+
+[Arity 3 False,\\\ArT,<5,[L,A,L,L,S]>,[_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 3},λλλλλ⊤]
+Jhc.Monad.mapM_ :: (Char → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) ()) → String → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*), x2[]∷* #)) RealWorld (x1[]∷*)) ()
+Jhc.Monad.mapM_ :: ΠJhc.Monad.70_f[[],{}]∷Char → IO@(Λx1.
+                   ST@(Λx1.Λx2.
+                   State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                     , x2[]∷* #)) RealWorld (x1[]∷*)) ().
+                   ΠJhc.Monad.71_as[[],{}]∷String.Πx59774546[]∷RealWorld_.
+    (# RealWorld_, () #)
+Jhc.Monad.mapM_ = λJhc.Monad.70_f[[],{}]∷Char → IO@(Λx1.
+                  ST@(Λx1.Λx2.
+                  State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                    , x2[]∷* #)) RealWorld (x1[]∷*)) ().
+                  λJhc.Monad.71_as[[],{}]∷String.λx59774546[]∷RealWorld_.
+    let
+      Jhc.Monad.af@25028[Arity 1 False,\ArT,<0,[]>,[],UseInfo {useOccurance = OnceInLam, minimumArgs = 0},{},⊤]∷IO@(Λx1.
+        ST@(Λx1.Λx2.
+        State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                          , x2[]∷* #)) RealWorld (x1[]∷*)) () =
+        λx91319561[]∷RealWorld_.
+        (Jhc.Monad.return[Arity 2 False,\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλ⊤]∷() → IO@(Λx1.
+        ST@(Λx1.Λx2.
+        State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                          , x2[]∷* #)) RealWorld (x1[]∷*)) ()) () (x91319561[]∷RealWorld_);
+      Jhc.Monad.72_go[Arity 1 False,\ArT,<1,[S]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λ⊤]∷String → IO@(Λx1.
+        ST@(Λx1.Λx2.
+        State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                          , x2[]∷* #)) RealWorld (x1[]∷*)) () =
+        λx5[[],{}]∷String.
+        case _x113990529[[],{}]∷String <- x5[[],{}]∷String of
+          (x6[[],{}]∷Char):(x114154020[[],{}]∷String) → let
+              x28828959[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷IO@(Λx1.
+                ST@(Λx1.Λx2.
+                State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                  , x2[]∷* #)) RealWorld (x1[]∷*)) () =
+                (Jhc.Monad.70_f[[],{}]∷Char → IO@(Λx1.
+                ST@(Λx1.Λx2.
+                State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                  , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x6[[],{}]∷Char);
+              x36107742[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷IO@(Λx1.
+                ST@(Λx1.Λx2.
+                State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                  , x2[]∷* #)) RealWorld (x1[]∷*)) () =
+                (Jhc.Monad.72_go[Arity 1 False,\ArT,<1,[S]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λ⊤]∷String → IO@(Λx1.
+                ST@(Λx1.Λx2.
+                State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                  , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x114154020[[],{}]∷String);
+              in λx59642622[]∷RealWorld_.
+              (Jhc.Monad.>>[Arity 3 False,\\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλλλ⊤]∷IO@(Λx1.
+              ST@(Λx1.Λx2.
+              State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                , x2[]∷* #)) RealWorld (x1[]∷*)) () → IO@(Λx1.
+              ST@(Λx1.Λx2.
+              State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                , x2[]∷* #)) RealWorld (x1[]∷*)) () → IO@(Λx1.
+              ST@(Λx1.Λx2.
+              State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x28828959[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷IO@(Λx1.
+              ST@(Λx1.Λx2.
+              State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x36107742[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷IO@(Λx1.
+              ST@(Λx1.Λx2.
+              State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x59642622[]∷RealWorld_);
+          [] →
+            Jhc.Monad.af@25028[Arity 1 False,\ArT,<0,[]>,[],UseInfo {useOccurance = OnceInLam, minimumArgs = 0},{},⊤]∷IO@(Λx1.
+            ST@(Λx1.Λx2.
+            State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                              , x2[]∷* #)) RealWorld (x1[]∷*)) ();∷IO@(Λx1.
+        ST@(Λx1.Λx2.
+        State_ (x1[]∷*) → (# State_ (x1[]∷*), x2[]∷* #)) RealWorld (x1[]∷*)) ();
+      in
+      (Jhc.Monad.72_go[Arity 1 False,\ArT,<1,[S]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λ⊤]∷String → IO@(Λx1.
+      ST@(Λx1.Λx2.
+      State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                        , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (Jhc.Monad.71_as[[],{}]∷String) (x59774546[]∷RealWorld_)
+
+[Arity 2 False,\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλ⊤]
+Jhc.Monad.return :: () → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*), x2[]∷* #)) RealWorld (x1[]∷*)) ()
+Jhc.Monad.return :: () → RealWorld_ → (# RealWorld_, () #)
+Jhc.Monad.return = Instance@.iJhc.Monad.return.Jhc.Prim.IO.IO[Arity 2 False,\\ArT,<3,[A,L,L]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλ(#2#)(⊤,⊤)]∷() → RealWorld_ → (# RealWorld_
+                                                                                                                                                                                          , () #)
+
+[Arity 2 False,\\ArT,<3,[A,L,L]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλ(#2#)(⊤,⊤)]
+Instance@.iJhc.Monad.return.Jhc.Prim.IO.IO :: () → RealWorld_ → (# RealWorld_
+                                                                , () #)
+Instance@.iJhc.Monad.return.Jhc.Prim.IO.IO :: ΠJhc.Monad.122_x[[],{}]∷().
+                                              Πx55473992[[],{}]∷RealWorld_.
+    (# RealWorld_, () #)
+Instance@.iJhc.Monad.return.Jhc.Prim.IO.IO = λJhc.Monad.122_x[[],{}]∷().
+                                             λx55473992[[],{}]∷RealWorld_.
+    (# x55473992[[],{}]∷RealWorld_, Jhc.Monad.122_x[[],{}]∷() #)
+
+[Arity 3 False,\\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλλλ⊤]
+Jhc.Monad.>> :: IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*), x2[]∷* #)) RealWorld (x1[]∷*)) ()
+Jhc.Monad.>> :: IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → RealWorld_ → (# RealWorld_
+                                                                         , () #)
+Jhc.Monad.>> = Instance@.iJhc.Monad.>>.Jhc.Prim.IO.IO[Arity 3 False,\\\ArT,<5,[A,A,S(S(LA)),S(S),L]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλλλ⊤]∷IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → RealWorld_ → (# RealWorld_
+                                                                         , () #)
+
+[Arity 3 False,\\\ArT,<5,[A,A,S(S(LA)),S(S),L]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλλλλ⊤]
+Instance@.iJhc.Monad.>>.Jhc.Prim.IO.IO :: IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                      , x2[]∷* #)) RealWorld (x1[]∷*)) () → RealWorld_ → (# RealWorld_
+                                                                         , () #)
+Instance@.iJhc.Monad.>>.Jhc.Prim.IO.IO :: ΠJhc.Monad.124_x[[],{}]∷IO@(Λx1.
+                                          ST@(Λx1.Λx2.
+                                          State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                                            , x2[]∷* #)) RealWorld (x1[]∷*)) ().
+                                          ΠJhc.Monad.125_y[[],{}]∷IO@(Λx1.
+                                          ST@(Λx1.Λx2.
+                                          State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                                            , x2[]∷* #)) RealWorld (x1[]∷*)) ().
+                                          Πx62470113[[],{}]∷RealWorld_.
+    (# RealWorld_, () #)
+Instance@.iJhc.Monad.>>.Jhc.Prim.IO.IO = λJhc.Monad.124_x[[],{}]∷IO@(Λx1.
+                                         ST@(Λx1.Λx2.
+                                         State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                                           , x2[]∷* #)) RealWorld (x1[]∷*)) ().
+                                         λJhc.Monad.125_y[[],{}]∷IO@(Λx1.
+                                         ST@(Λx1.Λx2.
+                                         State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                                                           , x2[]∷* #)) RealWorld (x1[]∷*)) ().
+                                         λx62470113[[],{}]∷RealWorld_.
+    case _x30917561[[],{}]∷(# RealWorld_
+                           , () #) <- (Jhc.Monad.124_x[[],{}]∷IO@(Λx1.
+      ST@(Λx1.Λx2.
+      State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                        , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x62470113[[],{}]∷RealWorld_) of
+      (# x132127015[[],{}]∷RealWorld_, x22362700[[],{}]∷() #) →
+        (Jhc.Monad.125_y[[],{}]∷IO@(Λx1.
+        ST@(Λx1.Λx2.
+        State_ (x1[]∷*) → (# State_ (x1[]∷*)
+                          , x2[]∷* #)) RealWorld (x1[]∷*)) ()) (x132127015[[],{}]∷RealWorld_);∷(# RealWorld_
+                                                                                               , () #)
+
+[Arity 3 False,\\\ArT,<6,[L,L,L,A,S,L]>,[_CYCLIC,_INSTANCE,_WRAPPER],UseInfo {useOccurance = Many, minimumArgs = 0},λλλλλλJhc.Type.Basic.Char(40):⊤]
+Instance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,) :: Int → (Integer
+                                                          ,Integer
+                                                          ,Bool) → String → String
+Instance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,) :: Πx2[[],{}]∷Int.
+                                                    Πx98167654[[],{}]∷(Integer
+                                                                      ,Integer
+                                                                      ,Bool).
+                                                    Πx76740125[[],{}]∷String.
+    String
+Instance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,) = λx2[[],{}]∷Int.
+                                                   λx98167654[[],{}]∷(Integer
+                                                                     ,Integer
+                                                                     ,Bool).
+                                                   λx76740125[[],{}]∷String.
+    case _x5263910[[],{}]∷(Integer,Integer,Bool) <- x98167654[[],{}]∷(Integer
+                                                                     ,Integer
+                                                                     ,Bool) of
+      (x68624220[[],{}]∷Integer
+      ,x126734477[[],{}]∷Integer
+      ,x110131608[[],{}]∷Bool) →
+        (W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,)[Arity 4 False,\\\\ArT,<7,[L,L,L,L,L,L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = Many, minimumArgs = 4},λλλλλλλJhc.Type.Basic.Char(40):⊤]∷Integer → Integer → Bool → String → String) (x68624220[[],{}]∷Integer) (x126734477[[],{}]∷Integer) (x110131608[[],{}]∷Bool) (x76740125[[],{}]∷String);∷String
+
+[Arity 4 False,\\\\ArT,<7,[L,L,L,L,L,L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = Many, minimumArgs = 4},λλλλλλλJhc.Type.Basic.Char(40):⊤]
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,) :: Integer → Integer → Bool → String → String
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,) :: ΠX@.fx3@1[[],{}]∷Integer.
+                                                        ΠX@.fx3@2[[],{}]∷Integer.
+                                                        ΠX@.fx3@3[[],{}]∷Bool.
+                                                        Πx108650966[[],{}]∷String.
+    String
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.(,,) = λX@.fx3@1[[],{}]∷Integer.
+                                                       λX@.fx3@2[[],{}]∷Integer.
+                                                       λX@.fx3@3[[],{}]∷Bool.
+                                                       λx108650966[[],{}]∷String.
+    let
+      x76740124[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(41):⊤]∷String =
+        ')':(x108650966[[],{}]∷String);
+      x5263909[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String =
+        (Jhc.Show.shows[Arity 3 False,\\\ArT,<3,[L,L,L]>,[_CYCLIC],UseInfo {useOccurance = Many, minimumArgs = 3},λλλ⊤]∷∀Jhc.Show.v43.
+        (Jhc.Show.v43[[_SCRUTINIZED],{}]∷*) → String → String) Bool (X@.fx3@3[[],{}]∷Bool) (x76740124[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(41):⊤]∷String);
+      x68624219[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(44):⊤]∷String =
+        ',':(x5263909[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String);
+      x126734478[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String =
+        (Jhc.Show.shows[Arity 3 False,\\\ArT,<3,[L,L,L]>,[_CYCLIC],UseInfo {useOccurance = Many, minimumArgs = 3},λλλ⊤]∷∀Jhc.Show.v43.
+        (Jhc.Show.v43[[_SCRUTINIZED],{}]∷*) → String → String) Integer (X@.fx3@2[[],{}]∷Integer) (x68624219[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(44):⊤]∷String);
+      x110131607[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(44):⊤]∷String =
+        ',':(x126734478[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String);
+      x104811907[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String =
+        (Jhc.Show.shows[Arity 3 False,\\\ArT,<3,[L,L,L]>,[_CYCLIC],UseInfo {useOccurance = Many, minimumArgs = 3},λλλ⊤]∷∀Jhc.Show.v43.
+        (Jhc.Show.v43[[_SCRUTINIZED],{}]∷*) → String → String) Integer (X@.fx3@1[[],{}]∷Integer) (x110131607[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(44):⊤]∷String);
+      in
+      '(':(x104811907[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String)
+
+[Arity 3 False,\\\ArT,<3,[A,S(S),L]>,[_INSTANCE,_WRAPPER],UseInfo {useOccurance = Many, minimumArgs = 0},λλλ⊤]
+Instance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool :: Int → Bool → String → String
+Instance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool :: Πx19[[],{}]∷Int.
+                                                    Πx110131609[[],{}]∷Bool.
+                                                    Πx104811909[[],{}]∷String.
+    String
+Instance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool = λx19[[],{}]∷Int.
+                                                   λx110131609[[],{}]∷Bool.
+                                                   λx104811909[[],{}]∷String.
+    case _x113990530[[],{}]∷Bool <- x110131609[[],{}]∷Bool of
+      Bool# (x52776688[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) →
+        (W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool[Arity 2 False,\\ArT,<2,[S,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]∷Jhc.Prim.Prim.Bool#@(bits16) → String → String) (x52776688[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16)) (x104811909[[],{}]∷String);∷String
+
+[Arity 2 False,\\ArT,<2,[S,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool :: Jhc.Prim.Prim.Bool#@(bits16) → String → String
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool :: ΠX@.fx20@1[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16).
+                                                        Πx126734479[[],{}]∷String.
+    String
+W@.fInstance@.iJhc.Show.showsPrec.Jhc.Prim.Prim.Bool = λX@.fx20@1[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16).
+                                                       λx126734479[[],{}]∷String.
+    case _x14767371[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) <- X@.fx20@1[[],{}]∷Jhc.Prim.Prim.Bool#@(bits16) of
+      0∷Jhc.Prim.Prim.Bool#@(bits16) →
+        (Jhc.Basics.++[Arity 2 False,\\ArT,<3,[A,S,L]>,[_CYCLIC,_HASRULE],UseInfo {useOccurance = Many, minimumArgs = 2},λλλ⊤]∷String → String → String) "False" (x126734479[[],{}]∷String);
+      1∷Jhc.Prim.Prim.Bool#@(bits16) →
+        (Jhc.Basics.++[Arity 2 False,\\ArT,<3,[A,S,L]>,[_CYCLIC,_HASRULE],UseInfo {useOccurance = Many, minimumArgs = 2},λλλ⊤]∷String → String → String) "True" (x126734479[[],{}]∷String);∷String
+
+[Arity 2 False,\\ArT,<2,[L,S]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλ⊤]
+W@.fSpec@.Jhc.List.217.fJhc.List.elem :: Char → String → Jhc.Prim.Prim.Bool#@(bits16)
+W@.fSpec@.Jhc.List.217.fJhc.List.elem :: Πx36[[],{}]∷Char.Πx37[[],{}]∷String.
+    Jhc.Prim.Prim.Bool#@(bits16)
+W@.fSpec@.Jhc.List.217.fJhc.List.elem = λx36[[],{}]∷Char.λx37[[],{}]∷String.
+    case _x30917560[[],{}]∷String <- x37[[],{}]∷String of
+      (x46[[],{}]∷Char):(x47[[],{}]∷String) →
+        case _x132127014[[],{}]∷Char <- x36[[],{}]∷Char of
+          Char (x22362699[[],{}]∷Char_@(bits32)) →
+            case _x91319560[[],{}]∷Char <- x46[[],{}]∷Char of
+              Char (x114154019[[],{}]∷Char_@(bits32)) →
+                case _x59642621[[],{}]∷Bool_@(bits16) <- <(bits16)BinOp Eq bits32 bits32 (x22362699[[],{}]∷Char_@(bits32)) (x114154019[[],{}]∷Char_@(bits32))∷Jhc.Prim.Prim.Bool#@(bits16)> of
+                  True# → 1∷Jhc.Prim.Prim.Bool#@(bits16);
+                  False# → let
+                      W@.fJhc.List.213_f[Arity 2 False,\\ArT,<2,[L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷Char_@(bits32) → String → Jhc.Prim.Prim.Bool#@(bits16) =
+                        λx98167655[[],{}]∷Char_@(bits32).
+                        λx76740126[[],{}]∷String.
+                        case _x22000339[[],{}]∷Bool_@(bits16) <- <(bits16)BinOp Eq bits32 bits32 (x22362699[[],{}]∷Char_@(bits32)) (x98167655[[],{}]∷Char_@(bits32))∷Jhc.Prim.Prim.Bool#@(bits16)> of
+                          True# → 1∷Jhc.Prim.Prim.Bool#@(bits16);
+                          False# →
+                            case _x5263911[[],{}]∷String <- x76740126[[],{}]∷String of
+                              (x43[[],{}]∷Char):(x44[[],{}]∷String) →
+                                case _x68624221[[],{}]∷Char <- x43[[],{}]∷Char of
+                                  Char (X@.fx40@1[[],{}]∷Char_@(bits32)) →
+                                    (W@.fJhc.List.213_f[Arity 2 False,\\ArT,<2,[L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷Char_@(bits32) → String → Jhc.Prim.Prim.Bool#@(bits16)) (X@.fx40@1[[],{}]∷Char_@(bits32)) (x44[[],{}]∷String);∷Jhc.Prim.Prim.Bool#@(bits16);
+                              [] →
+                                0∷Jhc.Prim.Prim.Bool#@(bits16);∷Jhc.Prim.Prim.Bool#@(bits16);∷Jhc.Prim.Prim.Bool#@(bits16);
+                      in
+                      (W@.fJhc.List.213_f[Arity 2 False,\\ArT,<2,[L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷Char_@(bits32) → String → Jhc.Prim.Prim.Bool#@(bits16)) (x114154019[[],{}]∷Char_@(bits32)) (x47[[],{}]∷String);∷Jhc.Prim.Prim.Bool#@(bits16);∷Jhc.Prim.Prim.Bool#@(bits16);∷Jhc.Prim.Prim.Bool#@(bits16);
+      [] → 0∷Jhc.Prim.Prim.Bool#@(bits16);∷Jhc.Prim.Prim.Bool#@(bits16)
+
+[Arity 2 False,\\ArT,<2,[L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλJhc.Type.Basic.Char(⊤):⊤]
+W@.fJhc.Inst.Show.showWordMax :: bits<max> → String → String
+W@.fJhc.Inst.Show.showWordMax :: ΠX@.fJhc.Inst.Show.49_w@1[[],{}]∷bits<max>.
+                                 ΠJhc.Inst.Show.50_rest[[],{}]∷String.
+    String
+W@.fJhc.Inst.Show.showWordMax = λX@.fJhc.Inst.Show.49_w@1[[],{}]∷bits<max>.
+                                λJhc.Inst.Show.50_rest[[],{}]∷String.
+    let
+      W@.fR@.fJhc.Inst.Show.showWordMax[Arity 2 False,\\ArT,<2,[L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλJhc.Type.Basic.Char(⊤):⊤]∷bits<max> → String → String =
+        λx20202872[[],{}]∷bits<max>.λx34108415[[],{}]∷String.
+        let
+          x108042544[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Word.WordMax(⊤)]∷WordMax =
+            WordMax (x20202872[[],{}]∷bits<max>);
+          in case __[[],{}]∷(# WordMax
+                            , WordMax #) <- (W@.fInstance@.iJhc.Class.Real.quotRem.default[Arity 2 False,\\ArT,<3,[L,L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλλ(#2#)(⊤,⊤)]∷WordMax → WordMax → (# WordMax
+                                                                                                                                                                                                                       , WordMax #)) (x108042544[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Word.WordMax(⊤)]∷WordMax) (WordMax (10∷bits<max>)) of
+            (# x97317566[[],{}]∷WordMax, x40050037[[],{}]∷WordMax #) →
+              case _x77025833[[],{}]∷WordMax <- x97317566[[],{}]∷WordMax of
+                WordMax (x96323737[[],{}]∷bits<max>) →
+                  case _x41850315[[],{}]∷WordMax <- x40050037[[],{}]∷WordMax of
+                    WordMax (x64921972[[],{}]∷bits<max>) →
+                      case <(bits32)ConvOp Lobits bits<max> (x64921972[[],{}]∷bits<max>)∷bits32> of
+                        x121079992[[],{}]∷bits32 →
+                          case <(bits32)Add (48∷bits32) (x121079992[[],{}]∷bits32)∷bits32> of
+                            x18748892[[],{}]∷bits32 →
+                              case <(bits32)ConvOp B2B bits32 (x18748892[[],{}]∷bits32)∷Char_@(bits32)> of
+                                x133752775[[],{}]∷Char_@(bits32) → let
+                                    x55673175[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤)]∷Char =
+                                      Char (x133752775[[],{}]∷Char_@(bits32));
+                                    in case x96323737[[],{}]∷bits<max> of
+                                      0∷bits<max> →
+                                        (x55673175[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤)]∷Char):(x34108415[[],{}]∷String);
+                                      x128138320[[],{}]∷bits<max> → let
+                                          Jhc.Inst.Show.53_rest'[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤):⊤]∷String =
+                                            (x55673175[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤)]∷Char):(x34108415[[],{}]∷String);
+                                          in
+                                          (W@.fR@.fJhc.Inst.Show.showWordMax[Arity 2 False,\\ArT,<2,[L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλJhc.Type.Basic.Char(⊤):⊤]∷bits<max> → String → String) (x96323737[[],{}]∷bits<max>) (Jhc.Inst.Show.53_rest'[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},Jhc.Type.Basic.Char(⊤):⊤]∷String);∷String;∷String;∷String;∷String;∷String;∷String;∷String;
+      in
+      (W@.fR@.fJhc.Inst.Show.showWordMax[Arity 2 False,\\ArT,<2,[L,L]>,[_CYCLIC,_WORKER],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλJhc.Type.Basic.Char(⊤):⊤]∷bits<max> → String → String) (X@.fJhc.Inst.Show.49_w@1[[],{}]∷bits<max>) (Jhc.Inst.Show.50_rest[[],{}]∷String)
+
+[Arity 2 False,\\ArT,<3,[L,L,L]>,[_WORKER],UseInfo {useOccurance = Many, minimumArgs = 2},λλλ(#2#)(⊤,⊤)]
+W@.fInstance@.iJhc.Class.Real.quotRem.default :: WordMax → WordMax → (# WordMax
+                                                                     , WordMax #)
+W@.fInstance@.iJhc.Class.Real.quotRem.default :: ΠJhc.Class.Real.67_n[[],{}]∷WordMax.
+                                                 ΠJhc.Class.Real.68_d[[],{}]∷WordMax.
+    (# WordMax, WordMax #)
+W@.fInstance@.iJhc.Class.Real.quotRem.default = λJhc.Class.Real.67_n[[],{}]∷WordMax.
+                                                λJhc.Class.Real.68_d[[],{}]∷WordMax.
+    let
+      x116304962[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷WordMax =
+        (Jhc.Class.Real.rem[Arity 2 False,\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλλ⊤]∷WordMax → WordMax → WordMax) (Jhc.Class.Real.67_n[[],{}]∷WordMax) (Jhc.Class.Real.68_d[[],{}]∷WordMax);
+      x116304961[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷WordMax =
+        (Jhc.Class.Real.quot[Arity 2 False,\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλλ⊤]∷WordMax → WordMax → WordMax) (Jhc.Class.Real.67_n[[],{}]∷WordMax) (Jhc.Class.Real.68_d[[],{}]∷WordMax);
+      in
+      (# x116304961[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷WordMax
+      , x116304962[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷WordMax #)
+
+[Arity 2 False,\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλλ⊤]
+Jhc.Class.Real.quot :: WordMax → WordMax → WordMax
+Jhc.Class.Real.quot :: WordMax → WordMax → WordMax
+Jhc.Class.Real.quot = Instance@.iJhc.Class.Real.quot.Jhc.Type.Word.WordMax[Arity 2 False,\\ArT,<0,[]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλJhc.Type.Word.WordMax(⊤)]∷WordMax → WordMax → WordMax
+
+[Arity 2 False,\\ArT,<0,[]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλJhc.Type.Word.WordMax(⊤)]
+Instance@.iJhc.Class.Real.quot.Jhc.Type.Word.WordMax :: WordMax → WordMax → WordMax
+Instance@.iJhc.Class.Real.quot.Jhc.Type.Word.WordMax :: Πx2548[[],{}]∷WordMax.
+                                                        Πx2549[[],{}]∷WordMax.
+    WordMax
+Instance@.iJhc.Class.Real.quot.Jhc.Type.Word.WordMax = λx2548[[],{}]∷WordMax.
+                                                       λx2549[[],{}]∷WordMax.
+    case _x34108416[[],{}]∷WordMax <- x2548[[],{}]∷WordMax of
+      WordMax (x41356728[[],{}]∷bits<max>) →
+        case _x97317570[[],{}]∷WordMax <- x2549[[],{}]∷WordMax of
+          WordMax (x60433265[[],{}]∷bits<max>) →
+            case <(bits<max>)UDiv (x41356728[[],{}]∷bits<max>) (x60433265[[],{}]∷bits<max>)∷bits<max>> of
+              x73551516[[],{}]∷bits<max> →
+                WordMax (x73551516[[],{}]∷bits<max>);∷WordMax;∷WordMax;∷WordMax
+
+[Arity 2 False,\\ArT,<0,[]>,[_METHOD,_HASRULE],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλλ⊤]
+Jhc.Class.Real.rem :: WordMax → WordMax → WordMax
+Jhc.Class.Real.rem :: WordMax → WordMax → WordMax
+Jhc.Class.Real.rem = Instance@.iJhc.Class.Real.rem.Jhc.Type.Word.WordMax[Arity 2 False,\\ArT,<0,[]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλJhc.Type.Word.WordMax(⊤)]∷WordMax → WordMax → WordMax
+
+[Arity 2 False,\\ArT,<0,[]>,[_INSTANCE],UseInfo {useOccurance = Many, minimumArgs = 0},λλJhc.Type.Word.WordMax(⊤)]
+Instance@.iJhc.Class.Real.rem.Jhc.Type.Word.WordMax :: WordMax → WordMax → WordMax
+Instance@.iJhc.Class.Real.rem.Jhc.Type.Word.WordMax :: Πx2553[[],{}]∷WordMax.
+                                                       Πx2554[[],{}]∷WordMax.
+    WordMax
+Instance@.iJhc.Class.Real.rem.Jhc.Type.Word.WordMax = λx2553[[],{}]∷WordMax.
+                                                      λx2554[[],{}]∷WordMax.
+    case _x14767375[[],{}]∷WordMax <- x2553[[],{}]∷WordMax of
+      WordMax (x72832041[[],{}]∷bits<max>) →
+        case _x20202875[[],{}]∷WordMax <- x2554[[],{}]∷WordMax of
+          WordMax (x101288682[[],{}]∷bits<max>) →
+            case <(bits<max>)UMod (x72832041[[],{}]∷bits<max>) (x101288682[[],{}]∷bits<max>)∷bits<max>> of
+              x3182948[[],{}]∷bits<max> →
+                WordMax (x3182948[[],{}]∷bits<max>);∷WordMax;∷WordMax;∷WordMax
+
+[Arity 3 False,\\\ArT,<3,[L,L,L]>,[_CYCLIC],UseInfo {useOccurance = Many, minimumArgs = 3},λλλ⊤]
+Jhc.Show.shows :: ∀Jhc.Show.v43.
+    (Jhc.Show.v43[[_SCRUTINIZED],{}]∷*) → String → String
+Jhc.Show.shows :: ∀Jhc.Show.v43.
+                  Πx55473995[[],{}]∷(Jhc.Show.v43[[],{Jhc.Prim.Prim.Bool,Jhc.Type.Basic.Integer}]∷*).
+                  Πx14767372[[],{}]∷String.
+    String
+Jhc.Show.shows = ΛJhc.Show.v43.
+                 λx55473995[[],{}]∷(Jhc.Show.v43[[],{Jhc.Prim.Prim.Bool,Jhc.Type.Basic.Integer}]∷*).
+                 λx14767372[[],{}]∷String.
+    (Jhc.Show.showsPrec[Arity 4 False,\\\\ArT,<0,[]>,[_CYCLIC,_METHOD,_HASRULE],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},λλλλ⊤]∷∀Jhc.Show.3_a.
+    Int → (Jhc.Show.3_a[[_SCRUTINIZED],{}]∷*) → String → String) (Jhc.Show.v43[[],{Jhc.Prim.Prim.Bool,Jhc.Type.Basic.Integer}]∷*) (Int (0∷bits32)) (x55473995[[],{}]∷(Jhc.Show.v43[[],{Jhc.Prim.Prim.Bool,Jhc.Type.Basic.Integer}]∷*)) (x14767372[[],{}]∷String)
+
+[Arity 2 False,\\ArT,<2,[S,L]>,[_WRAPPER],UseInfo {useOccurance = Many, minimumArgs = 0},λλ(#2#)(⊤,Jhc.Prim.Prim.())]
+Prelude.IO.putChar :: Char → IO@(Λx1.
+    ST@(Λx1.Λx2.
+    State_ (x1[]∷*) → (# State_ (x1[]∷*), x2[]∷* #)) RealWorld (x1[]∷*)) ()
+Prelude.IO.putChar :: Πx57580222[[],{}]∷Char.Πx57580219[[],{}]∷RealWorld_.
+    (# RealWorld_, () #)
+Prelude.IO.putChar = λx57580222[[],{}]∷Char.λx57580219[[],{}]∷RealWorld_.
+    case _x62470112[[],{}]∷Char <- x57580222[[],{}]∷Char of
+      Char (x108042543[[],{}]∷Char_@(bits32)) →
+        (W@.fPrelude.IO.putChar[Arity 2 False,\\ArT,<2,[L,L]>,[_WORKER],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλ(#2#)(⊤,Jhc.Prim.Prim.())]∷Char_@(bits32) → RealWorld_ → (# RealWorld_
+                                                                                                                                                                                       , () #)) (x108042543[[],{}]∷Char_@(bits32)) (x57580219[[],{}]∷RealWorld_);∷(# RealWorld_
+                                                                                                                                                                                                                                                                  , () #)
+
+[Arity 2 False,\\ArT,<2,[L,L]>,[_WORKER],UseInfo {useOccurance = OnceInLam, minimumArgs = 2},λλ(#2#)(⊤,Jhc.Prim.Prim.())]
+W@.fPrelude.IO.putChar :: Char_@(bits32) → RealWorld_ → (# RealWorld_, () #)
+W@.fPrelude.IO.putChar :: ΠX@.fPrelude.IO.30_c@1[[],{}]∷Char_@(bits32).
+                          Πx25935523[[],{}]∷RealWorld_.
+    (# RealWorld_, () #)
+W@.fPrelude.IO.putChar = λX@.fPrelude.IO.30_c@1[[],{}]∷Char_@(bits32).
+                         λx25935523[[],{}]∷RealWorld_.
+    case <(bits32)ConvOp B2B bits32 (X@.fPrelude.IO.30_c@1[[],{}]∷Char_@(bits32))∷bits32> of
+      x35620999[[],{}]∷bits32 →
+        case <(void)jhc_utf8_putchar(int) (x25935523[[],{}]∷RealWorld_) (x35620999[[],{}]∷bits32)∷RealWorld_> of
+          x132103626[[],{}]∷RealWorld_ → (# x132103626[[],{}]∷RealWorld_
+                                         , () #);∷(# RealWorld_
+                                                  , () #);∷(# RealWorld_, () #)
+
+[Arity 2 False,\\ArT,<3,[A,S,L]>,[_CYCLIC,_HASRULE],UseInfo {useOccurance = Many, minimumArgs = 2},λλλ⊤]
+Jhc.Basics.++ :: String → String → String
+Jhc.Basics.++ :: Πx66[[],{}]∷String.Πx67[[],{}]∷String. String
+Jhc.Basics.++ = λx66[[],{}]∷String.λx67[[],{}]∷String.
+    let
+      R@.fJhc.Basics.++[Arity 2 False,\\ArT,<2,[S,L]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷String → String → String =
+        λx55473991[[],{}]∷String.λx14767370[[],{}]∷String.
+        case _x59774543[[],{}]∷String <- x55473991[[],{}]∷String of
+          (x68[[],{}]∷Char):(x69[[],{}]∷String) → let
+              x94492427[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String =
+                (R@.fJhc.Basics.++[Arity 2 False,\\ArT,<2,[S,L]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷String → String → String) (x69[[],{}]∷String) (x14767370[[],{}]∷String);
+              in
+              (x68[[],{}]∷Char):(x94492427[Arity 0 False,ArT,<0,[]>,[],UseInfo {useOccurance = Many, minimumArgs = 0},{},⊤]∷String);
+          [] → x14767370[[],{}]∷String;∷String;
+      in
+      (R@.fJhc.Basics.++[Arity 2 False,\\ArT,<2,[S,L]>,[_CYCLIC],UseInfo {useOccurance = LoopBreaker, minimumArgs = 0},{},λλ⊤]∷String → String → String) (x66[[],{}]∷String) (x67[[],{}]∷String)
+MainEntry: theMain
+

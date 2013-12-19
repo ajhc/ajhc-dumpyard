@@ -1,0 +1,534 @@
+% ajhc --tdir=./rtstdir -fdebug -o Main Main.hs --ignore-cache -dcore -dcore-afterlift -dcore-beforelift -dcore-initial -dcore-mangled -dcore-mini -dcore-pass -dcore-steps -ddatatable -ddatatable-builtin -de-alias -de-info -de-verbose -doptimization-stats -drules -drules-spec -dgrin -dgrin-datalog -dgrin-final -dgrin-graph -dgrin-initial -dgrin-normalized -dgrin-posteval -dgrin-preeval -dsteps -dtags -dc
+% ajhc 0.8.0.11 (131db5216ddca9f096ff072395aa18e0d6939965)
+
+
+% functions
+func('b_main',0).
+func('fW@.fJhc.Inst.Show.showWordMax',2).
+perform(assign,'v405807667','fW@.fJhc.Inst.Show.showWordMax@arg@0').
+what('fW@.fJhc.Inst.Show.showWordMax@arg@0',funarg).
+typeof('fW@.fJhc.Inst.Show.showWordMax@arg@0','bits<max>').
+typeof('v405807667','bits<max>').
+perform(assign,'v2049319469','fW@.fJhc.Inst.Show.showWordMax@arg@1').
+what('fW@.fJhc.Inst.Show.showWordMax@arg@1',funarg).
+typeof('fW@.fJhc.Inst.Show.showWordMax@arg@1','N').
+typeof('v2049319469','N').
+what('fW@.fJhc.Inst.Show.showWordMax@ret@0',funret).
+typeof('fW@.fJhc.Inst.Show.showWordMax@ret@0','N').
+func('fW@.fR@.fJhc.Inst.Show.showWordMax',2).
+perform(assign,'v40405744','fW@.fR@.fJhc.Inst.Show.showWordMax@arg@0').
+what('fW@.fR@.fJhc.Inst.Show.showWordMax@arg@0',funarg).
+typeof('fW@.fR@.fJhc.Inst.Show.showWordMax@arg@0','bits<max>').
+typeof('v40405744','bits<max>').
+perform(assign,'v68216830','fW@.fR@.fJhc.Inst.Show.showWordMax@arg@1').
+what('fW@.fR@.fJhc.Inst.Show.showWordMax@arg@1',funarg).
+typeof('fW@.fR@.fJhc.Inst.Show.showWordMax@arg@1','N').
+typeof('v68216830','N').
+what('fW@.fR@.fJhc.Inst.Show.showWordMax@ret@0',funret).
+typeof('fW@.fR@.fJhc.Inst.Show.showWordMax@ret@0','N').
+unknown('v68217223','("assign",Right ?::I').
+unknown('v606','("assign",Right ?::N').
+unknown('v111346350','("assign",Right ?::I').
+unknown('fW@.fR@.fJhc.Inst.Show.showWordMax@ret@0','("assign",?::N)').
+perform(assign,'v0','v40405740').
+unknown('v14','("assign",Right ?::N').
+perform(assign,'fW@.fR@.fJhc.Inst.Show.showWordMax@arg@0','v40405740').
+perform(assign,'fW@.fR@.fJhc.Inst.Show.showWordMax@arg@1','v14').
+perform(assign,'fW@.fR@.fJhc.Inst.Show.showWordMax@ret@0','fW@.fR@.fJhc.Inst.Show.showWordMax@ret@0').
+subfunc('fW@.fR@.fJhc.Inst.Show.showWordMax','fW@.fJhc.Inst.Show.showWordMax').
+perform(assign,'fW@.fR@.fJhc.Inst.Show.showWordMax@arg@0','v405807667').
+perform(assign,'fW@.fR@.fJhc.Inst.Show.showWordMax@arg@1','v2049319469').
+perform(assign,'fW@.fJhc.Inst.Show.showWordMax@ret@0','fW@.fR@.fJhc.Inst.Show.showWordMax@ret@0').
+func('fW@.fSpec@.Jhc.List.217.fJhc.List.elem',2).
+perform(assign,'v72','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0').
+what('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0',funarg).
+typeof('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0','N').
+typeof('v72','N').
+perform(assign,'v254','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1').
+what('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1',funarg).
+typeof('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1','N').
+typeof('v254','N').
+what('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0',funret).
+typeof('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0','bits16').
+unknown('v458','("assign",Right nd25').
+unknown('v461','("assign",Right nd25').
+perform(eval,'v100074','v458').
+func('fW@.fJhc.List.213_f',2).
+perform(assign,'v196335310','fW@.fJhc.List.213_f@arg@0').
+what('fW@.fJhc.List.213_f@arg@0',funarg).
+typeof('fW@.fJhc.List.213_f@arg@0','bits32').
+typeof('v196335310','bits32').
+perform(assign,'v153480252','fW@.fJhc.List.213_f@arg@1').
+what('fW@.fJhc.List.213_f@arg@1',funarg).
+typeof('fW@.fJhc.List.213_f@arg@1','I').
+typeof('v153480252','I').
+what('fW@.fJhc.List.213_f@ret@0',funret).
+typeof('fW@.fJhc.List.213_f@ret@0','bits16').
+perform(eval,'v100080','v153480252').
+unknown('v465','("assign",Right nd10').
+unknown('v468','("assign",Right nd10').
+perform(eval,'v100082','v465').
+perform(assign,'fW@.fJhc.List.213_f@arg@0','v2026116629').
+perform(assign,'fW@.fJhc.List.213_f@arg@1','v468').
+perform(assign,'fW@.fJhc.List.213_f@ret@0','fW@.fJhc.List.213_f@ret@0').
+subfunc('fW@.fJhc.List.213_f','fW@.fSpec@.Jhc.List.217.fJhc.List.elem').
+perform(assign,'fW@.fJhc.List.213_f@arg@0','v228308038').
+perform(assign,'fW@.fJhc.List.213_f@arg@1','v461').
+perform(assign,'fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0','fW@.fJhc.List.213_f@ret@0').
+func('fR@.fJhc.Basics.++',2).
+perform(assign,'v110947982','fR@.fJhc.Basics.++@arg@0').
+what('fR@.fJhc.Basics.++@arg@0',funarg).
+typeof('fR@.fJhc.Basics.++@arg@0','I').
+typeof('v110947982','I').
+perform(assign,'v29534740','fR@.fJhc.Basics.++@arg@1').
+what('fR@.fJhc.Basics.++@arg@1',funarg).
+typeof('fR@.fJhc.Basics.++@arg@1','N').
+typeof('v29534740','N').
+what('fR@.fJhc.Basics.++@ret@0',funret).
+typeof('fR@.fJhc.Basics.++@ret@0','N').
+perform(eval,'v100000','v110947982').
+unknown('v136','("assign",Right nd10').
+unknown('v315','("assign",Right nd10').
+unknown('v188984854','("assign",Right ?::I').
+unknown('fR@.fJhc.Basics.++@ret@0','("assign",?::N)').
+perform(assign,'fR@.fJhc.Basics.++@ret@0','v29534740').
+func('fJhc.Basics.++',2).
+perform(assign,'v476','fJhc.Basics.++@arg@0').
+what('fJhc.Basics.++@arg@0',funarg).
+typeof('fJhc.Basics.++@arg@0','N').
+typeof('v476','N').
+perform(assign,'v134','fJhc.Basics.++@arg@1').
+what('fJhc.Basics.++@arg@1',funarg).
+typeof('fJhc.Basics.++@arg@1','N').
+typeof('v134','N').
+what('fJhc.Basics.++@ret@0',funret).
+typeof('fJhc.Basics.++@ret@0','N').
+unknown('v478','("assign",Right ?::I').
+perform(assign,'fR@.fJhc.Basics.++@arg@0','v478').
+perform(assign,'fR@.fJhc.Basics.++@arg@1','v134').
+perform(assign,'fJhc.Basics.++@ret@0','fR@.fJhc.Basics.++@ret@0').
+func('fJhc.Show.showsPrec$2',2).
+perform(assign,'v80100076','fJhc.Show.showsPrec$2@arg@0').
+what('fJhc.Show.showsPrec$2@arg@0',funarg).
+typeof('fJhc.Show.showsPrec$2@arg@0','bits<max>').
+typeof('v80100076','bits<max>').
+perform(assign,'v49410872','fJhc.Show.showsPrec$2@arg@1').
+what('fJhc.Show.showsPrec$2@arg@1',funarg).
+typeof('fJhc.Show.showsPrec$2@arg@1','N').
+typeof('v49410872','N').
+what('fJhc.Show.showsPrec$2@ret@0',funret).
+typeof('fJhc.Show.showsPrec$2@ret@0','N').
+unknown('v191816884','("assign",Right ?::I').
+unknown('fJhc.Show.showsPrec$2@ret@0','("assign",?::N)').
+func('fJhc.Show.showsPrec',4).
+perform(assign,'v1832649755','fJhc.Show.showsPrec@arg@0').
+what('fJhc.Show.showsPrec@arg@0',funarg).
+typeof('fJhc.Show.showsPrec@arg@0','N').
+typeof('v1832649755','N').
+perform(assign,'v80256462','fJhc.Show.showsPrec@arg@1').
+what('fJhc.Show.showsPrec@arg@1',funarg).
+typeof('fJhc.Show.showsPrec@arg@1','N').
+typeof('v80256462','N').
+perform(assign,'v75583672','fJhc.Show.showsPrec@arg@2').
+what('fJhc.Show.showsPrec@arg@2',funarg).
+typeof('fJhc.Show.showsPrec@arg@2','I').
+typeof('v75583672','I').
+perform(assign,'v103925132','fJhc.Show.showsPrec@arg@3').
+what('fJhc.Show.showsPrec@arg@3',funarg).
+typeof('fJhc.Show.showsPrec@arg@3','N').
+typeof('v103925132','N').
+what('fJhc.Show.showsPrec@ret@0',funret).
+typeof('fJhc.Show.showsPrec@ret@0','N').
+unknown('v103925412','("assign",Right ?::I').
+unknown('v0','("assign",Right nd18').
+perform(eval,'v100010','v75583672').
+unknown('v115160446','("assign",Right nd10').
+unknown('v124940228','("assign",Right nd10').
+unknown('v216085092','("assign",Right nd10').
+unknown('v352','("assign",Right ?::N').
+unknown('v10527818','("assign",Right ?::I').
+unknown('v67','("assign",Right ?::N').
+unknown('v253468956','("assign",Right ?::I').
+unknown('v372','("assign",Right ?::N').
+unknown('v209623814','("assign",Right ?::I').
+unknown('fJhc.Show.showsPrec@ret@0','("assign",?::N)').
+perform(eval,'v100012','v75583672').
+unknown('v444','("assign",Right &("C').
+perform(assign,'v314','v103925412').
+unknown('v444','("assign",Right &("C').
+perform(assign,'v314','v103925412').
+unknown('v631','("assign",Right ?::N').
+unknown('v318','("assign",Right ?::N').
+perform(assign,'fJhc.Basics.++@arg@0','v631').
+perform(assign,'fJhc.Basics.++@arg@1','v318').
+perform(assign,'fJhc.Show.showsPrec@ret@0','fJhc.Basics.++@ret@0').
+perform(eval,'v100016','v75583672').
+unknown('v407','("assign",Right ?::N').
+perform(assign,'fJhc.Show.showsPrec$2@arg@0','v73786432').
+perform(assign,'fJhc.Show.showsPrec$2@arg@1','v407').
+perform(assign,'v657','fJhc.Show.showsPrec$2@ret@0').
+unknown('v207604362','("assign",Right ?::I').
+unknown('fJhc.Show.showsPrec@ret@0','("assign",?::N)').
+perform(assign,'fJhc.Show.showsPrec$2@arg@0','v73786432').
+perform(assign,'fJhc.Show.showsPrec$2@arg@1','v103925132').
+perform(assign,'fJhc.Show.showsPrec@ret@0','fJhc.Show.showsPrec$2@ret@0').
+perform(assign,'fW@.fJhc.Inst.Show.showWordMax@arg@0','v73786432').
+perform(assign,'fW@.fJhc.Inst.Show.showWordMax@arg@1','v103925132').
+perform(assign,'fJhc.Show.showsPrec@ret@0','fW@.fJhc.Inst.Show.showWordMax@ret@0').
+func('fJhc.Show.shows',3).
+perform(assign,'v1830945819','fJhc.Show.shows@arg@0').
+what('fJhc.Show.shows@arg@0',funarg).
+typeof('fJhc.Show.shows@arg@0','N').
+typeof('v1830945819','N').
+perform(assign,'v110947990','fJhc.Show.shows@arg@1').
+what('fJhc.Show.shows@arg@1',funarg).
+typeof('fJhc.Show.shows@arg@1','I').
+typeof('v110947990','I').
+perform(assign,'v29534744','fJhc.Show.shows@arg@2').
+what('fJhc.Show.shows@arg@2',funarg).
+typeof('fJhc.Show.shows@arg@2','N').
+typeof('v29534744','N').
+what('fJhc.Show.shows@ret@0',funret).
+typeof('fJhc.Show.shows@ret@0','N').
+perform(assign,'fJhc.Show.showsPrec@arg@0','v1830945819').
+unknown('fJhc.Show.showsPrec@arg@1','("assign",("CJhc.Type.Word.Int" 0))').
+perform(assign,'fJhc.Show.showsPrec@arg@2','v110947990').
+perform(assign,'fJhc.Show.showsPrec@arg@3','v29534744').
+perform(assign,'fJhc.Show.shows@ret@0','fJhc.Show.showsPrec@ret@0').
+func('ftheMain$4',1).
+perform(assign,'v29375122','ftheMain$4@arg@0').
+what('ftheMain$4@arg@0',funarg).
+typeof('ftheMain$4@arg@0','N').
+typeof('v29375122','N').
+what('ftheMain$4@ret@0',funret).
+typeof('ftheMain$4@ret@0','N').
+unknown('ftheMain$4@ret@0','("assign",?::N)').
+func('fW@.fR@.fMain.wwc',4).
+perform(assign,'v135370992','fW@.fR@.fMain.wwc@arg@0').
+what('fW@.fR@.fMain.wwc@arg@0',funarg).
+typeof('fW@.fR@.fMain.wwc@arg@0','bits<max>').
+typeof('v135370992','bits<max>').
+perform(assign,'v220263212','fW@.fR@.fMain.wwc@arg@1').
+what('fW@.fR@.fMain.wwc@arg@1',funarg).
+typeof('fW@.fR@.fMain.wwc@arg@1','N').
+typeof('v220263212','N').
+perform(assign,'v44000682','fW@.fR@.fMain.wwc@arg@2').
+what('fW@.fR@.fMain.wwc@arg@2',funarg).
+typeof('fW@.fR@.fMain.wwc@arg@2','N').
+typeof('v44000682','N').
+perform(assign,'v215884494','fW@.fR@.fMain.wwc@arg@3').
+what('fW@.fR@.fMain.wwc@arg@3',funarg).
+typeof('fW@.fR@.fMain.wwc@arg@3','I').
+typeof('v215884494','I').
+what('fW@.fR@.fMain.wwc@ret@0',funret).
+what('fW@.fR@.fMain.wwc@ret@1',funret).
+what('fW@.fR@.fMain.wwc@ret@2',funret).
+typeof('fW@.fR@.fMain.wwc@ret@0','N').
+typeof('fW@.fR@.fMain.wwc@ret@1','I').
+typeof('fW@.fR@.fMain.wwc@ret@2','N').
+func('bRfW@.fR@.fMain.wwc',4).
+perform(assign,'v135371080','bRfW@.fR@.fMain.wwc@arg@0').
+what('bRfW@.fR@.fMain.wwc@arg@0',funarg).
+typeof('bRfW@.fR@.fMain.wwc@arg@0','bits<max>').
+typeof('v135371080','bits<max>').
+perform(assign,'v220263301','bRfW@.fR@.fMain.wwc@arg@1').
+what('bRfW@.fR@.fMain.wwc@arg@1',funarg).
+typeof('bRfW@.fR@.fMain.wwc@arg@1','N').
+typeof('v220263301','N').
+perform(assign,'v44000772','bRfW@.fR@.fMain.wwc@arg@2').
+what('bRfW@.fR@.fMain.wwc@arg@2',funarg).
+typeof('bRfW@.fR@.fMain.wwc@arg@2','N').
+typeof('v44000772','N').
+perform(assign,'v215884585','bRfW@.fR@.fMain.wwc@arg@3').
+what('bRfW@.fR@.fMain.wwc@arg@3',funarg).
+typeof('bRfW@.fR@.fMain.wwc@arg@3','I').
+typeof('v215884585','I').
+what('bRfW@.fR@.fMain.wwc@ret@0',funret).
+what('bRfW@.fR@.fMain.wwc@ret@1',funret).
+what('bRfW@.fR@.fMain.wwc@ret@2',funret).
+typeof('bRfW@.fR@.fMain.wwc@ret@0','N').
+typeof('bRfW@.fR@.fMain.wwc@ret@1','I').
+typeof('bRfW@.fR@.fMain.wwc@ret@2','N').
+unknown('v220263440','("assign",Right ?::I').
+unknown('bRfW@.fR@.fMain.wwc@arg@1','("assign",("CJhc.Type.Basic.Integer" 0))').
+unknown('bRfW@.fR@.fMain.wwc@arg@2','("assign",("CJhc.Prim.Prim.Bool#" 0))').
+perform(assign,'bRfW@.fR@.fMain.wwc@arg@3','v215884585').
+perform(assign,'v305','bRfW@.fR@.fMain.wwc@ret@0').
+perform(assign,'v155','bRfW@.fR@.fMain.wwc@ret@1').
+perform(assign,'v157','bRfW@.fR@.fMain.wwc@ret@2').
+unknown('v159','("assign",Right ?::I').
+unknown('v162','("assign",Right ?::I').
+perform(assign,'v251','v159').
+perform(assign,'v253','v155').
+perform(assign,'v255','v162').
+perform(assign,'v153480246','v187').
+perform(eval,'v100026','v215884585').
+unknown('v272','("assign",Right ?::N').
+unknown('v181754690','("assign",Right ?::I').
+perform(assign,'v251','v181754690').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v115160452').
+perform(assign,'fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0','v100026').
+unknown('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1','("assign",("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 32) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 9) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 10) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 13) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 12) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 11) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 160) &("CJhc.Prim.Prim.[]")))))))))').
+perform(assign,'v100028','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0').
+unknown('v284','("assign",Right ?::N').
+unknown('v127754094','("assign",Right ?::I').
+perform(assign,'v251','v127754094').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+unknown('v117','("assign",Right ?::N').
+unknown('v201839438','("assign",Right ?::I').
+unknown('v119','("assign",Right ?::N').
+unknown('v90861648','("assign",Right ?::I').
+perform(assign,'v251','v90861648').
+perform(assign,'v253','v201839438').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v153480246').
+perform(assign,'fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0','v100026').
+unknown('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1','("assign",("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 32) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 9) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 10) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 13) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 12) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 11) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 160) &("CJhc.Prim.Prim.[]")))))))))').
+perform(assign,'v100030','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0').
+unknown('v306','("assign",Right ?::N').
+unknown('v59069478','("assign",Right ?::I').
+perform(assign,'v251','v59069478').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+unknown('v310','("assign",Right ?::N').
+unknown('v240673846','("assign",Right ?::I').
+perform(assign,'v251','v240673846').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v260457468').
+perform(eval,'v100032','v215884585').
+unknown('v263','("assign",Right ?::N').
+unknown('v124235150','("assign",Right ?::I').
+perform(assign,'v251','v124235150').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v132127014').
+perform(assign,'fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0','v100032').
+unknown('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1','("assign",("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 32) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 9) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 10) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 13) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 12) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 11) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 160) &("CJhc.Prim.Prim.[]")))))))))').
+perform(assign,'v100036','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0').
+unknown('v316','("assign",Right ?::N').
+unknown('v110207572','("assign",Right ?::I').
+perform(assign,'v251','v110207572').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+unknown('v142','("assign",Right ?::N').
+unknown('v158113096','("assign",Right ?::I').
+unknown('v144','("assign",Right ?::N').
+unknown('v1780406','("assign",Right ?::I').
+perform(assign,'v251','v1780406').
+perform(assign,'v253','v158113096').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v34').
+perform(assign,'fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0','v100032').
+unknown('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1','("assign",("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 32) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 9) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 10) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 13) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 12) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 11) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 160) &("CJhc.Prim.Prim.[]")))))))))').
+perform(assign,'v100038','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0').
+unknown('v148','("assign",Right ?::N').
+unknown('v66102156','("assign",Right ?::I').
+perform(assign,'v251','v66102156').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+unknown('v150','("assign",Right ?::N').
+unknown('v21055632','("assign",Right ?::I').
+perform(assign,'v251','v21055632').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v135371080').
+perform(eval,'v100040','v215884585').
+unknown('v381','("assign",Right ?::N').
+unknown('v45052584','("assign",Right ?::I').
+perform(assign,'v251','v45052584').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v260952206').
+perform(assign,'fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0','v100040').
+unknown('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1','("assign",("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 32) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 9) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 10) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 13) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 12) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 11) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 160) &("CJhc.Prim.Prim.[]")))))))))').
+perform(assign,'v100044','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0').
+unknown('v164','("assign",Right ?::N').
+unknown('v187526658','("assign",Right ?::I').
+perform(assign,'v251','v187526658').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+unknown('v172090968','("assign",Right ?::I').
+unknown('v167','("assign",Right ?::N').
+unknown('v237992580','("assign",Right ?::I').
+perform(assign,'v251','v237992580').
+perform(assign,'v253','v172090968').
+unknown('v255','("assign",Right &("C').
+perform(assign,'v0','v68216828').
+perform(assign,'fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@0','v100040').
+unknown('fW@.fSpec@.Jhc.List.217.fJhc.List.elem@arg@1','("assign",("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 32) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 9) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 10) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 13) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 12) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 11) &("CJhc.Prim.Prim.:" &("CJhc.Type.Basic.Char" 160) &("CJhc.Prim.Prim.[]")))))))))').
+perform(assign,'v100046','fW@.fSpec@.Jhc.List.217.fJhc.List.elem@ret@0').
+unknown('v171','("assign",Right ?::N').
+unknown('v202961034','("assign",Right ?::I').
+perform(assign,'v251','v202961034').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+unknown('v421','("assign",Right ?::N').
+unknown('v2998634','("assign",Right ?::I').
+perform(assign,'v251','v2998634').
+perform(assign,'v253','v220263440').
+unknown('v255','("assign",Right &("C').
+unknown('v257','("assign",Right ?::N').
+unknown('v259','("assign",Right ?::N').
+perform(assign,'bRfW@.fR@.fMain.wwc@ret@0','v257').
+perform(assign,'bRfW@.fR@.fMain.wwc@ret@1','v253').
+perform(assign,'bRfW@.fR@.fMain.wwc@ret@2','v259').
+subfunc('bRfW@.fR@.fMain.wwc','fW@.fR@.fMain.wwc').
+perform(assign,'bRfW@.fR@.fMain.wwc@arg@0','v135370992').
+perform(assign,'bRfW@.fR@.fMain.wwc@arg@1','v220263212').
+perform(assign,'bRfW@.fR@.fMain.wwc@arg@2','v44000682').
+perform(assign,'bRfW@.fR@.fMain.wwc@arg@3','v215884494').
+perform(assign,'fW@.fR@.fMain.wwc@ret@0','bRfW@.fR@.fMain.wwc@ret@0').
+perform(assign,'fW@.fR@.fMain.wwc@ret@1','bRfW@.fR@.fMain.wwc@ret@1').
+perform(assign,'fW@.fR@.fMain.wwc@ret@2','bRfW@.fR@.fMain.wwc@ret@2').
+func('fW@.fW@.fData.List.610_lgo',4).
+perform(assign,'v209623812','fW@.fW@.fData.List.610_lgo@arg@0').
+what('fW@.fW@.fData.List.610_lgo@arg@0',funarg).
+typeof('fW@.fW@.fData.List.610_lgo@arg@0','N').
+typeof('v209623812','N').
+perform(assign,'v227981060','fW@.fW@.fData.List.610_lgo@arg@1').
+what('fW@.fW@.fData.List.610_lgo@arg@1',funarg).
+typeof('fW@.fW@.fData.List.610_lgo@arg@1','N').
+typeof('v227981060','N').
+perform(assign,'v105553376','fW@.fW@.fData.List.610_lgo@arg@2').
+what('fW@.fW@.fData.List.610_lgo@arg@2',funarg).
+typeof('fW@.fW@.fData.List.610_lgo@arg@2','N').
+typeof('v105553376','N').
+perform(assign,'v61835124','fW@.fW@.fData.List.610_lgo@arg@3').
+what('fW@.fW@.fData.List.610_lgo@arg@3',funarg).
+typeof('fW@.fW@.fData.List.610_lgo@arg@3','I').
+typeof('v61835124','I').
+what('fW@.fW@.fData.List.610_lgo@ret@0',funret).
+what('fW@.fW@.fData.List.610_lgo@ret@1',funret).
+what('fW@.fW@.fData.List.610_lgo@ret@2',funret).
+typeof('fW@.fW@.fData.List.610_lgo@ret@0','N').
+typeof('fW@.fW@.fData.List.610_lgo@ret@1','I').
+typeof('fW@.fW@.fData.List.610_lgo@ret@2','N').
+unknown('v227981115','("assign",Right ?::I').
+func('bRfW@.fW@.fData.List.610_lgo',4).
+perform(assign,'v209623981','bRfW@.fW@.fData.List.610_lgo@arg@0').
+what('bRfW@.fW@.fData.List.610_lgo@arg@0',funarg).
+typeof('bRfW@.fW@.fData.List.610_lgo@arg@0','N').
+typeof('v209623981','N').
+perform(assign,'v227981230','bRfW@.fW@.fData.List.610_lgo@arg@1').
+what('bRfW@.fW@.fData.List.610_lgo@arg@1',funarg).
+typeof('bRfW@.fW@.fData.List.610_lgo@arg@1','I').
+typeof('v227981230','I').
+perform(assign,'v105553547','bRfW@.fW@.fData.List.610_lgo@arg@2').
+what('bRfW@.fW@.fData.List.610_lgo@arg@2',funarg).
+typeof('bRfW@.fW@.fData.List.610_lgo@arg@2','N').
+typeof('v105553547','N').
+perform(assign,'v61835296','bRfW@.fW@.fData.List.610_lgo@arg@3').
+what('bRfW@.fW@.fData.List.610_lgo@arg@3',funarg).
+typeof('bRfW@.fW@.fData.List.610_lgo@arg@3','I').
+typeof('v61835296','I').
+what('bRfW@.fW@.fData.List.610_lgo@ret@0',funret).
+what('bRfW@.fW@.fData.List.610_lgo@ret@1',funret).
+what('bRfW@.fW@.fData.List.610_lgo@ret@2',funret).
+typeof('bRfW@.fW@.fData.List.610_lgo@ret@0','N').
+typeof('bRfW@.fW@.fData.List.610_lgo@ret@1','I').
+typeof('bRfW@.fW@.fData.List.610_lgo@ret@2','N').
+unknown('v209624053','("assign",Right ?::I').
+unknown('v105553620','("assign",Right ?::I').
+perform(eval,'v100084','v61835296').
+unknown('v826','("assign",Right nd10').
+unknown('v828','("assign",Right nd10').
+perform(eval,'v100088','v227981230').
+perform(assign,'fW@.fR@.fMain.wwc@arg@0','v115160442').
+perform(assign,'fW@.fR@.fMain.wwc@arg@1','v100088').
+perform(assign,'fW@.fR@.fMain.wwc@arg@2','v105553547').
+perform(assign,'fW@.fR@.fMain.wwc@arg@3','v826').
+perform(assign,'v179','fW@.fR@.fMain.wwc@ret@0').
+perform(assign,'v338','fW@.fR@.fMain.wwc@ret@1').
+perform(assign,'v341','fW@.fR@.fMain.wwc@ret@2').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@0','v179').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@1','v338').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@2','v341').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@3','v828').
+perform(assign,'v207','bRfW@.fW@.fData.List.610_lgo@ret@0').
+perform(assign,'v359','bRfW@.fW@.fData.List.610_lgo@ret@1').
+perform(assign,'v362','bRfW@.fW@.fData.List.610_lgo@ret@2').
+unknown('v110','("assign",Right ?::I').
+unknown('v369','("assign",Right ?::I').
+perform(assign,'v109','v110').
+perform(assign,'v627','v359').
+perform(assign,'v223','v369').
+perform(assign,'v109','v209624053').
+perform(assign,'v627','v227981230').
+perform(assign,'v223','v105553620').
+unknown('v375','("assign",Right ?::N').
+unknown('v5','("assign",Right ?::N').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@ret@0','v375').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@ret@1','v627').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@ret@2','v5').
+subfunc('bRfW@.fW@.fData.List.610_lgo','fW@.fW@.fData.List.610_lgo').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@0','v209623812').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@1','v227981115').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@2','v105553376').
+perform(assign,'bRfW@.fW@.fData.List.610_lgo@arg@3','v61835124').
+perform(assign,'fW@.fW@.fData.List.610_lgo@ret@0','bRfW@.fW@.fData.List.610_lgo@ret@0').
+perform(assign,'fW@.fW@.fData.List.610_lgo@ret@1','bRfW@.fW@.fData.List.610_lgo@ret@1').
+perform(assign,'fW@.fW@.fData.List.610_lgo@ret@2','bRfW@.fW@.fData.List.610_lgo@ret@2').
+func('ftheMain$5',1).
+perform(assign,'v66333984','ftheMain$5@arg@0').
+what('ftheMain$5@arg@0',funarg).
+typeof('ftheMain$5@arg@0','I').
+typeof('v66333984','I').
+what('ftheMain$5@ret@0',funret).
+typeof('ftheMain$5@ret@0','N').
+unknown('fW@.fW@.fData.List.610_lgo@arg@0','("assign",("CJhc.Type.Basic.Integer" 0))').
+unknown('fW@.fW@.fData.List.610_lgo@arg@1','("assign",("CJhc.Type.Basic.Integer" 0))').
+unknown('fW@.fW@.fData.List.610_lgo@arg@2','("assign",("CJhc.Prim.Prim.Bool#" 0))').
+perform(assign,'fW@.fW@.fData.List.610_lgo@arg@3','v66333984').
+perform(assign,'v43','fW@.fW@.fData.List.610_lgo@ret@0').
+perform(assign,'v88','fW@.fW@.fData.List.610_lgo@ret@1').
+perform(assign,'v585','fW@.fW@.fData.List.610_lgo@ret@2').
+unknown('v49','("assign",Right ?::I').
+unknown('v6','("assign",Right ?::I').
+unknown('ftheMain$5@ret@0','("assign",?::N)').
+func('ftheMain$2',0).
+what('ftheMain$2@ret@0',funret).
+typeof('ftheMain$2@ret@0','N').
+perform(assign,'ftheMain$2@ret@0','fPrelude.IO.10_getContents''@ret@0').
+func('fPrelude.IO.10_getContents''',0).
+what('fPrelude.IO.10_getContents''@ret@0',funret).
+typeof('fPrelude.IO.10_getContents''@ret@0','N').
+unknown('fPrelude.IO.10_getContents''@ret@0','("assign",("CJhc.Prim.Prim.[]"))').
+perform(assign,'v0','v264603956').
+unknown('v26950328','("assign",Right ?::I').
+unknown('v206','("assign",Right ?::N').
+unknown('v142346402','("assign",Right ?::I').
+unknown('fPrelude.IO.10_getContents''@ret@0','("assign",?::N)').
+func('ftheMain$3',0).
+what('ftheMain$3@ret@0',funret).
+typeof('ftheMain$3@ret@0','N').
+perform(assign,'ftheMain$3@ret@0','fPrelude.IO.10_getContents''@ret@0').
+func('ftheMain',0).
+unknown('v196335306','("assign",Right ?::I').
+unknown('v169358450','("assign",Right ?::I').
+unknown('fJhc.Show.showsPrec@arg@0','("assign",("TJhc.Prim.Prim.(,,)" ("TJhc.Type.Basic.Integer") ("TJhc.Type.Basic.Integer") ("TJhc.Prim.Prim.Bool")))').
+unknown('fJhc.Show.showsPrec@arg@1','("assign",("CJhc.Type.Word.Int" 0))').
+perform(assign,'fJhc.Show.showsPrec@arg@2','v169358450').
+unknown('fJhc.Show.showsPrec@arg@3','("assign",("CJhc.Prim.Prim.[]"))').
+perform(assign,'v100056','fJhc.Show.showsPrec@ret@0').
+unknown('v69343904','("assign",Right ?::I').
+func('fJhc.Monad.72_go',1).
+perform(assign,'v10','fJhc.Monad.72_go@arg@0').
+what('fJhc.Monad.72_go@arg@0',funarg).
+typeof('fJhc.Monad.72_go@arg@0','I').
+typeof('v10','I').
+what('fJhc.Monad.72_go@ret@0',funret).
+typeof('fJhc.Monad.72_go@ret@0','N').
+perform(eval,'v100069','v10').
+unknown('v26','("assign",Right nd10').
+unknown('v228308040','("assign",Right nd10').
+perform(eval,'v100062','v26').
+perform(assign,'fJhc.Monad.72_go@arg@0','v228308040').
+perform(assign,'fJhc.Monad.72_go@ret@0','fJhc.Monad.72_go@ret@0').
+unknown('fJhc.Monad.72_go@ret@0','("assign",("CJhc.Prim.Prim.()"))').
+subfunc('fJhc.Monad.72_go','ftheMain').
+perform(assign,'fJhc.Monad.72_go@arg@0','v69343904').
+perform(assign,'v23','fJhc.Monad.72_go@ret@0').

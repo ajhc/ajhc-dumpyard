@@ -1,0 +1,37 @@
+digraph fgl {
+	0 [label = "bRfW@.fR@.fMain.wwc"]
+	1 [label = "bRfW@.fW@.fData.List.610_lgo"]
+	2 [label = "b_main",shape = "box"]
+	3 [label = "fW@.fJhc.Inst.Show.showWordMax"]
+	4 [label = "fW@.fSpec@.Jhc.List.217.fJhc.List.elem"]
+	5 [label = "fR@.fJhc.Basics.++"]
+	6 [label = "fJhc.Basics.++"]
+	7 [label = "fJhc.Show.showsPrec$2"]
+	8 [label = "fJhc.Show.showsPrec"]
+	9 [label = "fJhc.Show.shows"]
+	10 [label = "ftheMain$4"]
+	11 [label = "fW@.fR@.fMain.wwc"]
+	12 [label = "fW@.fW@.fData.List.610_lgo"]
+	13 [label = "ftheMain$5"]
+	14 [label = "ftheMain$2"]
+	15 [label = "fPrelude.IO.10_getContents'"]
+	16 [label = "ftheMain$3"]
+	17 [label = "ftheMain"]
+	0 -> 0 [style = "dotted"]
+	0 -> 4 [style = "dotted"]
+	1 -> 11 [style = "dotted"]
+	1 -> 1 [style = "dotted"]
+	2 -> 17
+	6 -> 5
+	8 -> 7 [style = "dotted"]
+	8 -> 6
+	8 -> 3
+	8 -> 7
+	9 -> 8
+	11 -> 0
+	12 -> 1
+	13 -> 12 [style = "dotted"]
+	14 -> 15
+	16 -> 15
+	17 -> 8 [style = "dotted"]
+}
